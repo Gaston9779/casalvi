@@ -1,0 +1,8 @@
+  <Link href='/'><Image className='logoDimension' src={ Logo } /></Link>
+            <div style={ { display: 'flex', gap: 50 } }>
+                <Link href='/chisiamo' className='hoverableText'>Chi siamo</Link>
+                <Link href="/project" onClick={ () => navigate( 'project' ) } className='hoverableText'>Realizzazioni</Link>
+                <Link href="/bonus" className='hoverableText'>Superbonus</Link>
+                <Link href="/us" className='hoverableText'>Lavora con noi</Link>
+                <Link href="/contact" className='hoverableText'>Contatti</Link>
+            </div>
