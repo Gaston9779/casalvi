@@ -1,7 +1,7 @@
 const Bonus = () => {
     return(
         <div style={{backgroundColor:'transparent', paddingTop:120}}>
-            <p>SUPERBONUS</p>
+            <p>SUPERBONU</p>
         </div>
     )
 }
