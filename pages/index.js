@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
+/* import { Inter } from '@next/font/google' */
 import HomeWork from '../assets/work.jpeg'
 import Back from '../assets/villa.jpg'
 import { useEffect, useState } from 'react'
@@ -8,7 +8,19 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { setService } from '../redux/ServiceSlice'
 import { useDispatch } from 'react-redux'
-const inter = Inter( { subsets: [ 'latin' ] } )
+import { Italiana, Kode_Mono } from 'next/font/google';
+
+const italiana = Italiana({
+  subsets: ['latin'],
+  weight: ['400'], 
+});
+
+const kodeMono = Kode_Mono({
+  subsets: ['latin'],
+  weight: ['400'], 
+});
+
+
 
 export default function Home ()
 {
@@ -93,7 +105,7 @@ export default function Home ()
 
 
   return (
-    <div style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' } }>
+    <div className={italiana.className} style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' } }>
 
       <FullscreenVideo />
       <div style={ { display: 'flex', alignItems: 'center', position: 'absolute', justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)', opacity: '40%', mixBlendMode: 'multiply' } }>
