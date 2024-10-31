@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import MiniSidebar from '../component/MiniSidebar';
 import ParallaxCard from '../component/ParallaxCard'
+import {Icon} from '@iconify/react'
 
 const listina = [
     { id: 0, title: 'Idraulico', subtitle: 'Bla bla', sub: 'idraaa' },
@@ -35,10 +36,10 @@ const ServicePages = ( { serviceLabel } ) =>
                     position: 'absolute',
                     top: 0,
                     width: '100vw',
+                    zIndex:0,
                     height: '150vh',
                     background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)',
                     opacity: 0.3,
-                    mixBlendMode: 'multiply'
                 } }
             />
 
@@ -65,14 +66,18 @@ const ServicePages = ( { serviceLabel } ) =>
                     style={ {
                         fontSize: 80,
                         fontWeight: '900',
-                        color: '#e5d3b4',
+                        color: '#fadbb6',
                         zIndex: 1,
                         textAlign:'center'
                     } }
                 >
                     tutto in un unico team
                 </p>
-                <div style={{marginTop:-100}}>
+                <div className='inputStyle'>
+                    <input className='input' placeholder='Cosa stai cercando?'></input>
+                    <Icon style={{position:'absolute', top:'342px', left:'1240px', fontSize:25, color:'white'}} icon={'lsicon:search-outline'}/>
+                </div>
+                <div style={{marginTop:-110}}>
                     <ParallaxCard />
                 </div>
 

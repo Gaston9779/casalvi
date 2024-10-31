@@ -23,6 +23,22 @@ const Navbar = () =>
         workus: false,
         contact: false
     } );
+    const [scrolling, setScrolling] = useState(false);
+
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            setScrolling(true);
+        } else {
+            setScrolling(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     const handle = ( e ) => async () =>
     {
         call( e )
@@ -108,17 +124,14 @@ const Navbar = () =>
     }, [ listNavbar ] )
 
 
-    useEffect(()=> {
-        console.log(listNavbar,'we')
-    },[listNavbar])
 
     return (
 
-        <div className='navbar'>
+        <div className={scrolling ? 'navbarScroll': 'navbar'}>
             <div className='logoDimension' >
                 <Link onClick={ handle( '/' ) } href='/'>
                     {/* <Image priority='' onClick={ handle( '/' ) } alt='logo' src={ Logo } /> */ }
-                    <p style={ { color: 'white', opacity: '100%', zIndex: '1000', paddingTop: 50, marginLeft: 30, fontSize: 130 } }>CASAVI</p>
+                    <p style={ { color: 'white', zIndex:1000, opacity: '100%', zIndex: '1000', paddingTop: 50, marginLeft: 30, fontSize: 130 } }>CASAVI</p>
                 </Link>
             </div>
             <div className='hamburger' style={ { width: '100%', marginTop: -5 } }>
