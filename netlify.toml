@@ -1,20 +1,22 @@
 [build]
-  command = "next build"
-  publish = ".next"  # Cambiato da "out" a ".next"
-  functions = "netlify/functions"
+  command = "next build"                # Comando per costruire l'app
+  publish = ".next"                      # Directory di pubblicazione per Next.js
+  functions = "netlify/functions"        # Percorso delle funzioni Netlify
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
+  ## Redirects per SPA (facoltativo)
   #[[redirects]]
   #  from = "/*"
   #  to = "/index.html"
   #  status = 200
 
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
+  ## Impostazioni per Netlify Dev (facoltativo)
   #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
+  #  command = "yarn start"              # Comando per avviare il server di sviluppo
+  #  port = 3000                          # Porta su cui ascoltare il server di sviluppo
+  #  publish = "dist"                    # Cartella con il contenuto statico per il file _redirect
 
-  ## more info on configuring this file: https://docs.netlify.com/configure-builds/file-based-configuration/
+## Configurazione del dominio
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
