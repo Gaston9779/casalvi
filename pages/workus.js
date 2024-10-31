@@ -22,7 +22,7 @@ const ContactUs = ({type}) =>
     
 
     return (
-        <div style={ { display: 'flex', alignItems: 'center', paddingTop:'100px', width: '100%', justifyContent: 'center',  } }>
+        <div className='gradient' style={ { display: 'flex', alignItems: 'center', paddingTop:'100px', width: '100%', justifyContent: 'center',  } }>
             <div className={type === 'prof' ? 'backgroundColorProf': 'backgroundColor'}></div>
            
             {

@@ -35,6 +35,7 @@
     "next-redux-wrapper": "^8.0.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
+    "react-awesome-slider": "^4.1.0",
     "react-before-after-slider-component": "^1.1.6",
     "react-dom": "18.2.0",
     "react-form-stepper": "^2.0.3",
@@ -45,9 +46,13 @@
     "react-step-wizard": "^5.3.11",
     "react-toastify": "^9.1.2",
     "reactstrap": "^9.1.5",
+    "sharp": "^0.33.5",
     "typescript": "^4.7.3",
     "xlsx": "^0.18.5",
     "zod": "^3.20.2",
     "zod-form-data": "^1.2.4"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
   }
 }

@@ -38,18 +38,19 @@ const Navbar = () =>
 
     const selectedNavbar = useCallback( ( text ) =>
     {
-        if ( text === 'chisiamo' )
+
+        if ( text === '/' )
         {
-            listNavbar.chisiamo = true
+            listNavbar.chisiamo = false
             listNavbar.bonus = false
             listNavbar.service = false
             listNavbar.project = false
             listNavbar.contact = false
             listNavbar.workus = false
         }
-        if ( text === '/' )
+        if ( text === 'chisiamo' )
         {
-            listNavbar.chisiamo = false
+            listNavbar.chisiamo = true
             listNavbar.bonus = false
             listNavbar.service = false
             listNavbar.project = false
@@ -94,6 +95,7 @@ const Navbar = () =>
         }
         if ( text === 'contact' )
         {
+
             listNavbar.chisiamo = false
             listNavbar.bonus = false
             listNavbar.service = false
@@ -105,31 +107,30 @@ const Navbar = () =>
 
     }, [ listNavbar ] )
 
-    useEffect( () =>
-    {
-        console.log(listNavbar,'list')
-    }, [listNavbar] )
+
+    useEffect(()=> {
+        console.log(listNavbar,'we')
+    },[listNavbar])
 
     return (
 
         <div className='navbar'>
-            <Link className='logoDimension' href='/'><Image priority=''onClick={ handle( '/' ) } alt='logo' src={ Logo } /></Link>
-            <div className='hamburger' style={ { width: '100%', } }>
+            <div className='logoDimension' >
+                <Link onClick={ handle( '/' ) } href='/'>
+                    {/* <Image priority='' onClick={ handle( '/' ) } alt='logo' src={ Logo } /> */ }
+                    <p style={ { color: 'white', opacity: '100%', zIndex: '1000', paddingTop: 50, marginLeft: 30, fontSize: 130 } }>CASAVI</p>
+                </Link>
+            </div>
+            <div className='hamburger' style={ { width: '100%', marginTop: -5 } }>
                 <div className='dropdown-content' style={ { display: 'flex' } }>
-                    <div className="dropdown">
-                        <Link href='/chisiamo' onClick={ handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
-                    </div>
+
+                    <Link href='/chisiamo' onClick={ handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
+
                     <Link href="/project" onClick={ handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' }>Realizzazioni</Link>
-                    <Link href="/bonus" onClick={ handle( 'bonus' ) } className={ listNavbar.bonus ? 'selectedText' : 'hoverableText' }>Superbonus</Link>
-                    <div className="dropdown">
-                        <button className={ listNavbar.service ? "dropbtnSelected" : "dropbtn" }>Servizi</button>
-                        <div className="dropdown-content">
-                            <Link onClick={ handle( 'service' ) } href="/service/ristrutturazioneresidenziale">Ristrutturazione residenziale</Link>
-                            <Link onClick={ handle( 'service' ) } href="/service/ristrutturazionecommerciale">Ristrutturazione commerciale</Link>
-                            <Link onClick={ handle( 'service' ) } href="/service/progettazione">Progettazione</Link>
-                            <Link onClick={ handle( 'service' ) } href="/service/impianti">Impianti</Link>
-                        </div>
-                    </div>
+                    {/*                     <Link href="/bonus" onClick={ handle( 'bonus' ) } className={ listNavbar.bonus ? 'selectedText' : 'hoverableText' }>Superbonus</Link> */ }
+
+                    <Link href='/service' onClick={ handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' }>Servizi</Link>
+                  
                     <div className="dropdown">
                         <button className={ listNavbar.workus ? "dropbtnSelected" : "dropbtn" }>Lavora con noi</button>
                         <div className="dropdown-content">
