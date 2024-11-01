@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import Idraulic from '../assets/plumber.png'
-import Elet from '../assets/eletr.png'
-import Pan from '../assets/pann.png'
+import Idraulic from '../assets/plub.png'
+import Elet from '../assets/elet.png'
+import Pan from '../assets/solar.png'
 
 const ParallaxCard = () =>
 {
-    return <div className="container__cards">
+    return <div className="container__cards" style={{overflowY:'hidden', overflowX:'hidden'}}>
 
         <div className="card">
             <div className="cover">
-                <Image style={ { transform: 'scale(1.1)', top: -10, width: '80%', height: '115%' } } width={ 500 } height={ 300 } alt='' src={ Idraulic } />
+                <Image style={ { transform: 'scale(1)', top: 30, width: '80%', height: '100%' } } width={ 500 } height={ 300 } alt='' src={ Idraulic } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -21,7 +21,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover" >
-                <Image style={ { transform: 'scale(1.1)', top: 20, width: '80%', height: '100%' } } alt='' src={ Elet } />
+                <Image style={ { transform: 'scale(1)', top: 20, width: '80%', height: '100%' } } alt='' src={ Elet } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -33,7 +33,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover">
-                <Image style={ { transform: 'scale(1.1)', width: '90%', top: -10, height: '130%' } } width={ 600 } height={ 300 } alt='' src={ Pan } />
+                <Image style={ { transform: 'scale(1)', width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ Pan } />
                 <div className="img__back"></div>
             </div>
             <div className="description">

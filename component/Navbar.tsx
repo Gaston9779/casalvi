@@ -1,15 +1,16 @@
 import Image from 'next/image';
-import Logo from '../assets/casalvi.png'
 import Link from 'next/link'
 import { selectSlice, setService } from '../redux/ServiceSlice';
 import { useSelector, useDispatch, Provider } from 'react-redux';
 import { store } from '../store';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
+type Props = {
+    navbarDark:Boolean;
+}
 
 
-
-const Navbar = () =>
+const Navbar = ({navbarDark}:Props) =>
 {
     const dispatch = useDispatch()
     const selector = useSelector( selectSlice )
@@ -23,22 +24,8 @@ const Navbar = () =>
         workus: false,
         contact: false
     } );
-    const [scrolling, setScrolling] = useState(false);
 
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setScrolling(true);
-        } else {
-            setScrolling(false);
-        }
-    };
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     const handle = ( e ) => async () =>
     {
         call( e )
@@ -124,14 +111,17 @@ const Navbar = () =>
     }, [ listNavbar ] )
 
 
+    useEffect(()=> {
+        console.log(window?.scrollY,'DD')
+    },[])
 
     return (
 
-        <div className={scrolling ? 'navbarScroll': 'navbar'}>
+        <div className={ navbarDark ? 'navbarScroll' : 'navbar' }>
             <div className='logoDimension' >
                 <Link onClick={ handle( '/' ) } href='/'>
                     {/* <Image priority='' onClick={ handle( '/' ) } alt='logo' src={ Logo } /> */ }
-                    <p style={ { color: 'white', zIndex:1000, opacity: '100%', zIndex: '1000', paddingTop: 50, marginLeft: 30, fontSize: 130 } }>CASAVI</p>
+                    <p style={ { color: 'white', zIndex: 1000, opacity: '100%', paddingTop: 50, marginLeft: 80, fontSize: 100 } }>CASAVI</p>
                 </Link>
             </div>
             <div className='hamburger' style={ { width: '100%', marginTop: -5 } }>
@@ -143,7 +133,7 @@ const Navbar = () =>
                     {/*                     <Link href="/bonus" onClick={ handle( 'bonus' ) } className={ listNavbar.bonus ? 'selectedText' : 'hoverableText' }>Superbonus</Link> */ }
 
                     <Link href='/service' onClick={ handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' }>Servizi</Link>
-                  
+
                     <div className="dropdown">
                         <button className={ listNavbar.workus ? "dropbtnSelected" : "dropbtn" }>Lavora con noi</button>
                         <div className="dropdown-content">

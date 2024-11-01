@@ -1,7 +1,19 @@
 import { useEffect } from 'react';
 import MiniSidebar from '../component/MiniSidebar';
 import ParallaxCard from '../component/ParallaxCard'
-import {Icon} from '@iconify/react'
+import { Icon } from '@iconify/react'
+import { Italiana, Kode_Mono } from 'next/font/google';
+
+const italiana = Italiana( {
+    subsets: [ 'latin' ],
+    weight: [ '400' ],
+} );
+
+const kodeMono = Kode_Mono( {
+    subsets: [ 'latin' ],
+    weight: [ '400' ],
+} );
+
 
 const listina = [
     { id: 0, title: 'Idraulico', subtitle: 'Bla bla', sub: 'idraaa' },
@@ -27,28 +39,21 @@ const ServicePages = ( { serviceLabel } ) =>
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'flex-start',
-                justifyContent:'center'
+                justifyContent: 'center'
             } }
         >
             {/* Background Gradient Overlay */ }
             <div
-                style={ {
-                    position: 'absolute',
-                    top: 0,
-                    width: '100vw',
-                    zIndex:0,
-                    height: '150vh',
-                    background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)',
-                    opacity: 0.3,
-                } }
+                style={ { display: 'flex', alignItems: 'center', position: 'absolute', top: 0, justifyContent: 'center', width: '100vw', height: '200vh', background: 'linear-gradient(83deg, rgba(52,59,59,1) 0%, rgba(34,193,195,1) 48%, rgba(49,53,54,1) 100%)', opacity: '50%', mixBlendMode: 'multiply' } }
             />
 
             {/* Heading Section */ }
             <div
+                className={ italiana.className }
                 style={ {
                     display: 'flex',
                     flexDirection: 'column',
-                    marginTop: 70,
+                    marginTop: 50,
                 } }
             >
                 <p
@@ -57,7 +62,7 @@ const ServicePages = ( { serviceLabel } ) =>
                         fontWeight: '900',
                         color: 'white',
                         zIndex: 1,
-                        textAlign:'center'
+                        textAlign: 'center'
                     } }
                 >
                     Professionalità e innovazione,
@@ -68,16 +73,20 @@ const ServicePages = ( { serviceLabel } ) =>
                         fontWeight: '900',
                         color: '#fadbb6',
                         zIndex: 1,
-                        textAlign:'center'
+                        textAlign: 'center'
                     } }
                 >
                     tutto in un unico team
                 </p>
-                <div className='inputStyle'>
-                    <input className='input' placeholder='Cosa stai cercando?'></input>
-                    <Icon style={{position:'absolute', top:'342px', left:'1240px', fontSize:25, color:'white'}} icon={'lsicon:search-outline'}/>
+                <div style={ { zIndex: 50 } } className='inputStyle'>
+                    <div className='input'>
+                        <input style={ { backgroundColor: 'transparent', border: 'none', color: 'white', width: '100%' } } placeholder='Cosa stai cercando?'></input>
+                        <Icon style={ { fontSize: 20, color: 'white' } } icon={ 'lsicon:search-outline' } />
+                    </div>
+
+
                 </div>
-                <div style={{marginTop:-110}}>
+                <div style={ { marginTop: -110} }>
                     <ParallaxCard />
                 </div>
 
