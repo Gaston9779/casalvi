@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Idraulic from '../assets/plub.png'
-import Elet from '../assets/elet.png'
-import Pan from '../assets/solar.png'
+import Idraulic from '../public/images/plub.png'
+import Elet from '../public/images/elet.png'
+import Pan from '../public/images/solar.png'
 
 const ParallaxCard = () =>
 {

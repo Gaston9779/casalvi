@@ -40,11 +40,11 @@ const PageProfile = ( { image, name, previousUser, nextHandle, prevHandle, surna
                 </div>
             </div>
             { name === 'Graziano' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: -100, top:30 } }>
-                { name === 'Graziano' && <Image alt='' src={ image } style={ { opacity:'80%', transform:'scale(0.8)' } } /> }
+                { name === 'Graziano' && <Image alt='' src={ image }  style={ { opacity:'80%', transform:'scale(0.8)' } } /> }
 
             </div> }
             { name === 'Riccardo' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: '-22%' } }>
-                { <Image alt='' src={ image } style={ { mixBlendMode: 'multiply', transform: 'scale(2)', marginTop: '20%' } } /> }
+                { <Image alt='' src={ image }  style={ { mixBlendMode: 'multiply', transform: 'scale(2)', marginTop: '20%' } } /> }
 
             </div> }
 
