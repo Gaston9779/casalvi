@@ -65,7 +65,7 @@ const KnowHow = () =>
             { sliderValue === 0 && <PageProfile
                 name="Graziano"
                 surname="Viola"
-                image={ GrazImage }
+                image= '/images/graz.png' 
                 previousUser={ null }
                 role="Responsabile"
                 nextUser="Riccardo"
@@ -74,7 +74,7 @@ const KnowHow = () =>
             { sliderValue === 1 && <PageProfile
                 name="Riccardo"
                 surname="Viola"
-                image={ RikiImage }
+                image={ '/images/riki.png'}
                 nextUser={ null }
                 role="Tecnico"
                 previousUser="Graziano"
