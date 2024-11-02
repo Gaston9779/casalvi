@@ -1,11 +1,8 @@
 import Card from "../component/Card";
 import Image from 'next/image';
 import { useEffect, useState } from "react";
-import Arrow from '../assets/arrow.png';
 import GrazImage from '../public/images/graz.png';
 import RikiImage from '../public/images/riki.png';
-import NikImage from './../assets/nik.jpeg';
-import MarilenaImage from './../assets/marilena.jpeg';
 import PageProfile from '../component/PageProfile'
 import { useDispatch, useSelector } from "react-redux";
 import { sliderSlicer, setSlider } from "../redux/SliderSlice";
@@ -38,20 +35,6 @@ const KnowHow = () =>
             image: RikiImage,
             description: "Desc Rik",
             role: "Tecnico"
-        },
-        {
-            id: 2,
-            name: "Nicola Alessandrini",
-            image: NikImage,
-            description: "Desc Nik",
-            role: "Responsabile Commerciale"
-        },
-        {
-            id: 3,
-            name: "Marilena Burli",
-            image: MarilenaImage,
-            description: "Desc Mari",
-            role: "Responsabile Amministrativa"
         },
     ];
 

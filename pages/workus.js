@@ -1,7 +1,4 @@
 import React, { useMemo, useRef, useState } from 'react';
-import Us from '../assets/us.jpg'
-import Prof from '../assets/bg-prof.jpg'
-import Art from '../assets/bg-art.jpg'
 import Image from 'next/image';
 import FormArtesan from '../component/FormArtesan';
 import FormProfessional from '../component/FormProfessional';

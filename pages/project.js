@@ -1,10 +1,7 @@
 import Image from "next/image";
-import Before from '../assets/before.jpeg'
 import { useEffect } from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import HomeWork from '../assets/work.jpeg'
-import Cardproject from "../component/Cardproject";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import Back from '../assets/villa.jpg'

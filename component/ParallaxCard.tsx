@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Idraulic from '../public/images/plub.png'
 import Elet from '../public/images/elet.png'
 import Pan from '../public/images/solar.png'
+import Pav from '../public/images/pav.png'
 
 const ParallaxCard = () =>
 {
@@ -44,11 +45,11 @@ const ParallaxCard = () =>
         </div>
         <div className="card">
             <div className="cover">
-                {/* <img src="https://images.wikidexcdn.net/mwuploads/wikidex/2/2e/latest/20200102044414/Bellossom_EpEc.gif" alt=""/> */ }
+            <Image style={ { transform: 'scale(1)', width: '84%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ Pav } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
-                <h2>Cappotti</h2>
+                <h2>Pavimenti</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
                 <input style={ { width: '100%' } } type="button" value="Details" />
             </div>

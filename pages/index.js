@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 /* import { Inter } from '@next/font/google' */
-import HomeWork from '../assets/work.jpeg'
 import Back from '../assets/villa.jpg'
 import { useEffect, useState } from 'react'
 import AOS from 'aos';
