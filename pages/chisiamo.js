@@ -77,7 +77,7 @@ const KnowHow = () =>
 
     return (
         <div className='gradient' style={ { height: '100vh', position: 'fixed', width: '100%' } }>
-            <div className={italiana.className} style={ { display: 'flex', alignItems: 'center', position: 'absolute', top: 0, justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(83deg, rgba(52,59,59,1) 0%, rgba(34,193,195,1) 48%, rgba(49,53,54,1) 100%);', opacity: '50%', mixBlendMode: 'multiply' } }>
+            <div className={italiana.className} style={ { display: 'flex', alignItems: 'center', position: 'absolute', top: 0, justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(83deg, rgba(52,59,59,1) 0%, rgba(34,193,195,1) 48%, rgba(49,53,54,1) 100%)', opacity: '50%', mixBlendMode: 'multiply' } }>
             </div>
             { sliderValue === 0 && <PageProfile
                 name="Graziano"
