@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Idraulic from '../public/images/plub.png'
+import Idraulic from '../public.png'
 import Elet from '../public/images/elet.png'
 import Pan from '../public/images/solar.png'
 import Pav from '../public/images/pav.png'
@@ -10,7 +10,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover">
-                <Image style={ { transform: 'scale(1)', top: 30, width: '80%', height: '100%' } } width={ 500 } height={ 300 } alt='' src={ Idraulic } />
+                <img style={ { transform: 'scale(1)', top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/plub.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -22,7 +22,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover" >
-                <Image style={ { transform: 'scale(1)', top: 20, width: '80%', height: '100%' } } alt='' src={ Elet } />
+                <img style={ { transform: 'scale(1)', top: 20, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -34,7 +34,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover">
-                <Image style={ { transform: 'scale(1)', width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ Pan } />
+                <img style={ { transform: 'scale(1)', width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -45,7 +45,7 @@ const ParallaxCard = () =>
         </div>
         <div className="card">
             <div className="cover">
-            <Image style={ { transform: 'scale(1)', width: '84%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ Pav } />
+            <img style={ { transform: 'scale(1)', width: '84%', top: 30, height: '100%' } }  alt='' src={ '/images/pav.png'  } />
                 <div className="img__back"></div>
             </div>
             <div className="description">

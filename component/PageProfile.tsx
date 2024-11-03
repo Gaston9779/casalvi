@@ -43,8 +43,8 @@ const PageProfile = ( { image, name, previousUser, nextHandle, prevHandle, surna
                 { name === 'Graziano' && <img alt='' src={ image }  style={ { opacity:'60%', mixBlendMode:'multiply', transform:'scale(1)' } } /> }
 
             </div> }
-            { name === 'Riccardo' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: '-22%' } }>
-                { <Image alt='' src={ image } objectFit="contain" layout="fill"  style={ { mixBlendMode: 'multiply', transform: 'scale(2)', marginTop: '20%' } } /> }
+            { name === 'Riccardo' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: '-12%' } }>
+                { <img alt='' src={ image }  style={ { mixBlendMode: 'multiply', transform: 'scale(3)', marginTop: '20%' } } /> }
 
             </div> }
 
