@@ -26,21 +26,21 @@ const PageProfile = ( { image, name, previousUser, nextHandle, prevHandle, surna
     return (
         <div style={ { display: 'flex', height: '100vh', marginTop: 30 } }>
             <div data-aos="fade-right">
-                <div style={ { display: 'flex', flexDirection: 'column', marginTop: 80, marginLeft: 40 } }>
-                    <p style={ { fontSize: 130, fontWeight: '900', color: '#fadbb6',  zIndex:100} }>{ name }</p>
+                <div className="pageProfile">
+                    <p className="name">{ name }</p>
                     <div style={ { display: 'flex', marginTop: '-30px', marginLeft: 12 } }>
-                        <p style={ { fontSize: 130, fontWeight: '900', color: 'whitesmoke',  zIndex:100 } }>{ surname }</p>
-                        <div style={ { border: '1.5px solid #fadbb6',  marginLeft: 30, marginTop: 80,  borderRadius: '50px', padding: 20, height: 30, display: 'flex', justifyContent: 'center', zIndex:100, alignItems: 'center' } }>
+                        <p className="name" style={ {color: 'whitesmoke', fontSize:130 } }>{ surname }</p>
+                        <div className="roleDiv">
                             <p style={ { color: '#fadbb6', fontSize: 18 } }>{ role }</p>
                         </div>
 
                     </div>
-                    <p style={ { color: 'white', zIndex:100, marginLeft: 17, fontWeight: '400', width: '50%', lineHeight:'23px', fontSize:14} }>
+                    <p className="descDiv" style={ { color: 'white', zIndex:100, marginLeft: 17, fontWeight: '400', width: '50%', lineHeight:'23px', fontSize:14} }>
                         { desc }</p>
                 </div>
             </div>
-            { name === 'Graziano' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: -350, top:100 } }>
-                { name === 'Graziano' && <Image objectFit="contain" layout="fill"alt='' src={ image }  style={ { opacity:'80%', transform:'scale(1)' } } /> }
+            { name === 'Graziano' && <div className="imagDiv">
+                { name === 'Graziano' && <img alt='' src={ image }  style={ { opacity:'60%', mixBlendMode:'multiply', transform:'scale(1)' } } /> }
 
             </div> }
             { name === 'Riccardo' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: '-22%' } }>

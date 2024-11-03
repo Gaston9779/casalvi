@@ -67,7 +67,7 @@
 }
 
 .animatedHome{
-  font-size:70px;
+  font-size:60px;
   color:white;
   mix-blend-mode:lighten;
   z-index:120;
@@ -675,4 +675,106 @@ a {
     box-shadow: 1px 1px 13px white;
     border-color: rgba(255, 255, 255, 0.6);
   }
+}
+.logoNavbar{
+ color: white;
+  z-index: 1000;
+  opacity: 100%;
+  padding-top: 50px;
+  margin-left: 80px;
+  font-size: 100px;
+}
+.name{
+  font-size: 130px;
+  font-weight: 900;
+  color: #fadbb6;
+  z-index:100
+}
+.pageProfile{
+  display: flex;
+  flex-direction:column;
+  margin-top: 80px;
+  margin-left: 40px 
+}
+.roleDiv{
+  border: 1.5px solid #fadbb6;
+  margin-left: 30px; 
+  margin-top: 80px;
+  border-radius: 50px;
+  padding: 20px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  z-index:100;
+  align-items: center
+}
+.imagDiv{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+  position: absolute;
+  right: -100px;
+  top:100px
+}
+/* MEDIA QUERY TELEFONO */
+@media only screen and (max-width: 600px) {
+  .animatedHome{
+    font-size: 20px;
+    text-align: center;
+  }.logoDimension{
+    margin-top: 160%;
+  }.roleDiv{
+    display: none;
+  }
+  .imagDiv{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+    position: absolute;
+    top:25%;
+    left:0px;
+  }
+  .pageProfile{
+    display: flex;
+    flex-direction:column;
+    margin-top: 0px;
+    margin-left: 40px 
+  }
+  .descDiv{
+    display: none;
+  }
+  .name{
+    font-size: 70px;
+    font-weight: 900;
+    color: #fadbb6;
+    z-index:100
+  }
+  .logoNavbar{
+    display: none;
+   }
+   .burgerone{
+    position: absolute;
+    color: whitesmoke;
+    opacity: 80%;
+    font-size: 50px;
+    right: 20px;
+   }
+   .title{
+    display: none;
+   }
+   .borderLight{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    width: 80%;
+    padding: 10px;
+   }
+   .custom-cursor{
+    display: none;
+   }
+   .card{
+    width: auto;
+   }
 }
