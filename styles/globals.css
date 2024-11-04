@@ -1,4 +1,9 @@
 
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
+}
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -8,11 +13,15 @@
   --background-end-rgb: 255, 255, 255;
   cursor: none;
   overflow-y: scroll;
+  --clr-card: #1f2937;
+  --clr-1: #79aad8;
+  --clr-2: #a2dae9;
+  --clr-3: #ffffff;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
-    #0885ff33 55deg,
+    #fcfdff33 55deg,
     #54d6ff33 120deg,
     #0071ff33 160deg,
     transparent 360deg
@@ -110,7 +119,7 @@
   width: 100%;
   position: fixed;
   opacity: 90%;
-  background-color: #94a8af;
+  background-color: #29718c;
   transition: background-color 0.3s ease, opacity 0.9s ease; /* Transizione per lo sfondo e l'opacità */
   justify-content: space-between;
   height: 100px;
@@ -165,6 +174,7 @@
   pointer-events: auto!important;
   margin-bottom: -30px;
   border-radius:25px;
+  z-index: 100;
   transition: all 300ms;
 }
 
@@ -194,6 +204,7 @@
   top: -0px!important;
   filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.5));
 }
+
 
 .inputStyle{
   text-align: center;
@@ -236,6 +247,7 @@
   bottom: -175px;
   background-color: #ffffff4e;
   border-bottom: none;
+  z-index: 3;
   left: 0;
   background-size: cover;
   border-radius: 20px;
@@ -346,8 +358,7 @@
   padding-bottom: 30px;
   width: 100%;
   height: 200vh;
-  background-color: #ACB0B3;
-  background: url('../assets/sfondoPa.png');
+  background: linear-gradient(83deg, rgb(61, 192, 192) 0%, rgb(171, 233, 248) 100%);
   background-size: cover;
 }
 .gradient::before{
@@ -357,6 +368,53 @@
   width: 100%;
   height: 100vh;
 }
+/* Loader style */
+
+.loader {
+  width: 108px;
+  top:40vh;
+  height: 108px;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  color: #34dadf;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.5) translate(0, 0);
+  background-color: #46c4e0;
+  border-radius: 50%;
+  animation: animloader 1s infinite ease-in-out;
+}
+.loader::before {
+  background-color: #ffffff;
+  transform: scale(0.5) translate(-48px, -48px);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes animloader {
+  50% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+/* END Loader style */
 .cardRight{
   display: grid;
   grid-template-columns: 40% 60%;
@@ -394,7 +452,7 @@
   border-bottom: 1px solid white;
 }
 .borderLight{
-  padding: 15px;
+  padding: 10px;
   border-radius: 50px;
   background-color: transparent;
   filter: blur(10);
@@ -402,7 +460,7 @@
   z-index: 3000;
   color: white;
   font-weight:bold ;
-  font-size: 17px;
+  font-size: 14px;
   text-align: center;
 }
 .borderLight:hover{
@@ -777,4 +835,53 @@ a {
    .card{
     width: auto;
    }
+}
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardina {
+  position: relative;
+  height: 24rem;
+  width: 20rem;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  background-color: var(--clr-card);
+}
+
+.cardina::after,
+.cardina::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  inset: -0.5rem;
+  background: conic-gradient(
+    from var(--gradient-angle),
+  white,
+    var(--clr-1),
+    var(--clr-2),
+    var(--clr-3),
+    var(--clr-2),
+    var(--clr-1),
+    white
+  );
+  border-radius: inherit;
+  animation: rotate 2.5s linear infinite;
+}
+
+.cardina::after {
+  filter: blur(0.5rem);
+}
+
+@keyframes rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
 }

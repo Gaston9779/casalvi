@@ -6,11 +6,11 @@ import Pav from '../public/images/pav.png'
 
 const ParallaxCard = () =>
 {
-    return <div className="container__cards" style={{overflowY:'hidden', overflowX:'hidden'}}>
+    return <div className="container__cards" style={ { overflowY: 'hidden', overflowX: 'hidden' } }>
 
         <div className="card">
             <div className="cover">
-                <img style={ { transform: 'scale(1)', top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/plub.png' } />
+                <img style={ { transform: 'scale(1)', zIndex: 4, top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/plub.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -20,9 +20,11 @@ const ParallaxCard = () =>
             </div>
         </div>
 
+
+
         <div className="card">
             <div className="cover" >
-                <img style={ { transform: 'scale(1)', top: 20, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
+                <img style={ { transform: 'scale(1)', zIndex: 4, top: 20, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -34,7 +36,7 @@ const ParallaxCard = () =>
 
         <div className="card">
             <div className="cover">
-                <img style={ { transform: 'scale(1)', width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
+                <img style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -45,7 +47,7 @@ const ParallaxCard = () =>
         </div>
         <div className="card">
             <div className="cover">
-            <img style={ { transform: 'scale(1)', width: '84%', top: 30, height: '100%' } }  alt='' src={ '/images/pav.png'  } />
+                <img style={ { transform: 'scale(1)', zIndex: 4, width: '84%', top: 30, height: '100%' } } alt='' src={ '/images/pav.png' } />
                 <div className="img__back"></div>
             </div>
             <div className="description">
@@ -76,7 +78,7 @@ const ParallaxCard = () =>
                 <input style={ { width: '100%' } } type="button" value="Details" />
             </div>
         </div>
-      
+
 
     </div>
 

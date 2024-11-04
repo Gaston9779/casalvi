@@ -1,79 +1,65 @@
-import { func } from 'prop-types';
 import Navbar from '../component/Navbar';
-import { setService } from '../redux/ServiceSlice';
 import { store } from '../store';
-import '../styles/globals.css'
-import { Provider, useDispatch } from "react-redux";
-import CustomCursor from '../component/CustomCursor'
+import '../styles/globals.css';
+import { Provider } from "react-redux";
+import CustomCursor from '../component/CustomCursor';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Loader from '../component/Loader';
 
-const FullScreenBackground = () =>
-{
-    const backgroundStyle = {
-        backgroundImage: 'url(path/to/your/image.jpg)', // Cambia il percorso con il tuo
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        textAlign: 'center',
+export default function App({ Component, pageProps }) {
+    const [isLoading, setIsLoading] = useState(false);
+    const [navbarDark, setNavbarDark] = useState(false);
+    const router = useRouter();
+
+    // Funzione per monitorare lo stato di caricamento delle risorse
+    const checkAllResourcesLoaded = () => {
+        // Seleziona tutte le immagini e controlla se sono caricate
+        const images = document.querySelectorAll('img');
+        const allLoaded = Array.from(images).every((img) => img.complete);
+        if (allLoaded) {
+            setIsLoading(false);
+        } else {
+            setTimeout(checkAllResourcesLoaded, 100); // Riprova ogni 100ms
+        }
     };
 
-    const titleStyle = {
-        fontSize: '3rem',
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-    };
+    useEffect(() => {
+        // Aggiunge l'evento per l'inizio e la fine della navigazione tra le pagine
+        const handleStart = () => setIsLoading(true);
+        const handleComplete = () => checkAllResourcesLoaded();
 
+        router.events.on('routeChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleComplete);
+        router.events.on('routeChangeError', handleComplete);
 
-    return (
-        <div style={ backgroundStyle }>
-            <h1 style={ titleStyle }>Benvenuto nella tua app!</h1>
-        </div>
-    );
-};
-export default function App ( { Component, pageProps } )
-{
-    const [ navbarDark, setNavbarDark ] = useState( false );
-    useEffect( () =>
-    {
-        const handleScroll = () =>
-        {
-            // Definisci una soglia fissa per il cambiamento di colore della navbar
-            const threshold = 0; // Cambia il valore secondo le tue esigenze
+        return () => {
+            router.events.off('routeChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleComplete);
+            router.events.off('routeChangeError', handleComplete);
+        };
+    }, [router]);
 
-            // Usa window.scrollY per ottenere la distanza dalla parte superiore
+    // Funzione per cambiare colore alla navbar durante lo scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            const threshold = 0; // Soglia di scroll
             const scrollTop = window.scrollY;
-
-            // Verifica se il valore supera la soglia specificata
-            if ( scrollTop > threshold )
-            {
-                setNavbarDark( true );
-            } else
-            {
-                setNavbarDark( false );
-            }
-        };
-        console.log( window?.scrollY, 'Y' )
-
-        // Aggiungi e rimuovi l'event listener allo scroll
-        window.addEventListener( 'scroll', handleScroll );
-        return () =>
-        {
-            window.removeEventListener( 'scroll', handleScroll );
+            setNavbarDark(scrollTop > threshold);
         };
 
-    }, [] );
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <Provider store={ store }>
-
-            <Navbar navbarDark={navbarDark}/>
+        <Provider store={store}>
+            {isLoading && <Loader />} {/* Mostra il loader finché `isLoading` è `true` */}
+            <Navbar navbarDark={navbarDark} />
             <CustomCursor />
-
-            <Component { ...pageProps } />
-
-        </Provider> )
+            <Component {...pageProps} />
+        </Provider>
+    );
 }
-
-

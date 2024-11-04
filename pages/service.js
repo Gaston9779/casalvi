@@ -27,10 +27,7 @@ const listina = [
 const ServicePages = ( { serviceLabel } ) =>
 {
 
-    const handleSidebar = ( ( item, index ) =>
-    {
-        console.log( 'we' )
-    }, [] )
+  
 
     return (
         <div
@@ -43,9 +40,7 @@ const ServicePages = ( { serviceLabel } ) =>
             } }
         >
             {/* Background Gradient Overlay */ }
-            <div
-                style={ { display: 'flex', alignItems: 'center', position: 'absolute', top: 0, justifyContent: 'center', width: '100vw', height: '200vh', background: 'linear-gradient(83deg, rgba(52,59,59,1) 0%, rgba(34,193,195,1) 48%, rgba(49,53,54,1) 100%)', opacity: '50%', mixBlendMode: 'multiply' } }
-            />
+            <img style={{width:'100vw', opacity:'80%', height:'100vh', top:0, position:'fixed', overflow:'hidden', zIndex:1, mixBlendMode:'luminosity' }} src={'/images/bg-prof.jpg'} alt=''/>
 
             {/* Heading Section */ }
             <div
