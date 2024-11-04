@@ -4,30 +4,33 @@ import '../styles/globals.css';
 import { Provider } from "react-redux";
 import CustomCursor from '../component/CustomCursor';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Loader from '../component/Loader';
 
 export default function App({ Component, pageProps }) {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Inizializza a true per il caricamento iniziale
     const [navbarDark, setNavbarDark] = useState(false);
     const router = useRouter();
 
-    // Funzione per monitorare lo stato di caricamento delle risorse
-    const checkAllResourcesLoaded = () => {
-        // Seleziona tutte le immagini e controlla se sono caricate
+    const checkAllResourcesLoaded = useCallback(() => {
         const images = document.querySelectorAll('img');
         const allLoaded = Array.from(images).every((img) => img.complete);
+        
         if (allLoaded) {
             setIsLoading(false);
         } else {
             setTimeout(checkAllResourcesLoaded, 100); // Riprova ogni 100ms
         }
-    };
+    }, []); // L'array di dipendenze è vuoto, quindi la funzione non cambia
 
     useEffect(() => {
-        // Aggiunge l'evento per l'inizio e la fine della navigazione tra le pagine
-        const handleStart = () => setIsLoading(true);
-        const handleComplete = () => checkAllResourcesLoaded();
+        const handleStart = () => {
+            setIsLoading(true);
+        };
+        
+        const handleComplete = () => {
+            checkAllResourcesLoaded();
+        };
 
         router.events.on('routeChangeStart', handleStart);
         router.events.on('routeChangeComplete', handleComplete);
@@ -38,12 +41,11 @@ export default function App({ Component, pageProps }) {
             router.events.off('routeChangeComplete', handleComplete);
             router.events.off('routeChangeError', handleComplete);
         };
-    }, [router]);
+    }, [router, checkAllResourcesLoaded]); // Aggiunto checkAllResourcesLoaded
 
-    // Funzione per cambiare colore alla navbar durante lo scroll
     useEffect(() => {
         const handleScroll = () => {
-            const threshold = 0; // Soglia di scroll
+            const threshold = 0;
             const scrollTop = window.scrollY;
             setNavbarDark(scrollTop > threshold);
         };

@@ -3,6 +3,7 @@ import MiniSidebar from '../component/MiniSidebar';
 import ParallaxCard from '../component/ParallaxCard'
 import { Icon } from '@iconify/react'
 import { Italiana, Kode_Mono } from 'next/font/google';
+import Image from 'next/image';
 
 const italiana = Italiana( {
     subsets: [ 'latin' ],
@@ -40,7 +41,7 @@ const ServicePages = ( { serviceLabel } ) =>
             } }
         >
             {/* Background Gradient Overlay */ }
-            <img style={{width:'100vw', opacity:'80%', height:'100vh', top:0, position:'fixed', overflow:'hidden', zIndex:1, mixBlendMode:'luminosity' }} src={'/images/bg-prof.jpg'} alt=''/>
+            <Image width={1920} height={1080} layout='responsive' objectFit='cover' style={{width:'100vw', opacity:'80%', height:'100vh', top:0, position:'fixed', overflow:'hidden', zIndex:1, mixBlendMode:'luminosity' }} src={'/images/bg-prof.jpg'} alt=''/>
 
             {/* Heading Section */ }
             <div

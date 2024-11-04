@@ -28,33 +28,7 @@ export default function Home ()
   const handleMouseOver = () => setIsHovered( true );
   const handleMouseOut = () => setIsHovered( false );
 
-  const FullScreenBackground = () =>
-  {
-    const backgroundStyle = {// Cambia il percorso con il tuo
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: 'white',
-      textAlign: 'center',
-    };
-
-    const titleStyle = {
-      fontSize: '3rem',
-      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-    };
-
-
-
-    return (
-
-
-      <Image src={ Back } style={ { objectFit: 'cover', position: 'fixed', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
-
-    );
-  };
+  
 
   const FullscreenVideo = () =>
   {
@@ -84,19 +58,7 @@ export default function Home ()
     );
   };
 
-  const ButtonComponent = () =>
-  {
-    return (
-      <div>
-        <button onMouseOver={ () => setIsHovered( true ) } onMouseOut={ () => setIsHovered( false ) }>
-          Cliccami
-        </button>
-        <button onMouseOver={ () => setIsHovered( true ) } onMouseOut={ () => setIsHovered( false ) }>
-          Cliccami anche
-        </button>
-      </div>
-    );
-  };
+ 
 
   const checkWidth = useCallback( () =>
   {
@@ -104,14 +66,13 @@ export default function Home ()
     {
       setIsMobile( true )
     }
-    console.log( window.screen.width )
   }, [ ] )
   useEffect( () =>
   {
     checkWidth()
     AOS.init();
     AOS.refresh();
-  }, [] );
+  }, [checkWidth] );
 
 
   return (
