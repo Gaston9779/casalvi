@@ -48,7 +48,8 @@ export default function Home ()
           muted
           autoPlay
           loop
-          playsInline preload="auto"
+          playsInline
+          preload="auto"
           className='videoResponsive'
           style={ {
             width: '100%',
@@ -58,11 +59,12 @@ export default function Home ()
           } }
         />
         <video
-          src="/video/video.mp4" // Assicurati che il percorso sia corretto
+          src="/video/video2.mp4" // Assicurati che il percorso sia corretto
           muted
           autoPlay
           loop
-          playsInline preload="auto"
+          playsInline
+          preload="auto"
           className='videoRes'
           style={ {
             width: '100%',
