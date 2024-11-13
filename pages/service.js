@@ -32,10 +32,13 @@ const ServicePages = () =>
 
     useEffect( () =>
     {
-        AOS.init( {
-            duration: 1000, // Durata dell'animazione
-            once: true, // Esegui l'animazione solo una volta
-        } );
+        if ( typeof window !== 'undefined' )
+        {
+            AOS.init( {
+                duration: 1000, // Durata dell'animazione
+                once: true, // Esegui l'animazione solo una volta
+            } );
+        }
         AOS.refresh()
     }, [] )
 

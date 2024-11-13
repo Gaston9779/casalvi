@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 /* import { Inter } from '@next/font/google' */
 import Back from '../assets/villa.jpg'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { setService } from '../redux/ServiceSlice'
@@ -28,7 +28,15 @@ export default function Home ()
   const handleMouseOver = () => setIsHovered( true );
   const handleMouseOut = () => setIsHovered( false );
 
+  const videoRef = useRef( null );
 
+  useEffect( () =>
+  {
+    if ( videoRef.current )
+    {
+      videoRef.current.play();
+    }
+  }, [] );
 
   const FullscreenVideo = () =>
   {
@@ -46,6 +54,7 @@ export default function Home ()
         <video
           src="/video/video.mp4" // Assicurati che il percorso sia corretto
           muted
+          ref={videoRef}
           autoPlay
           loop
           playsInline
@@ -63,6 +72,7 @@ export default function Home ()
           muted
           autoPlay
           loop
+          ref={videoRef}
           playsInline
           preload="auto"
           className='videoRes'
