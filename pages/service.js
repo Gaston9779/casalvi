@@ -32,7 +32,10 @@ const ServicePages = () =>
 
     useEffect( () =>
     {
-        AOS.init();
+        AOS.init( {
+            duration: 1000, // Durata dell'animazione
+            once: true, // Esegui l'animazione solo una volta
+        } );
         AOS.refresh()
     }, [] )
 
@@ -48,7 +51,7 @@ const ServicePages = () =>
             } }
         >
             {/* Background Gradient Overlay */ }
-           {/*  <Image className='mobileNone' width={ 1920 } height={ 1080 } layout='responsive' objectFit='cover' style={ { opacity: '0%', top: 0, position: 'fixed', overflow: 'hidden', zIndex: -1 } } src={ '/images/bg-prof.jpg' } alt='' /> */}
+            {/*  <Image className='mobileNone' width={ 1920 } height={ 1080 } layout='responsive' objectFit='cover' style={ { opacity: '0%', top: 0, position: 'fixed', overflow: 'hidden', zIndex: -1 } } src={ '/images/bg-prof.jpg' } alt='' /> */ }
 
             {/* Heading Section */ }
             <div
@@ -63,7 +66,7 @@ const ServicePages = () =>
                 } }
             >
 
-               
+
                 <Tilt
                     tiltMaxAngleX={ 4 }  // Movimenti delicati
                     tiltMaxAngleY={ 4 }
@@ -81,13 +84,13 @@ const ServicePages = () =>
                                     transitionSpeed={ 250 } // Transizione fluida
                                     style={ { display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', borderRadius: 20, height: '100%', background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', } }>
 
-                                    <img src='/images/facility.png' width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom:'15px' } } height={ '100%' } alt='' />
+                                    <img src='/images/facility.png' width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom: '15px' } } height={ '100%' } alt='' />
 
                                 </Tilt>
                             </div>
                             <div className='w100' style={ { width: '70%', padding: 30, background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.111) 0%, rgb(251, 251, 251, 0.5) 44%, rgba(27, 229, 189, 0.226) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', overflow: 'hidden', margin: '0 auto', zIndex: 1, borderRadius: 20, marginTop: 0, display: 'flex', justifyContent: 'space-between' } }>
 
-                                <div style={ { display: 'flex', gap:10, padding:10, flexDirection: 'column', justifyContent: 'space-between' } }>
+                                <div style={ { display: 'flex', gap: 10, padding: 10, flexDirection: 'column', justifyContent: 'space-between' } }>
                                     <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Casavi facility managment</p>
                                     <p style={ { width: '100%', fontSize: 16, fontWeight: '900', color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
                                     <div style={ { width: '100%' } } className='buttonStyle'>
