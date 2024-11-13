@@ -1,0 +1,19 @@
+# Imposta il caching breve per i file HTML, così le pagine vengono aggiornate frequentemente
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Caching lungo per le immagini, ideale per elementi che cambiano raramente
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Caching lungo per i file CSS, quindi gli stili sono memorizzati per un anno
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Caching lungo per i file JavaScript, utile se non vengono aggiornati spesso
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Caching lungo per i font, perché generalmente i font cambiano molto raramente
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
