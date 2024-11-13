@@ -27,33 +27,62 @@ export default function App({ Component, pageProps }) {
 
     useEffect(() => {
         const handleStart = () => {
-            setIsLoading(true); // Avvia il caricamento all'inizio del cambio di rotta
+            setIsLoading(true); // Mostra il loader all'inizio del cambio di rotta
         };
-
+    
         const handleComplete = () => {
-            checkAllResourcesLoaded(); // Controlla le risorse al termine del cambio di rotta
+            checkAllResourcesLoaded(); // Controlla se tutte le risorse sono caricate
         };
-
-        // Aggiunge un listener per il caricamento completo della pagina al refresh
-        const handlePageLoad = () => {
-            setIsLoading(false);
+    
+        const checkAllResourcesLoaded = () => {
+            const images = Array.from(document.querySelectorAll('img'));
+            const video = document.querySelector('video');
+    
+            // Array di promesse per ogni immagine e video
+            const mediaPromises = [
+                ...images.map(img => new Promise(resolve => {
+                    if (img.complete) {
+                        resolve();
+                    } else {
+                        img.onload = resolve;
+                        img.onerror = resolve;
+                    }
+                })),
+                new Promise(resolve => {
+                    if (video && video.readyState >= 3) { // ReadyState 3 indica che il video è caricato
+                        resolve();
+                    } else if (video) {
+                        video.oncanplaythrough = resolve;
+                        video.onerror = resolve;
+                    } else {
+                        resolve(); // Risolve subito se non c'è alcun video
+                    }
+                })
+            ];
+    
+            // Una volta caricate tutte le risorse, nasconde il loader
+            Promise.all(mediaPromises).then(() => {
+                setIsLoading(false);
+            });
         };
-
-        // Listener per il refresh completo della pagina
-        window.addEventListener('load', handlePageLoad);
-
+    
+        // Listener per il caricamento della pagina iniziale
+        window.addEventListener('load', checkAllResourcesLoaded);
+    
+        // Listener per le modifiche della rotta
         router.events.on('routeChangeStart', handleStart);
         router.events.on('routeChangeComplete', handleComplete);
         router.events.on('routeChangeError', handleComplete);
-
+    
         // Pulizia degli event listeners al dismontaggio del componente
         return () => {
-            window.removeEventListener('load', handlePageLoad);
+            window.removeEventListener('load', checkAllResourcesLoaded);
             router.events.off('routeChangeStart', handleStart);
             router.events.off('routeChangeComplete', handleComplete);
             router.events.off('routeChangeError', handleComplete);
         };
-    }, [router, checkAllResourcesLoaded]);
+    }, [router]);
+    
 
     useEffect(() => {
         const handleScroll = () => {
