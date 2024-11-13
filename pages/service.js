@@ -48,7 +48,7 @@ const ServicePages = () =>
             } }
         >
             {/* Background Gradient Overlay */ }
-            <Image className='mobileNone' width={ 1920 } height={ 1080 } layout='responsive' objectFit='cover' style={ { opacity: '0%', top: 0, position: 'fixed', overflow: 'hidden', zIndex: -1 } } src={ '/images/bg-prof.jpg' } alt='' />
+           {/*  <Image className='mobileNone' width={ 1920 } height={ 1080 } layout='responsive' objectFit='cover' style={ { opacity: '0%', top: 0, position: 'fixed', overflow: 'hidden', zIndex: -1 } } src={ '/images/bg-prof.jpg' } alt='' /> */}
 
             {/* Heading Section */ }
             <div
