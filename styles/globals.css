@@ -1219,7 +1219,12 @@ main {
   position: relative;
   border-radius: 8px;
 }
-
+.videoRes{
+  display: none;
+}
+.videoResponsive{
+  display: flex;
+}
 .glowing-border::before {
   content: "";
   position: absolute;
@@ -1461,6 +1466,12 @@ main {
   }
   .cardCrestLeftDown{
     padding: 0px!important;
+  }
+  .videoRes{
+    display: flex;
+  }
+  .videoResponsive{
+    display: none;
   }
   .img_res{
     display: none;

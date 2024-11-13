@@ -28,7 +28,7 @@ export default function Home ()
   const handleMouseOver = () => setIsHovered( true );
   const handleMouseOut = () => setIsHovered( false );
 
-  
+
 
   const FullscreenVideo = () =>
   {
@@ -40,27 +40,42 @@ export default function Home ()
         width: '100vw',
         height: '100vh',
         overflow: 'hidden',
-        zIndex: -1
+        zIndex: -1,
       } }>
+
         <video
           src="/video/video.mp4" // Assicurati che il percorso sia corretto
           muted
           autoPlay
           loop
           playsInline preload="auto"
-          
+          className='videoResponsive'
           style={ {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-           
+
+          } }
+        />
+        <video
+          src="/video/video.mp4" // Assicurati che il percorso sia corretto
+          muted
+          autoPlay
+          loop
+          playsInline preload="auto"
+          className='videoRes'
+          style={ {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+
           } }
         />
       </div>
     );
   };
 
- 
+
 
   const checkWidth = useCallback( () =>
   {
@@ -68,17 +83,17 @@ export default function Home ()
     {
       setIsMobile( true )
     }
-  }, [ ] )
+  }, [] )
   useEffect( () =>
   {
     checkWidth()
     AOS.init();
     AOS.refresh();
-  }, [checkWidth] );
+  }, [ checkWidth ] );
 
 
   return (
-    <div className={ italiana.className } style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh', overflow:'hidden' } }>
+    <div className={ italiana.className } style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh', overflow: 'hidden' } }>
       <div style={ { display: 'flex', alignItems: 'center', position: 'fixed', justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)', opacity: '20%', mixBlendMode: 'multiply' } }>
       </div>
       <FullscreenVideo />
