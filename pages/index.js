@@ -44,9 +44,11 @@ export default function Home ()
       } }>
         <video
           src="/video/video.mp4" // Assicurati che il percorso sia corretto
+          muted
           autoPlay
           loop
-          muted
+          playsInline preload="auto"
+          
           style={ {
             width: '100%',
             height: '100%',
