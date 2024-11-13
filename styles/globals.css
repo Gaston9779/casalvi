@@ -55,6 +55,7 @@
   width: 45px;
   height: 45px;
   margin-top: -20px;
+  transition: none;
   margin-left: -20px;
   font-size: 90px;
   border: 1px solid rgb(251, 251, 251);
@@ -538,12 +539,12 @@
   padding: 30px;
   background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  min-height: 320px;
   margin: 40px;
   z-index: -1;
   border-radius: 20px;
   margin-top: 0px;
 }
+
 .tiltCard{
   width: 100%;
   display: flex;
@@ -1102,6 +1103,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: all 0.3s ease-in-out; 
 }
 
 html,
@@ -1332,8 +1334,12 @@ main {
     grid-template-columns: 1fr!important;
   }
   
+  
   .w100{
     width: 100%!important;
+  }
+  .font100{
+    font-weight: 100!important;
   }
   
   .divService{width: 90%;padding: 0px;} 
@@ -1422,6 +1428,9 @@ main {
     text-align: center;
     
   }
+  .card .img__back {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
   
   
   
@@ -1443,6 +1452,15 @@ main {
   .animatedHome{
     font-size: 20px;
     text-align: center;
+  }
+  .cardCrestLeft{
+    padding: 0px!important;
+  }
+  .cardCrestRight{
+    padding: 0px!important;
+  }
+  .cardCrestLeftDown{
+    padding: 0px!important;
   }
   .img_res{
     display: none;
