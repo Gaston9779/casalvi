@@ -77,7 +77,7 @@ export default function Home ()
 
   return (
     <div className={ italiana.className } style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh', overflow:'hidden' } }>
-      <div style={ { display: 'flex', alignItems: 'center', position: 'absolute', justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)', opacity: '30%', mixBlendMode: 'multiply' } }>
+      <div style={ { display: 'flex', alignItems: 'center', position: 'fixed', justifyContent: 'center', width: '100vw', height: '100vh', background: 'linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,0,0,1) 100%)', opacity: '20%', mixBlendMode: 'multiply' } }>
       </div>
       <FullscreenVideo />
 
