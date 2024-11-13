@@ -159,6 +159,7 @@
   width: 100%;
   min-height: auto; /* Permette al contenitore di adattarsi al contenuto */
   margin: auto;
+  gap: 0px;
   margin-top: 70px;
   padding: 20px; /* Padding per evitare che il contenuto tocchi il bordo */
   z-index: 0; /* z-index neutro */
