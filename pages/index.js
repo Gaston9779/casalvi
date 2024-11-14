@@ -18,6 +18,7 @@ const kodeMono = Kode_Mono({
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
+  const videoRefMob = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);  // Stato per il controllo del video
 
   const checkWidth = useCallback(() => {
@@ -102,7 +103,7 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
-          ref={videoRef}
+          ref={videoRefMob}
           className='videoRes'
           style={{
             width: '100%',
