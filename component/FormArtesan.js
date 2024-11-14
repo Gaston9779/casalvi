@@ -38,10 +38,7 @@ export default function FormArtesan ()
   {
     setPage( 0 )
   }
-  useEffect( () =>
-  {
-    console.log( page, 'ape' )
-  }, [ page ] )
+
   return (
     <div style={ { backgroundColor: 'white', padding: 20, borderRadius: 5, boxShadow: '1px 1px 13px lightgrey' } }>
       <UserFormLib />

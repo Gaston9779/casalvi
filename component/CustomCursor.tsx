@@ -14,9 +14,7 @@ const CustomCursor = ({ isHovered }) => {
     };
   }, []);
 
-  useEffect(()=> {
-    console.log(isHovered,'hov')
-  },[isHovered])
+ 
 
   return (
     <div

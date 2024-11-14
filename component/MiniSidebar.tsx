@@ -52,7 +52,7 @@ const MiniSidebar = ( { id, title, list, handle, subtitle, active }: Props ) =>
     {
 
         // logica della funzione
-        console.log( item, 'red', list )
+     
     }, [] );
     return (
         <div style={ { width: '400px', cursor: 'pointer', position:'fixed', right: 50, textAlign: 'right', display: 'flex', flexDirection: 'column', gap: 30 } }>

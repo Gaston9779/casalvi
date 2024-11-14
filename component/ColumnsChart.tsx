@@ -28,7 +28,6 @@ const ColumnChart = ( { selected }: Props ) =>
                 /* hoverable( true ) */
                 dispatch(setHoverText(event.target.textContent))
                 hoverable( event.target.textContent )
-                console.log(indice,'indice')
             } );
 
             // Rimuovi la classe 'hovered' quando il mouse esce
@@ -36,8 +35,6 @@ const ColumnChart = ( { selected }: Props ) =>
             {
               
                /*  hoverable( 'Match' ) */
-                /*  hoverable( false ) */
-                console.log( 'DIshover', event.target );
             } );
           /*   if(indice === '') {
                 dispatch(setHoverText('Match'))
@@ -45,9 +42,7 @@ const ColumnChart = ( { selected }: Props ) =>
         } );
     }, [] )
 
-    useEffect(()=> {
-        console.log(indice,'indice')
-    },[indice])
+ 
 
     return (
         <div className="containerWorks" >

@@ -13,7 +13,7 @@ export const SliderSlice = createSlice( {
   reducers: {
     setSlider: ( state, actions ) =>
     {
-      return state.value = actions.payload, console.log(actions.payload)
+      return state.value = actions.payload
     },
 
 

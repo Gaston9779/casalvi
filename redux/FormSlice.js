@@ -20,7 +20,7 @@ export const formSlice = createSlice( {
   reducers: {
     setFormArtesan: ( state, actions ) =>
     {
-      state.value = actions.payload, console.log(actions.payload,'payload')
+      state.value = actions.payload
     },
 
 

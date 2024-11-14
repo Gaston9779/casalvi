@@ -12,7 +12,7 @@ export const serverSlice = createSlice({
   reducers: {
     setService: (state, actions) => {
       state.value = actions.payload;  // Modifica direttamente lo stato
-      console.log(actions.payload);
+   
     },
     setHoverText: (state, actions) => {
       state.indice = actions.payload; // Modifica direttamente lo stato

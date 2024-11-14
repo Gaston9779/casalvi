@@ -53,10 +53,7 @@ const KnowHow = () =>
         await dispatch( setSlider( 0 ) )
     } )
 
-    useEffect( () =>
-    {
-        console.log( sliderValue === 0 )
-    }, [ sliderValue ] )
+   
 
 
     return (

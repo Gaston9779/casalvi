@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true, // Consigliato per siti statici su Netlify
   devIndicators: {
     autoPrerender: false,
   },
-  // Altre configurazioni...
+  images: {
+    unoptimized: true, // Netlify consiglia di disabilitare l'ottimizzazione delle immagini integrata
+  },
 };
-// next.config.js
 
-
-
-module.exports = nextConfig
-
-
+module.exports = nextConfig;

@@ -79,7 +79,7 @@ const Navbar = ( { navbarDark }: Props ) =>
 
     useEffect( () =>
     {
-        console.log( selector, 'select' )
+    
         refreshing()
     }, [  ] )
     return (

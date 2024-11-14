@@ -63,14 +63,14 @@ export const FormProfessional = () =>
     emailjs.sendForm( 'service_b7x350v', 'template_0dqj8li', form.current, 'ClL6E4q_ZPJZoHoP1' )
       .then( ( result ) =>
       {
-        console.log( result.text, 'OK' );
+      
         toast.success( 'OK' )
       }, ( error ) =>
       {
-        console.log( error.text, 'error' );
+       
         toast.error( 'NO' )
       } );
-    console.log( formState, 'eem', e, form.current )
+   
   };
 
 
@@ -83,7 +83,6 @@ export const FormProfessional = () =>
         step + 1
       );
     }
-    console.log( step, 'step' )
   };
 
   // Go back to prev step
@@ -118,7 +117,6 @@ export const FormProfessional = () =>
   useEffect( () =>
   {
     formState.language
-    console.log( formState.aggiornamenti, 'use', formState.language )
   }, [ formState, step ] )
 
   return (

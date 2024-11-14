@@ -72,14 +72,14 @@ export const UserFormLib = () =>
     emailjs.sendForm( 'service_b7x350v', 'template_65sl4xj', form.current, 'ClL6E4q_ZPJZoHoP1' )
       .then( ( result ) =>
       {
-        console.log( result.text, 'OK' );
+       
         toast.success( 'OK' )
       }, ( error ) =>
       {
-        console.log( error.text, 'error' );
+       
         toast.error( 'NO' )
       } );
-    console.log( formState, 'eem', e, form.current )
+
   };
 
 
@@ -92,7 +92,7 @@ export const UserFormLib = () =>
         step + 1
       );
     }
-    console.log( step, 'step' )
+    
   };
 
   // Go back to prev step
@@ -127,7 +127,6 @@ export const UserFormLib = () =>
   useEffect( () =>
   {
     formState.language
-    console.log( formState.aggiornamenti, 'use', formState.language )
   }, [ formState, step ] )
 
   return (

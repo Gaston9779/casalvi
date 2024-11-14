@@ -34,7 +34,6 @@ export default function Home() {
     // Quando il video è caricato, lo mettiamo in play
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
-        console.log("Errore nel riprodurre il video:", error);
       });
     }
   }, []);
