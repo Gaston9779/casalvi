@@ -7,7 +7,7 @@ import UserFormLib from '../component/UserForm';
 
 const ContactUs = ({type}) =>
 {
-    const [eMail, setMail] = useState('tecnico@casalvi.it')
+    const [eMail, setMail] = useState('tecnico@casavi.it')
     const [eMailBy, setByMail] = useState('')
     const [name, setName] = useState('')
     const [message, setMessage] = useState('')

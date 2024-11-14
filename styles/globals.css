@@ -1496,9 +1496,9 @@ main {
   .videoRes{
     display: flex;
   }
-  /* .videoResponsive{
-    display: none;
-  } */
+  .videoResponsive{
+    display: none!important;
+  }
   .img_res{
     display: none;
   }

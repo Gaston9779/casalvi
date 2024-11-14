@@ -95,6 +95,21 @@ export default function Home() {
             objectFit: 'cover',
           }}
         />
+          <video
+          src="/video/video2.mp4"
+          muted
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
+          ref={videoRef}
+          className='videoRes'
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
       </div>
 
       {/* Contenuti */}

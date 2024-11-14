@@ -96,14 +96,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                         <Link href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Realizzazioni</Link>
                         <Link href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Servizi</Link>
                         <Link href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Lavora con noi</Link>
-                        {/*  <div className="dropdown">
-                        <button className={ listNavbar.workus ? "dropbtnSelected" : "dropbtn" }>Lavora con noi</button>
-                        <div className="dropdown-content">
-                            <Link href="/workus/artigiani" onClick={ () => handle( 'workus' ) }>Artigiano</Link>
-                            <Link href="/workus/prof" onClick={ () => handle( 'workus' ) }>Professionista</Link>
-                            <Link href="/workus/noi" onClick={ () => handle( 'workus' ) }>Lavorare da Casalvi</Link>
-                        </div>
-                    </div> */}
+                       
                         <Link href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Contatti</Link>
                     </div>
                 </div>
