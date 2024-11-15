@@ -64,7 +64,6 @@ export default function Home ()
     };
   }, [ isVideoPlaying ] );
 
-
   const handleScroll = () =>
   {
     const video = videoRef.current;
@@ -153,7 +152,7 @@ export default function Home ()
             objectFit: 'cover',
           } }
         />
-        <video
+       {isMobile && <video
           src="/video/video2.mp4"
           muted
           autoPlay
@@ -167,7 +166,7 @@ export default function Home ()
             height: '100%',
             objectFit: 'cover',
           } }
-        />
+        />}
       </div>
 
       {/* Contenuti */ }
@@ -182,7 +181,7 @@ export default function Home ()
       { isMobile && (
         <div data-aos={ 'zoom-in' } style={ { zIndex: 100, display: 'flex', flexDirection: 'column', gap: 10 } }>
           <p style={ { fontSize: 80, color: 'white', textAlign: 'center', opacity: '80%' } }>CASAVI</p>
-          <p className='animatedHome'>Sogni condivisi, soluzioni collettive</p>
+          <p className='animatedHome'>Sogni condivisi, soluzioni collettive!</p>
           <div style={ { display: 'flex', justifyContent: 'center' } } data-aos={ 'zoom-in' }>
             <div className='borderLight'>Scopri la nostra rete di imprese</div>
           </div>
