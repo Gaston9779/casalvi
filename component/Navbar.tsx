@@ -102,20 +102,20 @@ const Navbar = ( { navbarDark }: Props ) =>
                 </div>
                 { mobile && (
                     <div className="burgerone">
-                        <Link href={ '/' }>CASAVI</Link>
+                          <Link href="/" onClick={ () => handle( '/' ) }>CASAVI</Link>
                         <Icon onClick={ () => setMenuMobile( !menuMobile ) } icon="lets-icons:menu" />
                     </div>
                 ) }
                 {
                     menuMobile && <div className='mobileMenu'>
 
-                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', border: '1px solid' } }>
+                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', zIndex:101 } }>
                             <div style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', gap: 40 } }>
-                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? 'black' : 'white' } } href="/chisiamo" onClick={ () => handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
-                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? 'black' : 'white' } } href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' }>Realizzazioni</Link>
-                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? 'black' : 'white' } } href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' }>Servizi</Link>
-                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? 'black' : 'white' } } href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' }>Lavora con noi</Link>
-                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? 'black' : 'white' } } href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' }>Contatti</Link>
+                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/chisiamo" onClick={ () => handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
+                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' }>Realizzazioni</Link>
+                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' }>Servizi</Link>
+                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' }>Lavora con noi</Link>
+                                <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' }>Contatti</Link>
                             </div>
                         </div>
                     </div>

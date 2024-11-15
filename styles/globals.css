@@ -874,6 +874,9 @@ input:hover .custom-cursor, a:hover .custom-cursor {
     transform: scale(1);
   }
 }
+.burgerone{
+  display: none;
+}
 
 .animationText{
   animation: textAnim 3s infinite alternate;
@@ -1486,6 +1489,7 @@ main {
     text-align: center;
     pointer-events: none;
   }
+ 
   .cardCrestLeft{
     padding: 0px!important;
   }
