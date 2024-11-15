@@ -140,7 +140,7 @@ export default function Home ()
         zIndex: 1,
       } }>
         <video
-          src="/video/video.mp4"
+          src="/video/video3.mp4"
           muted
           autoPlay
           loop
