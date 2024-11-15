@@ -1,22 +1,15 @@
 [build]
-  command = "next build"                # Comando per costruire l'app
-  publish = ".next"                      # Directory di pubblicazione per Next.js
-  functions = "netlify/functions"        # Percorso delle funzioni Netlify
-
-  ## Redirects per SPA (facoltativo)
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html" 
-  #  status = 200
-
-  ## Impostazioni per Netlify Dev (facoltativo)
-  #[dev]
-  #  command = "yarn start"              # Comando per avviare il server di sviluppo
-  #  port = 3000                          # Porta su cui ascoltare il server di sviluppo
-  #  publish = "dist"                    # Cartella con il contenuto statico per il file _redirect
+  command = "next build"               # Comando per costruire l'app
+  publish = ".next"                     # Directory di pubblicazione per Next.js
+  functions = "netlify/functions"       # Percorso delle funzioni Netlify
 
 ## Configurazione del dominio
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+## Variabili d'ambiente per il contesto di produzione
+[context.production.environment]
+  NODE_VERSION = "18"                  # Imposta la versione 18 di Node.js
+
