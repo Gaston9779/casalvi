@@ -106,6 +106,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   color:white;
   mix-blend-mode:lighten;
   z-index:120;
+
   transition: all 1s ease-in-out;
 /*   text-shadow: 1px 1px 7px rgb(255, 255, 255); */
 }
@@ -1483,6 +1484,7 @@ main {
   .animatedHome{
     font-size: 20px;
     text-align: center;
+    pointer-events: none;
   }
   .cardCrestLeft{
     padding: 0px!important;
