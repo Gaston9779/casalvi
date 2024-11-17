@@ -39,6 +39,7 @@ const ServicePages = () =>
                 once: true, // Esegui l'animazione solo una volta
             } );
         }
+        console.log('guccigang')
         AOS.refresh()
     }, [] )
 
@@ -59,7 +60,6 @@ const ServicePages = () =>
             {/* Heading Section */ }
             <div
                 className={ italiana.className }
-                data-aos={ 'zoom-in' }
                 style={ {
                     display: 'flex',
                     flexDirection: 'column',
@@ -76,7 +76,7 @@ const ServicePages = () =>
                     scale={ 1.01 }      // Leggero ingrandimento all'hover
                     transitionSpeed={ 250 }  // Transizione fluida
                 >
-                    <div className='divService'>
+                    <div data-aos={ 'zoom-in' } className='divService'>
                         <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
 
                             <div className='img_res'>
