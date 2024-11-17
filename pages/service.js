@@ -107,23 +107,14 @@ const ServicePages = () =>
 
                     </div>
                 </Tilt>
-                {/*              <p style={{textAlign:'center', marginTop:30, color:'white'}}>Se invece stai cercando piccoli interventi edilizi</p>
- */}
+
                 <div style={ { marginTop: -110 } }>
                     <ParallaxCard />
                 </div>
 
             </div >
 
-            {/* Sidebar Items */ }
-            {/* <div style={ { zIndex: 1000, top: 200, right: 0, position: 'absolute', display: 'flex', flexDirection: 'column', gap: 40 } }>
 
-                <MiniSidebar
-                    list={ listina }
-                    active={ false } // Impostiamo un valore predefinito per active
-                />
-
-            </div> */}
 
         </div >
     );
