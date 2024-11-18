@@ -1,3 +1,8 @@
+import { Host_Grotesk, Poppins } from 'next/font/google';
+const italiana = Host_Grotesk( {
+    subsets: [ 'latin' ],
+    weight: [ '300' ],
+} );
 const Footer = () =>
 {
     return (
@@ -5,14 +10,16 @@ const Footer = () =>
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-logo">
+                        <p className={italiana.className}>
                         CASAVI
+                        </p>
                     </div>
                     <div className="footer-links">
                         <ul className="footer-menu">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a className={italiana.className} href="#">Home</a></li>
+                            <li><a className={italiana.className} href="#">About</a></li>
+                            <li><a className={italiana.className} href="#">Services</a></li>
+                            <li><a className={italiana.className} href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div className="footer-social">
@@ -25,7 +32,7 @@ const Footer = () =>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; 2023 Your Company. All rights reserved.</p>
+                    <p className={italiana.className}>&copy; 2023 Your Company. All rights reserved.</p>
                 </div>
             </div>
         </footer>

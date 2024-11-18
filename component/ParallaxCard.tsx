@@ -35,7 +35,7 @@ const ParallaxCard = () =>
             >
                 <div className="cardM">
                     <div className="coverM">
-                        <img style={ { transform: 'scale(0.8)', zIndex: 4, top: -10, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
+                        <img style={ { transform: 'scale(0.8)', zIndex: 4, top: -30, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
                         <div className="img__backM"></div>
                     </div>
                     <div className="descriptionM">
