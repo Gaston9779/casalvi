@@ -19,7 +19,7 @@ const kanit = Kanit( {
 } );
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '400' ],
+    weight: [ '300' ],
 } );
 
 const Navbar = ( { navbarDark }: Props ) =>
@@ -109,7 +109,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                 { mobile && (
                     <div className="burgerone">
                         <Link href="/" onClick={ () => handle( '/' ) }>
-                        <img style={{width:'100%', height:'50px'}} src='/images/loghetto.png' alt='' />
+                        <img style={{width:'100%', maxHeight:'50px'}} src='/images/loghetto.png' alt='' />
                     </Link>
                         <Icon onClick={ () => setMenuMobile( !menuMobile ) } icon="lets-icons:menu" />
                     </div>

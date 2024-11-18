@@ -266,7 +266,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 
 
 .cardM:hover .coverM img{
-  top: 10px!important;
+  top: -40px!important;
   filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.5));
 }
 .cardM .img__backM{
