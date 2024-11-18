@@ -30,22 +30,18 @@ const ServicePages = () =>
 {
 
 
-    /* useEffect( () =>
+    useEffect( () =>
     {
         if ( typeof window !== 'undefined' )
         {
             AOS.init( {
-                duration: 1000, // Durata dell'animazione
-                once: true, // Esegui l'animazione solo una volta
+                once: true,
+                duration: 800,
+                easing: 'ease-out',
             } );
+            AOS.refresh();
         }
-        AOS.refresh()
-    }, [] ) */
-    useEffect( () =>
-    {
-        AOS.init();
-        AOS.refresh()
-    }, [] )
+    }, [] );
 
 
     return (
@@ -58,11 +54,9 @@ const ServicePages = () =>
                 justifyContent: 'center'
             } }
         >
-            {/* Background Gradient Overlay */ }
-            {/*  <Image className='mobileNone' width={ 1920 } height={ 1080 } layout='responsive' objectFit='cover' style={ { opacity: '0%', top: 0, position: 'fixed', overflow: 'hidden', zIndex: -1 } } src={ '/images/bg-prof.jpg' } alt='' /> */ }
 
-            {/* Heading Section */ }
             <div
+                data-aos={ 'zoom-in' }
                 className={ italiana.className }
                 style={ {
                     display: 'flex',
@@ -80,7 +74,7 @@ const ServicePages = () =>
                     scale={ 1.01 }      // Leggero ingrandimento all'hover
                     transitionSpeed={ 250 }  // Transizione fluida
                 >
-                    <div data-aos={ 'zoom-in' } className='divService'>
+                    <div className='divService'>
                         <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
 
                             <div className='img_res'>

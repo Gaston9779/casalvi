@@ -1,6 +1,6 @@
 
 
-const Modal = ( { isOpen, closeModal, title, text } ) =>
+const Modal = ( { isOpen, closeModal, title, text,  } ) =>
 {
     if ( !isOpen ) return null;  // Non renderizzare nulla se il modal non è aperto
 
@@ -17,9 +17,11 @@ const Modal = ( { isOpen, closeModal, title, text } ) =>
                 <button onClick={ closeModal } className="close-button">
                     X
                 </button>
-                <h2>{ title }!</h2>
+                <h2>{ title }</h2>
                 <p>{ text }</p>
+
             </div>
+
         </div>
     );
 };
