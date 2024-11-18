@@ -765,6 +765,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   width: 108px;
   top:40vh;
   height: 108px;
+  z-index: 2000;
   display: block;
   margin: 15px auto;
   position: relative;
