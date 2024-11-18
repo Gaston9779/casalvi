@@ -1,20 +1,15 @@
 import { useEffect } from 'react';
 import ParallaxCard from '../component/ParallaxCard'
 import { Italiana, Poppins } from 'next/font/google';
-import Image from 'next/image';
 import AOS from 'aos';
 import Tilt from 'react-parallax-tilt';
-import AgencyCrest from './agencyCrest';
 
 const italiana = Italiana( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
 } );
 
-const kodeMono = Poppins( {
-    subsets: [ 'latin' ],
-    weight: [ '900' ],
-} );
+
 
 
 const listina = [
@@ -56,7 +51,7 @@ const ServicePages = () =>
         >
 
             <div
-                data-aos={ 'zoom-in' }
+               
                 className={ italiana.className }
                 style={ {
                     display: 'flex',
@@ -74,8 +69,8 @@ const ServicePages = () =>
                     scale={ 1.01 }      // Leggero ingrandimento all'hover
                     transitionSpeed={ 250 }  // Transizione fluida
                 >
-                    <div className='divService'>
-                        <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
+                    <div data-aos={ 'zoom-in' } className='divService'>
+                        <div  style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
 
                             <div className='img_res'>
 
@@ -106,7 +101,7 @@ const ServicePages = () =>
                     </div>
                 </Tilt>
 
-                <div style={ { marginTop: -110 } }>
+                <div data-aos={ 'zoom-in' } style={ { marginTop: -110 } }>
                     <ParallaxCard />
                 </div>
 

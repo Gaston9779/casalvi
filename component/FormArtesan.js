@@ -40,7 +40,7 @@ export default function FormArtesan ()
   }
 
   return (
-    <div style={ { backgroundColor: 'white', padding: 20, borderRadius: 5, boxShadow: '1px 1px 13px lightgrey' } }>
+    <div style={ { backgroundColor: 'white', padding: 20, borderRadius: 5, boxShadow: '1px 1px 13px white' } }>
       <UserFormLib />
 
     </div>

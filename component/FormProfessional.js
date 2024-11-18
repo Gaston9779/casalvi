@@ -121,24 +121,24 @@ export const FormProfessional = () =>
 
   return (
     <div style={ { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
-      <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 10 } }>Lavora con Noi(Professionista)</p>
+      <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0 } }>Lavora con Noi(Professionista)</p>
       <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
-      <hr style={ { border: '0.5px solid lightgrey ', width: '90%', marginTop: 30 } }></hr>
+      <hr style={ { border: '0.5px solid white ', width: '90%', marginTop: 30 } }></hr>
       <form ref={ form } onSubmit={ sendEmail } style={ { width: '90%', borderRadius: 10, marginTop: 0, marginBottom: 50 } } >
         <div className='userFormGrid' >
 
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Nome e cognome:</label>
-            <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid lightgrey' } } name="nomeCognome" />
+            <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent'  } } name="nomeCognome" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Email</label>
-            <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid lightgrey' } } name="email" />
+            <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent'  } } name="email" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Telefono</label>
 
-            <input defaultValue={ formState.telefono } onChange={ ( e ) => { setForm( { ...formState, telefono: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid lightgrey' } } name="telefono" />
+            <input defaultValue={ formState.telefono } onChange={ ( e ) => { setForm( { ...formState, telefono: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent'  } } name="telefono" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Specializzazioni:</label>

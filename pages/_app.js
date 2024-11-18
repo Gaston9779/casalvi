@@ -146,11 +146,7 @@ export default function App ( { Component, pageProps } )
         <Provider store={ store }>
             { isLoading && <Loader /> } {/* Mostra il loader finché `isLoading` è `true` */ }
             <Navbar navbarDark={ navbarDark } />
-            <div
-                className="interactive-element"
-                onMouseEnter={ handleCursorEnter }
-                onMouseLeave={ handleCursorLeave }
-            ></div>
+           
             <CustomCursor />
             <div />
             <Component { ...pageProps } />
