@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
-import { Italiana, Kode_Mono } from 'next/font/google';
+import { Host_Grotesk, Kanit } from 'next/font/google';
 
 const Icon = dynamic( () => import( '@iconify/react' ).then( ( mod ) => mod.Icon ), { ssr: false } );
 
@@ -13,10 +13,15 @@ const Icon = dynamic( () => import( '@iconify/react' ).then( ( mod ) => mod.Icon
 type Props = {
     navbarDark: boolean;
 };
-const italiana = Italiana( {
+const kanit = Kanit( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
 } );
+const italiana = Host_Grotesk( {
+    subsets: [ 'latin' ],
+    weight: [ '400' ],
+} );
+
 const Navbar = ( { navbarDark }: Props ) =>
 {
     const dispatch = useDispatch();
@@ -37,8 +42,8 @@ const Navbar = ( { navbarDark }: Props ) =>
     const handle = useCallback(
         async ( e ) =>
         {
-            await(selectedNavbar( e ))
-            await(dispatch( setService( e ) ))
+            await ( selectedNavbar( e ) )
+            await ( dispatch( setService( e ) ) )
             setMenuMobile( false )
         },
         []
@@ -79,15 +84,16 @@ const Navbar = ( { navbarDark }: Props ) =>
 
     useEffect( () =>
     {
-    
+        
         refreshing()
-    }, [  ] )
+    }, [] )
     return (
         <div className={ navbarDark ? 'navbarScroll' : 'navbar' }>
-            <div className={ italiana.className }>
+            <div className={ italiana.className}>
                 <div className="logoDimension">
                     <Link href="/" onClick={ () => handle( '/' ) }>
-                        <p style={ { color: 'white' } } className="logoNavbar">CASAVI</p>
+                        {/* <p style={ { color: 'white' } } className="logoNavbar">CASAVI</p> */}
+                        <img style={{width:'100%', height:'110px'}} src='/images/loghetto.png' alt='' />
                     </Link>
                 </div>
                 <div className="hamburger" style={ { width: '100%', marginTop: -5 } }>
@@ -96,20 +102,22 @@ const Navbar = ( { navbarDark }: Props ) =>
                         <Link href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Realizzazioni</Link>
                         <Link href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Servizi</Link>
                         <Link href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Lavora con noi</Link>
-                       
+
                         <Link href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Contatti</Link>
                     </div>
                 </div>
                 { mobile && (
                     <div className="burgerone">
-                          <Link href="/" onClick={ () => handle( '/' ) }>CASAVI</Link>
+                        <Link href="/" onClick={ () => handle( '/' ) }>
+                        <img style={{width:'100%', height:'50px'}} src='/images/loghetto.png' alt='' />
+                    </Link>
                         <Icon onClick={ () => setMenuMobile( !menuMobile ) } icon="lets-icons:menu" />
                     </div>
                 ) }
                 {
                     menuMobile && <div className='mobileMenu'>
 
-                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', zIndex:101 } }>
+                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', zIndex: 101 } }>
                             <div style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', gap: 40 } }>
                                 <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/chisiamo" onClick={ () => handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
                                 <Link style={ { fontSize: 30, color: listNavbar.chisiamo ? '#333' : 'white' } } href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' }>Realizzazioni</Link>

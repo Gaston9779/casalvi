@@ -4,6 +4,11 @@ import { MenuItem, Select } from '@mui/material'
 import emailjs, { send } from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Host_Grotesk, Poppins } from 'next/font/google';
+const italiana = Host_Grotesk( {
+    subsets: [ 'latin' ],
+    weight: [ '400' ],
+} );
 import * as XLSX from 'xlsx'
 export const UserFormLib = () =>
 {
@@ -130,7 +135,7 @@ export const UserFormLib = () =>
   }, [ formState, step ] )
 
   return (
-    <div style={ { width: '100%',  display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
+    <div className={italiana.className} style={ { width: '100%',  display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
       <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0 } }>Lavora con Noi(Artigiano)</p>
       <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
       <hr style={{border:'0.5px solid white ', width:'90%', marginTop:30}}></hr>

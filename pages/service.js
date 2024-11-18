@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import ParallaxCard from '../component/ParallaxCard'
-import { Italiana, Poppins } from 'next/font/google';
+import { Host_Grotesk, Poppins } from 'next/font/google';
 import AOS from 'aos';
 import Tilt from 'react-parallax-tilt';
 
-const italiana = Italiana( {
+const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '400' ],
+    weight: [ '300' ],
 } );
 
 
@@ -88,7 +88,7 @@ const ServicePages = () =>
 
                                 <div style={ { display: 'flex', gap: 10, padding: 10, flexDirection: 'column', justifyContent: 'space-between' } }>
                                     <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Casavi facility managment</p>
-                                    <p style={ { width: '100%', fontSize: 16, fontWeight: '900', color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
+                                    <p style={ { width: '100%', fontSize: 16,  color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
                                     <div style={ { width: '100%' } } className='buttonStyle'>
                                         <p>Costruisci la tua squadra</p>
                                     </div>

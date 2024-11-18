@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Italiana, Kode_Mono } from 'next/font/google';
+import { Host_Grotesk, Kode_Mono } from 'next/font/google';
 
-const italiana = Italiana( {
+const italiana = Host_Grotesk( {
   subsets: [ 'latin' ],
   weight: [ '400' ],
 } );

@@ -6,8 +6,8 @@ import FormWorkUs from '../component/FormWorkus';
 import UserFormLib from '../component/UserForm';
 import Modal from '../component/Modal';
 import { width } from '@mui/system';
-import { Italiana, Poppins } from 'next/font/google';
-const italiana = Italiana( {
+import { Host_Grotesk } from 'next/font/google';
+const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
 } );
@@ -44,7 +44,7 @@ const ContactUs = ( { type } ) =>
     return (
         <div className='gradient2' style={ { display: 'flex', alignItems: 'center', paddingTop: '100px', height: '100%', minHeight: '100vh', width: '100%', justifyContent: 'center', } }>
             <div className={ type === 'prof' ? 'backgroundColorProf' : 'backgroundColor' }></div>
-            { <div style={ { display: 'flex', width: '90%', justifyContent: 'space-around', gap: 20, margin: 40 } }>
+            { <div className={italiana.className} style={ { display: 'flex', width: '90%', justifyContent: 'space-around', gap: 20, margin: 40 } }>
                 <div data-name='art' onClick={ ( e ) => openModal( e ) } style={ { width: '100%', fontWeight:900, fontSize:20} } className={name === 'art' ? 'borderLight2' : 'borderLight'}>Artigiani</div>
                 <div data-name='prof' onClick={ ( e ) => openModal( e ) } style={ { width: '100%', fontWeight:900, fontSize:20 } } className={name === 'prof' ? 'borderLight2' : 'borderLight'}>Professionisti</div>
                 <div data-name='noi' onClick={ ( e ) => openModal( e ) } style={ { width: '100%' , fontWeight:900, fontSize:20} } className={name === 'noi' ? 'borderLight2' : 'borderLight'}>Lavora con noi</div>

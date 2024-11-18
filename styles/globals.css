@@ -116,7 +116,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 .logoDimension{
   transform: scale(0.5);
   pointer-events: all;
-  margin-left: -95px;
+  margin-left: -40px;
   cursor: pointer;
 }
 .userFormGrid{
@@ -934,7 +934,6 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   color: white;
   padding: 20px 20px;
   font-size: 16px;
-  font-family: 'Italiana';
   background-color: transparent;
   border-radius: 5px;
   z-index: 10;
@@ -946,7 +945,6 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   padding: 12px 16px;
   font-size: 16px;
   margin-top: 7px;
-  font-family: 'Italiana';
   font-weight: 700;
   z-index: 10;
   border: none;
@@ -1005,7 +1003,6 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   text-decoration: none;
   display: block;
   font-size: 16px;
-  font-family: 'Italiana';
   
 }
 
@@ -1488,7 +1485,6 @@ main {
     text-decoration: none;
     display: block;
     font-size: 14px;
-    font-family: 'Italiana';
     
   }
 
@@ -1529,6 +1525,7 @@ main {
   }
   .logoDimension{
     margin-top: 160%;
+    display: none;
   }.roleDiv{
     display: none;
   }

@@ -1,4 +1,4 @@
-import { Italiana, Montserrat } from 'next/font/google';
+import { Host_Grotesk, Montserrat } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 import AOS from 'aos';
@@ -9,9 +9,9 @@ import { selectSlice, setHoverText } from "../redux/ServiceSlice"
 import { useSelector } from 'react-redux';
 
 
-const italiana = Italiana( {
+const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '400' ],
+    weight: [ '300' ],
 } );
 const kode = Montserrat( {
     subsets: [ 'latin' ],
@@ -84,7 +84,7 @@ const AgencyCrest = () =>
 
                                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                                             <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Chi siamo</p>
-                                            <p className='font100' style={ { width: '100%', fontSize: 16, fontWeight: '900', color: '#333' } }>Casavi è una rete di artigiani uniti dalla visione del fondatore, Viola Graziano, che ha adottato un
+                                            <p className='font100' style={ { width: '100%', fontSize: 16, fontWeight: '100', color: '#333' } }>Casavi è una rete di artigiani uniti dalla visione del fondatore, Viola Graziano, che ha adottato un
                                                 modello di Facility Manager per gestire le commesse dei clienti. Questo approccio implica che
                                                 Casavi si occupi di ogni aspetto del progetto, dalla selezione di fornitori di eccellenza fino al
                                                 coordinamento delle attività, assumendosi la responsabilità completa.</p>
@@ -116,7 +116,7 @@ const AgencyCrest = () =>
 
                                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                                             <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Perchè scegliere Casavi?</p>
-                                            <p className='font100' style={ { width: '90%', fontSize: 16, fontWeight: '900', color: '#333' } }>Centralizzando le operazioni, Casavi garantisce un elevato standard di qualità e una personalizzazione
+                                            <p className='font100' style={ { width: '90%', fontSize: 16,  color: '#333' } }>Centralizzando le operazioni, Casavi garantisce un elevato standard di qualità e una personalizzazione
                                                 del servizio. Questo modello ottimizza le risorse disponibili e migliora l’efficienza complessiva,
                                                 permettendo di offrire soluzioni su misura che rispondono alle esigenze specifiche di ogni cliente. In
                                                 questo modo, Casavi non è solo un fornitore, ma un partner affidabile nel realizzare progetti di alta
@@ -176,7 +176,7 @@ const AgencyCrest = () =>
 
                                     <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                                         <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Come funziona</p>
-                                        <p className='font100' style={ { width: '100%', fontSize: 16, fontWeight: '900', color: '#333' } }>Attraverso il “gestionale Casavi”, i contatti vengono messi in “match” per intercettare interessi
+                                        <p className='font100' style={ { width: '100%', fontSize: 16, color: '#333' } }>Attraverso il “gestionale Casavi”, i contatti vengono messi in “match” per intercettare interessi
                                             commerciali, promuovere le richieste e veicolare il loro business all’interno delle commesse ricevute.
                                             Il cantiere viene organizzato e seguito in tutte le sue fasi. Anche il Committente, così come tutti gli
                                             artigiani, riceve un’apposita app, funzionante sia su smartphone che su PC. In questo modo, il
