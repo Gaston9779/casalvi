@@ -30,7 +30,7 @@ const ServicePages = () =>
 {
 
 
-    useEffect( () =>
+    /* useEffect( () =>
     {
         if ( typeof window !== 'undefined' )
         {
@@ -39,7 +39,11 @@ const ServicePages = () =>
                 once: true, // Esegui l'animazione solo una volta
             } );
         }
-        console.log('guccigang')
+        AOS.refresh()
+    }, [] ) */
+    useEffect( () =>
+    {
+        AOS.init();
         AOS.refresh()
     }, [] )
 
@@ -80,7 +84,7 @@ const ServicePages = () =>
                         <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
 
                             <div className='img_res'>
-                                {/* <input className='inputCardPrinc' type='button' style={ {zIndex:10, width: '30%', alignSelf: 'flex-end', height: 40 } } value={ 'Scopri' } /> */ }
+
                                 <Tilt tiltMaxAngleX={ 4 }  // Movimenti delicati
                                     tiltMaxAngleY={ 4 }
                                     scale={ 1.01 }    // Leggero ingrandimento all'hover

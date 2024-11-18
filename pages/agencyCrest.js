@@ -230,10 +230,10 @@ const AgencyCrest = () =>
                                 borderRadius: 20,
                                 marginTop: 20
                             } }>
-                                <div class="scroll-container">
-                                    <div class="scroll-content">
-                                        <img src="/images/frame.png" alt="" class="scroll-image" />
-                                        <img src="/images/frame.png" alt="" class="scroll-image" />
+                                <div className="scroll-container">
+                                    <div className="scroll-content">
+                                        <img src="/images/frame.png" alt="" className="scroll-image" />
+                                        <img src="/images/frame.png" alt="" className="scroll-image" />
                                     </div>
                                 </div>
                             </div>
