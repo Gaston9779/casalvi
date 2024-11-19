@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import ParallaxCard from '../component/ParallaxCard'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Tilt from 'react-parallax-tilt';
 
 const italiana = Host_Grotesk( {
@@ -27,15 +28,15 @@ const ServicePages = () =>
 
     useEffect( () =>
     {
-        if ( typeof window !== 'undefined' )
-        {
-            AOS.init( {
+        
+        
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
                 once: true,
-                duration: 800,
-                easing: 'ease-out',
-            } );
+              });
             AOS.refresh();
-        }
+        
     }, [] );
 
 
@@ -101,10 +102,10 @@ const ServicePages = () =>
                     </div>
                 </Tilt>
 
-              {/*   <div data-aos={ 'zoom-in' } style={ { marginTop: -110 } }>
+                <div data-aos={ 'zoom-in' } style={ { marginTop: -110 } }>
                     <ParallaxCard />
                 </div>
- */}
+
             </div >
 
 

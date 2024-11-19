@@ -8,6 +8,7 @@ import Modal from '../component/Modal';
 import { width } from '@mui/system';
 import { Host_Grotesk } from 'next/font/google';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
@@ -43,7 +44,11 @@ const ContactUs = ( { type } ) =>
     },[])
     useEffect( () =>
     {
-        AOS.init();
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+          });
         AOS.refresh()
     }, [] )
 
@@ -56,7 +61,7 @@ const ContactUs = ( { type } ) =>
                 <div data-name='prof' onClick={ ( e ) => openModal( e ) } style={ { width: '100%', fontWeight:900, fontSize:20 } } className={name === 'prof' ? 'borderLight2' : 'borderLight'}>Professionisti</div>
                 <div data-name='noi' onClick={ ( e ) => openModal( e ) } style={ { width: '100%' , fontWeight:900, fontSize:20} } className={name === 'noi' ? 'borderLight2' : 'borderLight'}>Lavora con noi</div>
             </div> }
-           {/*  {
+            {
                 selected && name === 'art' ? <UserFormLib /> : null
             }
             {
@@ -64,7 +69,7 @@ const ContactUs = ( { type } ) =>
             }
             {
                 selected && name === 'noi' ? <FormWorkUs /> : null
-            } */}
+            }
         </div>
     );
 };

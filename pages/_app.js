@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import { useEffect, useState, useCallback } from 'react';
 import Footer from '../component/Footer';
 import Loader from '../component/Loader';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 export default function App({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true); // Inizializza a true per mostrare il loader all'inizio
@@ -108,6 +110,26 @@ export default function App({ Component, pageProps }) {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    useEffect(() => {
+        // Inizializzazione di AOS
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          once: true,
+        });
+    
+        // Aggiungi un listener per il cambio di rotta
+        const handleRouteChange = () => {
+          AOS.refresh(); // Refresh per attivare correttamente le animazioni dopo il cambio di rotta
+        };
+    
+        // Event listener per il cambio di rotta in Next.js
+        router.events.on('routeChangeComplete', handleRouteChange);
+    
+        return () => {
+          router.events.off('routeChangeComplete', handleRouteChange); // Pulizia del listener
+        };
+      }, [router]);
 
     return (
         <Provider store={store}>

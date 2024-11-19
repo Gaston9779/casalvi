@@ -2,6 +2,7 @@ import { Host_Grotesk, Montserrat } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 import AnimatedProcess from '../component/animatedProcess';
 import MyDoughnutChart from '../component/MyDoughnutChart';
 import ColumnChart from '../component/ColumnsChart.tsx';
