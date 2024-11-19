@@ -109,7 +109,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                 { mobile && (
                     <div className="burgerone">
                         <Link href="/" onClick={ () => handle( '/' ) }>
-                        <img style={{width:'100%', maxHeight:'50px'}} src='/images/loghetto.png' alt='' />
+                        <img src='/images/loghetto.png' alt='' />
                     </Link>
                         <Icon onClick={ () => setMenuMobile( !menuMobile ) } icon="lets-icons:menu" />
                     </div>
