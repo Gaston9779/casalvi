@@ -47,10 +47,12 @@ const ServicePages = () =>
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'flex-start',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                background:'none'
             } }
         >
-
+<div style={{zIndex:0,position:'fixed', left:0, top:0, width:'100%', height:'100vh',  mixBlendMode:'screen', background: 'linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%)'}}/>
+            <img style={{position:'fixed', left:0, top:0, width:'100%', opacity:0.4, height:'100vh', zIndex:-1}} src='/images/bg-prof.jpg' alt=''/>
             <div
                
                 className={ italiana.className }

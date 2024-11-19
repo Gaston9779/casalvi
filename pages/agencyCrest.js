@@ -39,9 +39,11 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
+                background:'none'
             } }
         >
-
+            <div style={{zIndex:0,position:'fixed', left:0, top:0, width:'100%', height:'100vh',  mixBlendMode:'screen', background: 'linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%)'}}/>
+            <img style={{position:'fixed', left:0, top:0, width:'100%', opacity:0.4, height:'100vh', zIndex:-1}} src='/images/bg-prof.jpg' alt=''/>
             <div
                 className={ italiana.className }
                 style={ {
@@ -142,7 +144,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <img className='img_responsive' src='/images/plub.png' width='270px' style={ { position: 'absolute', transform: 'scale(1.1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <img className='img_responsive' src='/images/check.png' width='270px' style={ { position: 'absolute',  marginTop:-10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 

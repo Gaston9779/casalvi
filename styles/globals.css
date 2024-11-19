@@ -529,8 +529,8 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   width: 70%;
   align-self: flex-end ;
   padding: 30px;
-  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background: rgba(255, 255, 255, 0.379);
+  box-shadow: rgba(50, 50, 93, 0.45) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   margin: 40px;
   z-index: -1;
   border-radius: 20px;
@@ -541,7 +541,8 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   align-self: flex-end ;
   padding: 30px;
   margin-left: 40px;
-  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
+ /*  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%); */
+ background: rgba(255, 255, 255, 0.379);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   z-index: -1;
   border-radius: 20px;
@@ -558,7 +559,9 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   width: 70%;
   align-self: flex-start ;
   padding: 30px;
-  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
+  background: rgba(255, 255, 255, 0.379);
+ /*  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%); */
+ 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   margin: 40px;
   z-index: -1;
@@ -694,7 +697,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   padding-top: 80px;
   padding-bottom: 0px;
   width: 100%;
-  background: radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.4) 40%, rgba(46, 151, 135, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%);
  /*  background:radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.9) 60%, rgba(46, 151, 135, 0.8) 100%); */
 
   /* background-color: #86d3c7cb; */
@@ -954,7 +957,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   width: 70%;
   padding: 30px;
   background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   height: auto;
   margin: 0 auto;
   transition: transform 0.4s ease-out;

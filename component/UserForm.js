@@ -135,7 +135,7 @@ export const UserFormLib = () =>
   }, [ formState, step ] )
 
   return (
-    <div className={italiana.className} style={ { width: '100%',  display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
+    <div className={italiana.className} style={ { width: '100%', zIndex:10, display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
       <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0 } }>Lavora con Noi(Artigiano)</p>
       <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
       <hr style={{border:'0.5px solid white ', width:'90%', marginTop:30}}></hr>
@@ -144,16 +144,16 @@ export const UserFormLib = () =>
 
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Nome e cognome:</label>
-            <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent' } } name="nomeCognome" />
+            <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent' } } name="nomeCognome" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Email</label>
-            <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent' } } name="email" />
+            <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent' } } name="email" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Città</label>
 
-            <input defaultValue={ formState.città } onChange={ ( e ) => { setForm( { ...formState, città: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #97a9aa', backgroundColor:'transparent'  } } name="citta" />
+            <input defaultValue={ formState.città } onChange={ ( e ) => { setForm( { ...formState, città: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent'  } } name="citta" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Lingua:</label>
@@ -247,7 +247,7 @@ export const UserFormLib = () =>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Con quali magazzini usualmente lavori?</label>
-            <input placeholder='magazzini' onChange={ ( e ) => { setForm( { ...formState, magazzini: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, backgroundColor:'transparent' ,border: '1px solid #97a9aa' } } type="email" name="magazzini" />
+            <input placeholder='magazzini' onChange={ ( e ) => { setForm( { ...formState, magazzini: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, backgroundColor:'transparent' ,border: '1px solid #46464a' } } type="email" name="magazzini" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
             <label>Sei soggetto all attestazione CCNL?</label>
