@@ -39,7 +39,7 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
-                background:'none'
+                background:'none',
             } }
         >
             <div className='backDiv'/>

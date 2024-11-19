@@ -48,7 +48,8 @@ const ServicePages = () =>
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'center',
-                background:'none'
+                background:'none', 
+                height:'100%'
             } }
         >
            <div className='backDiv'/>
