@@ -39,11 +39,10 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
-                background:'none',
             } }
         >
-            <div className='backDiv'/>
-            <img className='backImg' src='/images/bg-prof.jpg' alt=''/>
+            {/* <div className='backDiv'/>
+            <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
             <div
                 className={ italiana.className }
                 style={ {

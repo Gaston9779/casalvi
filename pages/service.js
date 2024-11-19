@@ -48,12 +48,11 @@ const ServicePages = () =>
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'center',
-                background:'none', 
                 height:'100%'
             } }
         >
-           <div className='backDiv'/>
-            <img className='backImg' src='/images/bg-prof.jpg' alt=''/>
+          {/*  <div className='backDiv'/>
+            <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
             <div
                
                 className={ italiana.className }
