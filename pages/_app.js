@@ -168,7 +168,7 @@ export default function App({ Component, pageProps }) {
         }}
         expires={365}
       >
-        <p className={italiana.className}>Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.</p>
+        <p className={italiana.className}>Questo sito utilizza i cookie per migliorare l esperienza dell utente.</p>
         <span className={italiana.className} style={{ fontSize: "10px" }}>Leggi la nostra <a href="/privacy-policy">privacy policy</a></span>
       </CookieConsent>
             <Footer />
