@@ -101,10 +101,10 @@ const ServicePages = () =>
                     </div>
                 </Tilt>
 
-                <div data-aos={ 'zoom-in' } style={ { marginTop: -110 } }>
+              {/*   <div data-aos={ 'zoom-in' } style={ { marginTop: -110 } }>
                     <ParallaxCard />
                 </div>
-
+ */}
             </div >
 
 

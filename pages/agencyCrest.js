@@ -38,7 +38,6 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
-                background: 'radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.4) 40%, rgba(46, 151, 135, 0.8) 100%)'
             } }
         >
 
