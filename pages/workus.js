@@ -54,9 +54,9 @@ const ContactUs = ( { type } ) =>
 
 
     return (
-        <div className='gradient2' style={ {display: 'flex', alignItems: 'center', paddingTop: '100px', height: '100%', minHeight: '100vh', width: '100%', justifyContent: 'center', } }>
-            <div style={{zIndex:0,position:'fixed', left:0, top:0, width:'100%', height:'100vh',  mixBlendMode:'screen', background: 'linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%)'}}/>
-            <img style={{position:'fixed', left:0, top:0, width:'100%', opacity:0.4, height:'100vh', zIndex:0}} src='/images/bg-prof.jpg' alt=''/>
+        <div className='gradient2' style={ {display: 'flex', alignItems: 'center', paddingTop: '100px', height: '100%', minHeight: '100vh', width: '100%', justifyContent: 'center', backgroundπ:'none' } }>
+            <div className='backDiv'/>
+            <img className='backImg' src='/images/bg-prof.jpg' alt=''/>
             <div className={ type === 'prof' ? 'backgroundColorProf' : 'backgroundColor' }></div>
             { <div data-aos={ 'fade-right' } className={italiana.className} style={ { display: 'flex', width: '90%', zIndex:10, justifyContent: 'space-around', gap: 20, margin: 40 } }>
                 <div data-name='art' onClick={ ( e ) => openModal( e ) } style={ { width: '100%', fontWeight:900, fontSize:20} } className={name === 'art' ? 'borderLight2' : 'borderLight'}>Artigiani</div>
