@@ -8,7 +8,15 @@ import { useEffect, useState, useCallback } from 'react';
 import Footer from '../component/Footer';
 import Loader from '../component/Loader';
 import AOS from 'aos';
+import CookieConsent from 'react-cookie-consent';
+import Cookies from 'js-cookie';
 import 'aos/dist/aos.css'; 
+import { Host_Grotesk, Poppins } from 'next/font/google';
+const italiana = Host_Grotesk( {
+    subsets: [ 'latin' ],
+    weight: [ '300' ],
+} );
+
 
 export default function App({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true); // Inizializza a true per mostrare il loader all'inizio
@@ -97,6 +105,13 @@ export default function App({ Component, pageProps }) {
     // Funzione per cambiare lo stile del cursore
     const handleCursorEnter = () => setCursorStyle('hover');
     const handleCursorLeave = () => setCursorStyle('default');
+    const handleConsent = () => {
+        Cookies.set('cookie-consent', 'accepted', { expires: 365 });
+      };
+      
+      if (!Cookies.get('cookie-consent')) {
+        // Mostra il banner di consenso se il cookie non è stato ancora impostato
+      }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -138,6 +153,24 @@ export default function App({ Component, pageProps }) {
             <CustomCursor />
             <div />
             <Component {...pageProps} />
+            <CookieConsent
+           
+        location="bottom"
+        buttonText="Accetto"
+        cookieName="user-consent"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{
+          color: "#4e503b",
+          fontSize: "13px",
+          background: "#E9CF4B",
+          borderRadius: "5px",
+          padding: "5px 10px",
+        }}
+        expires={365}
+      >
+        <p className={italiana.className}>Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.{" "}</p>
+        <span className={italiana.className} style={{ fontSize: "10px" }}>Leggi la nostra <a href="/privacy-policy">privacy policy</a></span>
+      </CookieConsent>
             <Footer />
         </Provider>
     );
