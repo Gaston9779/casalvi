@@ -1,8 +1,8 @@
 import Tilt from 'react-parallax-tilt';
-import { Italiana, Kode_Mono } from 'next/font/google';
+import { Host_Grotesk, Kode_Mono } from 'next/font/google';
 import { useState } from 'react';
 import Modal from './Modal';
-const italiana = Italiana( {
+const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
 } );
@@ -41,7 +41,7 @@ const ParallaxCard = () =>
                     <div className="descriptionM">
                         <h2>Casavi facility manager</h2>
                         <p>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
-                        <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                        <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                     </div>
                 </div>
             </Tilt>
@@ -59,7 +59,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Idraulico</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -77,7 +77,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Elettricista</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Elettricista' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Elettricista' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -94,7 +94,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Tetti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -111,7 +111,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Pavimenti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Pavimenti' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Pavimenti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -128,7 +128,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Cappotti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -145,7 +145,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Cappotti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } className={ italiana.className } style={ { width: '100%', fontWeight: '900', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>

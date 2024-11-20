@@ -22,7 +22,7 @@ const Card = ( { typeCard, name, description, image, role } ) =>
                     <h1 style={{color:'#141413'}}>{name}</h1>
                     <p style={ { marginTop: 20, color:'#141413', fontFamily:'Montserrat', flexWrap:'wrap', display:'flex', maxWidth: '80%', fontWeight:'400', fontSize:14 } }>{description}</p>
                 </div>
-                <p style={{color:'#141413', fontWeight:'600', fontFamily:'Italiana'}}>{role}</p>
+                <p style={{color:'#141413', fontWeight:'600'}}>{role}</p>
             </div>
             { typeCard === 'right' ? null : <Image priority='high' alt="image" style={ { overflow: 'hidden', backgroundSize:'contain', height:'90%',boxShadow:'1px 1px 13px lightgrey', objectFit:'cover',  borderRadius:10, width:'100%' }} src={image} /> }
         </div>

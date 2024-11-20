@@ -125,7 +125,8 @@ export const FormProfessional = () =>
   }, [ formState, step ] )
 
   return (
-    <div className={italiana.className} style={ { width: '100%', display: 'flex',zIndex:10, flexDirection: 'column', alignItems: 'center' } }>
+    <div className={italiana.className}>
+       <div className='formStyle'>
       <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color:'white'  } }>Lavora con Noi(Professionista)</p>
       <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
       <hr style={ { border: '0.5px solid white ', width: '90%', marginTop: 30 } }></hr>
@@ -214,6 +215,7 @@ export const FormProfessional = () =>
 
 
       </form>
+    </div>
     </div>
 
   )

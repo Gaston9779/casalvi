@@ -7,7 +7,6 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  font-family: 'Italiana';
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -111,7 +110,13 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 /*   text-shadow: 1px 1px 7px rgb(255, 255, 255); */
 }
 
-
+.hiddenMobile{
+  display: flex;
+  width: 100%;
+}
+.hidden{
+  display: none;
+}
 
 .logoDimension{
   transform: scale(0.5);
@@ -123,9 +128,11 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   display: grid;
   flex-wrap: wrap;
   gap: 2%;
-  padding:3%;
+  grid-auto-rows: auto;
+  padding-top:30px;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
 }
+
 .navbar{
   z-index: 30;
   display:flex;
@@ -320,7 +327,13 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   border-radius: 8px;
   transition: all 300ms;
 }
-
+.formStyle{
+ width: 100vw;
+ z-index:10;
+ display: flex;
+ flex-direction: column;
+ align-items: center 
+}
 .inputStyle{
   text-align: center;
   z-index: 3000;
@@ -535,6 +548,11 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   z-index: -1;
   border-radius: 20px;
   margin-top: 20;
+}
+.cardCrestLeft:hover{
+  background: red;
+  width: 80%;
+  transform: scale(1.2);
 }
 .cardCrestLeftDown{
   width: 100%;
@@ -1523,8 +1541,13 @@ main {
   }
   .userFormGrid{
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
   }
- 
+  
+ /* .formStyle{
+  height: 200vh;
+ } */
   .cardCrestLeft{
     padding: 0px!important;
   }
@@ -1552,6 +1575,13 @@ main {
   }.roleDiv{
     display: none;
   }
+  .hiddenMobile{
+    display: none;
+  }
+  .hidden{
+    display: flex;
+    width: 100%;
+  }
  
   .container__cards {
     width: auto;
@@ -1570,7 +1600,7 @@ main {
     display: flex;
     flex-direction: column;
     opacity: 1;
-    background-color: rgb(162, 186, 193);
+    background-color: #444656c1;
     z-index: 10;
     transition: background-color 0.3s ease, opacity 0.9s ease;
 }
@@ -1631,6 +1661,15 @@ main {
    }
    .custom-cursor{
     display: none;
+   }
+   .worksCard{
+    width: 80%;
+   }
+   .containerWorks{
+    justify-items: center;
+   }
+   .formStyle{
+    text-align: center;
    }
   
 }

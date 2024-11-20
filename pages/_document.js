@@ -5,7 +5,14 @@ export default function Document ()
 {
   return (
     <Html lang="en">
-      <Head />
+      <Head >
+        <script
+          async
+          defer
+          src={ `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7TAZQUqFdUqI0Xlo5tgaXYnPxI36YSWM&libraries=places` }
+        ></script>
+
+      </Head>
       <body>
         <Main />
         <NextScript />
