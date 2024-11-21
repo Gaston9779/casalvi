@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Host_Grotesk, Kode_Mono } from 'next/font/google';
+import Link from 'next/link';
 
 const italiana = Host_Grotesk( {
   subsets: [ 'latin' ],
@@ -175,7 +176,7 @@ export default function Home ()
       ) }
       { !isMobile && (
         <div data-aos={ 'zoom-in' } style={ { position: 'absolute', zIndex: 4, top: '57vh', display: 'flex', justifyContent: 'center', width: '100%', gap: 40 } }>
-          <div className='borderLight'><a href='/chisiamo'>Scopri la nostra rete di imprese</a></div>
+          <div className='borderLight'><Link href='/chisiamo'>Scopri la nostra rete di imprese</Link></div>
         </div>
       ) }
       { isMobile && (
