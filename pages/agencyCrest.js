@@ -72,11 +72,11 @@ const AgencyCrest = () =>
                         loop
                         preload="auto"
                         ref={ videoRef }
-                        className='videoResponsive'
                         style={ {
                             width: '100%',
                             objectFit: 'cover',
                             opacity:0.1,
+                            height:'100vh'
                         } }
                     />
                 </div>
