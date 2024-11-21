@@ -16,10 +16,11 @@ const Footer = () =>
                     </div>
                     <div className="footer-links">
                         <ul className="footer-menu">
-                            <li><a className={italiana.className} href="#">Home</a></li>
-                            <li><a className={italiana.className} href="#">About</a></li>
-                            <li><a className={italiana.className} href="#">Services</a></li>
-                            <li><a className={italiana.className} href="#">Contact</a></li>
+                            <li><a className={italiana.className} href="/chisiamo">Chi siamo</a></li>
+                            <li><a className={italiana.className} href="/project">Realizzazioni</a></li>
+                            <li><a className={italiana.className} href="/service">Servizi</a></li>
+                            <li><a className={italiana.className} href="/workus">Lavora con noi</a></li>
+                            <li><a className={italiana.className} href="/contact">Contatti</a></li>
                         </ul>
                     </div>
                     <div className="footer-social">
@@ -32,7 +33,7 @@ const Footer = () =>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p className={italiana.className}>&copy; 2023 Your Company. All rights reserved.</p>
+                    <p className={italiana.className}>&copy; 2024 Casavi. All rights reserved.</p>
                 </div>
             </div>
         </footer>

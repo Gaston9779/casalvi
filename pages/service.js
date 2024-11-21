@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ParallaxCard from '../component/ParallaxCard'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 import AOS from 'aos';
@@ -24,19 +24,19 @@ const listina = [
 
 const ServicePages = () =>
 {
-
+    const videoRef = useRef( null );
 
     useEffect( () =>
     {
-        
-        
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
-                once: true,
-              });
-            AOS.refresh();
-        
+
+
+        AOS.init( {
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        } );
+        AOS.refresh();
+
     }, [] );
 
 
@@ -48,13 +48,13 @@ const ServicePages = () =>
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'center',
-                height:'100%'
+                height: '100%'
             } }
         >
-          {/*  <div className='backDiv'/>
+            {/*  <div className='backDiv'/>
             <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
             <div
-               
+
                 className={ italiana.className }
                 style={ {
                     display: 'flex',
@@ -64,7 +64,32 @@ const ServicePages = () =>
 
                 } }
             >
-
+                <div style={ {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    overflow: 'hidden',
+                    zIndex: -1,
+                } }>
+                    <video
+                        src="/video/particles.mp4"
+                        muted
+                        autoPlay
+                        loop
+                        preload="auto"
+                        ref={ videoRef }
+                        className='videoResponsive'
+                        style={ {
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            zIndex: -1,
+                            opacity: 0.1,
+                        } }
+                    />
+                </div>
 
                 <Tilt
                     tiltMaxAngleX={ 4 }  // Movimenti delicati
@@ -73,7 +98,7 @@ const ServicePages = () =>
                     transitionSpeed={ 250 }  // Transizione fluida
                 >
                     <div data-aos={ 'zoom-in' } className='divService'>
-                        <div  style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
+                        <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex' } }>
 
                             <div className='img_res'>
 
@@ -91,7 +116,7 @@ const ServicePages = () =>
 
                                 <div style={ { display: 'flex', gap: 10, padding: 10, flexDirection: 'column', justifyContent: 'space-between' } }>
                                     <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Casavi facility managment</p>
-                                    <p style={ { width: '100%', fontSize: 16,  color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
+                                    <p style={ { width: '100%', fontSize: 16, color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
                                     <div style={ { width: '100%' } } className='buttonStyle'>
                                         <p>Costruisci la tua squadra</p>
                                     </div>

@@ -8,7 +8,7 @@ import * as XLSX from 'xlsx'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '400' ],
+    weight: [ '300' ],
 } );
 export const FormProfessional = () =>
 {
@@ -134,20 +134,20 @@ export const FormProfessional = () =>
         <div className='userFormGrid' >
 
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Nome e cognome:</label>
+            <label style={{color:'white'}}>Nome e cognome:</label>
             <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent'  } } name="nomeCognome" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Email</label>
+            <label style={{color:'white'}}>Email</label>
             <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent'  } } name="email" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Telefono</label>
+            <label style={{color:'white'}}>Telefono</label>
 
             <input defaultValue={ formState.telefono } onChange={ ( e ) => { setForm( { ...formState, telefono: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent'  } } name="telefono" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Specializzazioni:</label>
+            <label style={{color:'white'}}>Specializzazioni:</label>
             <Select value={ formState.specializzazioni ?? '' } onChange={ ( e ) => { setForm( { ...formState, specializzazioni: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="specializzazioni" >
               <MenuItem value='Termotecnico'>Termotecnico</MenuItem>
               <MenuItem value='Strutturista'>Strutturista</MenuItem>
@@ -157,7 +157,7 @@ export const FormProfessional = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Da quanto tempo fai questo lavoro?</label>
+            <label style={{color:'white'}}>Da quanto tempo fai questo lavoro?</label>
             <Select value={ formState.esercito_da ?? '' } onChange={ ( e ) => { setForm( { ...formState, esercito_da: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', } } name="esercito_da" >
               <MenuItem value='1Anno'>1Anno</MenuItem>
               <MenuItem value='5Anni'>5Anni</MenuItem>
@@ -166,7 +166,7 @@ export const FormProfessional = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Polizza assicurativa?</label>
+            <label style={{color:'white'}}>Polizza assicurativa?</label>
             <Select value={ formState.assicurato ?? '' } onChange={ ( e ) => { setForm( { ...formState, assicurato: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="assicurato" >
               <MenuItem value='si'>Si</MenuItem>
               <MenuItem value='no'>No</MenuItem>
@@ -174,7 +174,7 @@ export const FormProfessional = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Disposto ad andare fuori regione?</label>
+            <label style={{color:'white'}}>Disposto ad andare fuori regione?</label>
             <Select value={ formState.fuori_regione ?? '' } onChange={ ( e ) => { setForm( { ...formState, fuori_regione: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="fuori_regione" >
               <MenuItem value='SI'>SI</MenuItem>
               <MenuItem value='NO'>NO</MenuItem>
@@ -183,14 +183,14 @@ export const FormProfessional = () =>
           </div>
           
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Automunito</label>
+            <label style={{color:'white'}}>Automunito</label>
             <Select value={ formState.automunito ?? '' } onChange={ ( e ) => { setForm( { ...formState, automunito: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="automunito" >
               <MenuItem value='si'>Si</MenuItem>
               <MenuItem value='no'>No</MenuItem>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Software Grafico</label>
+            <label style={{color:'white'}}>Software Grafico</label>
             <Select value={ formState.software ?? '' } onChange={ ( e ) => { setForm( { ...formState, software: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="software" >
               <MenuItem value='AutoCAD'>AutoCAD</MenuItem>
               <MenuItem value='Altro'>Altro</MenuItem>
@@ -198,7 +198,7 @@ export const FormProfessional = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Assevero</label>
+            <label style={{color:'white'}}>Assevero</label>
             <Select value={ formState.assevero ?? '' } onChange={ ( e ) => { setForm( { ...formState, assevero: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="assevero" >
               <MenuItem value='SI'>Si</MenuItem>
               <MenuItem value='NO'>No</MenuItem>
@@ -207,7 +207,7 @@ export const FormProfessional = () =>
 
           <div style={ { display: 'flex', justifyContent: 'center', alignItems: 'flex-end' } }>
 
-            <input style={ { backgroundColor: 'orange', cursor: 'pointer', width: '400px', padding: 10, height: 40, borderRadius: 10, textAlign: 'center', border: 'none' } } value='Invia' type='submit'></input>
+            <input className='borderLight' style={ {width:'100%'} } value='Invia' type='submit'></input>
           </div>
 
 

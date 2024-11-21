@@ -175,7 +175,7 @@ export default function Home ()
       ) }
       { !isMobile && (
         <div data-aos={ 'zoom-in' } style={ { position: 'absolute', zIndex: 4, top: '57vh', display: 'flex', justifyContent: 'center', width: '100%', gap: 40 } }>
-          <div className='borderLight'>Scopri la nostra rete di imprese</div>
+          <div className='borderLight'><a href='/chisiamo'>Scopri la nostra rete di imprese</a></div>
         </div>
       ) }
       { isMobile && (

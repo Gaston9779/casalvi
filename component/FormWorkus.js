@@ -118,10 +118,10 @@ export const FormWorkUs = () =>
 
   return (
     <div className={italiana.className} style={ { zIndex:10, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
-      <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0 } }>Lavora con Noi(Consulente)</p>
+      <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color:'white' } }>Lavora con Noi(Consulente)</p>
       <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Scrivici una mail allegando le tue competenze e il CV a questo indirizzo:</p>
       <hr style={ { border: '0.5px solid white ', width: '90%', marginTop: 30 } }></hr>
-      <p style={ { marginLeft: '3%', fontSize: 25, color:'white', marginTop: 30 } }>tecnico@casavi.it</p>
+      <p style={ { marginLeft: '3%', fontSize: 25, color:'white', marginTop: 30 } }>info@casavi.it</p>
     </div>
 
   )

@@ -545,34 +545,30 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   background: rgba(255, 255, 255, 0.379);
   box-shadow: rgba(50, 50, 93, 0.45) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   margin: 40px;
-  z-index: -1;
+  z-index: 0;
   border-radius: 20px;
   margin-top: 20;
 }
 .cardCrestLeft:hover{
-  background: red;
-  width: 80%;
-  transform: scale(1.2);
+  box-shadow: rgba(255, 255, 255, 0.785) 0px -2px 6px 0px inset;
+}
+.cardCrestRight:hover{
+  box-shadow: rgba(255, 255, 255, 0.785) 0px -2px 6px 0px inset;
+}
+.cardCrestLeftDown:hover{
+  box-shadow: rgba(255, 255, 255, 0.785) 0px -2px 6px 0px inset;
 }
 .cardCrestLeftDown{
   width: 100%;
   align-self: flex-end ;
   padding: 30px;
   margin-left: 40px;
- /*  background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%); */
  background: rgba(255, 255, 255, 0.379);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  z-index: -1;
+  z-index: 0;
   border-radius: 20px;
 }
-/* width: '30%',
-                                        display: 'flex',
-                                        alignItems: 'flex-end',
-                                        justifyContent: 'flex-end',
-                                        borderRadius: 20,
-                                        background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%)',
-                                        boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset'
-                                    } } */
+
 .cardCrestRight{
   width: 70%;
   align-self: flex-start ;
@@ -582,7 +578,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
  
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   margin: 40px;
-  z-index: -1;
+  z-index: 0;
   border-radius: 20px;
   margin-top: 0px;
 }
@@ -734,7 +730,8 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   padding-top: 80px;
   padding-bottom: 0px;
   width: 100%;
-  background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%);
+  /* background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%); */
+  background: linear-gradient(90deg, rgba(68, 70, 86, 0.543) 0%, rgba(127, 131, 149, 0.472) 50%, rgba(68, 70, 86, 0.494) 100%);
  /*  background:radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.9) 60%, rgba(46, 151, 135, 0.8) 100%); */
 
   /* background-color: #86d3c7cb; */
@@ -1550,12 +1547,15 @@ main {
  } */
   .cardCrestLeft{
     padding: 0px!important;
+    margin: 20px!important;
   }
   .cardCrestRight{
     padding: 0px!important;
+    margin: 20px;
   }
   .cardCrestLeftDown{
     padding: 0px!important;
+    margin: 20px;
   }
   .videoRes{
     display: flex;

@@ -1,5 +1,5 @@
 import { Host_Grotesk, Montserrat } from 'next/font/google';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -23,7 +23,7 @@ const AgencyCrest = () =>
 {
 
     const indice = useSelector( ( state ) => state.service.indice );
-
+    const videoRef = useRef( null );
     useEffect( () =>
     {
         AOS.init();
@@ -39,6 +39,7 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
+                
             } }
         >
             {/* <div className='backDiv'/>
@@ -56,7 +57,29 @@ const AgencyCrest = () =>
                 } }
             >
 
-
+                <div style={ {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    overflow: 'hidden',
+                    zIndex: 0,
+                } }>
+                    <video
+                        src="/video/particles.mp4"
+                        muted
+                        autoPlay
+                        loop
+                        preload="auto"
+                        ref={ videoRef }
+                        className='videoResponsive'
+                        style={ {
+                            width: '100%',
+                            objectFit: 'cover',
+                            opacity:0.1,
+                        } }
+                    />
+                </div>
                 <div data-aos={ 'fade-right' } >
                     <Tilt
                         tiltMaxAngleX={ 3 }  // Movimenti delicati
@@ -65,7 +88,7 @@ const AgencyCrest = () =>
                         transitionSpeed={ 250 }  // Transizione fluida
                     >
                         <div style={ { width: '100%', justifyContent: 'flex-start', display: 'flex' } }>
-                            <div className='cardCrestLeft' style={{margin:40}}>
+                            <div className='cardCrestLeft' style={ { margin: 40 } }>
                                 <div style={ { display: 'flex', justifyContent: 'flex-start', gap: 40, height: '100%', display: 'flex', } }>
 
                                     <div className='img_responsive'>
@@ -117,7 +140,7 @@ const AgencyCrest = () =>
 
                                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                                             <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Perchè scegliere Casavi?</p>
-                                            <p className='font100' style={ { width: '90%', fontSize: 16,  color: '#333' } }>Centralizzando le operazioni, Casavi garantisce un elevato standard di qualità e una personalizzazione
+                                            <p className='font100' style={ { width: '90%', fontSize: 16, color: '#333' } }>Centralizzando le operazioni, Casavi garantisce un elevato standard di qualità e una personalizzazione
                                                 del servizio. Questo modello ottimizza le risorse disponibili e migliora l’efficienza complessiva,
                                                 permettendo di offrire soluzioni su misura che rispondono alle esigenze specifiche di ogni cliente. In
                                                 questo modo, Casavi non è solo un fornitore, ma un partner affidabile nel realizzare progetti di alta
@@ -143,7 +166,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <img className='img_responsive' src='/images/check.png' width='270px' style={ { position: 'absolute',  marginTop:-10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <img className='img_responsive' src='/images/check.png' width='270px' style={ { position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 
@@ -199,10 +222,10 @@ const AgencyCrest = () =>
                         <ColumnChart />
                         <div style={ { padding: 15, background: 'linear-gradient(83deg, rgba(253, 240, 249, 0.631) 0%, rgba(255, 255, 255, 0.937) 44%, rgba(230, 255, 250, 0.591) 100%)', zIndex: 10, borderRadius: 10, boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' } }>
                             <p style={ { lineHeight: 1.2, textAlign: 'left' } }>
-                                { indice.includes( 'Match' ) && 'Il match è una figata e bla bla bla un po di testo per farlo lungo il giusto per poter controllare come viene.' }
-                                { indice.includes( 'Intere' ) && 'INTERESSi è una figata e bla bla bla un po di testo per farlo lungo il giusto per poter controllare come viene.' }
-                                { indice.includes( 'Collabo' ) && 'COLLABO è una figata e bla bla bla un po di testo per farlo lungo il giusto per poter controllare come viene.' }
-                                { indice.includes( 'Tempi' ) && 'TIME è una figata e bla bla bla un po di testo per farlo lungo il giusto per poter controllare come viene.' }
+                                { indice.includes( 'Match' ) && 'Connettere aziende complementari per collaborazioni su progetti, ottimizando risorse, competenze e risultati operativi.' }
+                                { indice.includes( 'Intere' ) && 'Le imprese mirano a sinergie strategiche, condivisione di risorse, riduione dei costi e aumento della competitività.' }
+                                { indice.includes( 'Collabo' ) && 'Le imprese favoriscono sinergie strategiche, condivisione di competenze, innovazione, ottimizzazione dei costi e crescita comune.' }
+                                { indice.includes( 'Tempi' ) && 'Imprese che collaborano nella coordinazione dei progetti, rispettando scadenze ed efficenza operativa.' }
                                 { !indice && 'Scorri sui bottoni per capire gli step!' }
                             </p>
                         </div>

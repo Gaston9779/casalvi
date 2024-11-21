@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Host_Grotesk, Poppins } from 'next/font/google';
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '400' ],
+    weight: [ '300' ],
 } );
 import * as XLSX from 'xlsx'
 export const UserFormLib = () =>
@@ -144,20 +144,20 @@ export const UserFormLib = () =>
         <div className='userFormGrid' >
 
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Nome e cognome:</label>
+            <label style={{color:'white'}}>Nome e cognome:</label>
             <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent' } } name="nomeCognome" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Email</label>
+            <label style={{color:'white'}}>Email</label>
             <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent' } } name="email" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Città</label>
+            <label style={{color:'white'}}>Città</label>
 
             <input defaultValue={ formState.città } onChange={ ( e ) => { setForm( { ...formState, città: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor:'transparent'  } } name="citta" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Lingua:</label>
+            <label style={{color:'white'}}>Lingua:</label>
             <Select value={ formState.language ?? '' } onChange={ ( e ) => { setForm( { ...formState, language: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="language" >
               {
                 listNaztion ? listNaztion.map( ( item, index ) =>
@@ -168,7 +168,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Da quanto tempo fai questo lavoro?</label>
+            <label style={{color:'white'}}>Da quanto tempo fai questo lavoro?</label>
             <Select value={ formState.tempoLavoro ?? '' } onChange={ ( e ) => { setForm( { ...formState, tempoLavoro: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', } } name="tempoLavoro" >
               <MenuItem value='Più di 4 anni'>Più di 4 anni</MenuItem>
               <MenuItem value='Meni di 4 anni'>Meni di 4 anni</MenuItem>
@@ -176,7 +176,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Da quanto personale assunto ti avvali?</label>
+            <label style={{color:'white'}}>Da quanto personale assunto ti avvali?</label>
             <Select value={ formState.personale ?? '' } onChange={ ( e ) => { setForm( { ...formState, personale: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10,} } name="personale" >
               <MenuItem value='nessuno'>Nessuno</MenuItem>
               <MenuItem value='1-2'>Da 1 a 2</MenuItem>
@@ -188,7 +188,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Hai mezzi e capitali propri?</label>
+            <label style={{color:'white'}}>Hai mezzi e capitali propri?</label>
             <Select value={ formState.mezziECapitali ?? '' } onChange={ ( e ) => { setForm( { ...formState, mezziECapitali: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="mezziECapitali" >
               <MenuItem value='10k'>Si per lavori fino a 10.000€</MenuItem>
               <MenuItem value='20k'>Si per lavori fino a 20.000€</MenuItem>
@@ -201,7 +201,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Cosa fai per tenerti aggiornato?</label>
+            <label style={{color:'white'}}>Cosa fai per tenerti aggiornato?</label>
 
             <Select value={ formState.aggiornamenti ?? '' } onChange={ ( e ) => { setForm( { ...formState, aggiornamenti: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="aggiornamenti" >
               <MenuItem value='Frequento corsi con periodi di pratica della durata di un anno'>Frequento corsi con periodi di pratica della durata di un anno</MenuItem>
@@ -210,18 +210,18 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Hai l iscrizione SOA?</label>
+            <label style={{color:'white'}}>Hai l iscrizione SOA?</label>
             <Select value={ formState.SOA ?? '' } onChange={ ( e ) => { setForm( { ...formState, SOA: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="SOA" >
               <MenuItem value='si'>Si</MenuItem>
               <MenuItem value='no'>No</MenuItem>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Se sì per quale importo?</label>
+            <label style={{color:'white'}}>Se sì per quale importo?</label>
             <input disabled={ formState.SOA === 'si' ? false : true } onChange={ ( e ) => { setForm( { ...formState, importoSOA: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: '1px solid lightgrey' } } name="importoSOA" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Se sì per quale categoria?</label>
+            <label style={{color:'white'}}>Se sì per quale categoria?</label>
 
             <Select value={ formState.categoriaSOA ?? '' } onChange={ ( e ) => { setForm( { ...formState, categoriaSOA: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="categoriaSOA" >
               <MenuItem value='OG1'>OG 1 EDIFICI CIVILI E INDUSTRIALI</MenuItem>
@@ -229,7 +229,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Sei qualificato posatore cappotti (ETICS)?</label>
+            <label style={{color:'white'}}>Sei qualificato posatore cappotti (ETICS)?</label>
             <Select value={ formState.qualificaCappotti ?? '' } onChange={ ( e ) => { setForm( { ...formState, qualificaCappotti: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="qualificaCappotti" >
               <MenuItem value='si'>Si</MenuItem>
               <MenuItem value='no'>No</MenuItem>
@@ -239,7 +239,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Sei assicurato?</label>
+            <label style={{color:'white'}}>Sei assicurato?</label>
             <Select value={ formState.assicurato ?? '' } onChange={ ( e ) => { setForm( { ...formState, assicurato: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="assicurato" >
               <MenuItem value='si'>Si</MenuItem>
               <MenuItem value='no'>No</MenuItem>
@@ -247,11 +247,11 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Con quali magazzini usualmente lavori?</label>
+            <label style={{color:'white'}}>Con quali magazzini usualmente lavori?</label>
             <input placeholder='magazzini' onChange={ ( e ) => { setForm( { ...formState, magazzini: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, backgroundColor:'transparent' ,border: '1px solid #46464a' } } type="email" name="magazzini" />
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Sei soggetto all attestazione CCNL?</label>
+            <label style={{color:'white'}}>Sei soggetto all attestazione CCNL?</label>
 
             <Select value={ formState.CCNL ?? '' } onChange={ ( e ) => { setForm( { ...formState, CCNL: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="CCNL" >
               <MenuItem value='si'>Si</MenuItem>
@@ -259,7 +259,7 @@ export const UserFormLib = () =>
             </Select>
           </div>
           <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-            <label>Sei interessato allo sconto in fattura?</label>
+            <label style={{color:'white'}}>Sei interessato allo sconto in fattura?</label>
             <Select value={ formState.scontoFattura ?? '' } onChange={ ( e ) => { setForm( { ...formState, scontoFattura: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none' } } name="scontoFattura" >
               <MenuItem value='totale'>Si per la totale commessa</MenuItem>
               <MenuItem value='da concordare'>Si per una quota da concordare</MenuItem>
