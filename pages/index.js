@@ -153,7 +153,7 @@ export default function Home ()
             objectFit: 'cover',
           } }
         />
-       {isMobile && <video
+        { isMobile && <video
           src="/video/video2.mp4"
           muted
           autoPlay
@@ -167,7 +167,7 @@ export default function Home ()
             height: '100%',
             objectFit: 'cover',
           } }
-        />}
+        /> }
       </div>
 
       {/* Contenuti */ }
@@ -184,7 +184,7 @@ export default function Home ()
           <p className='mobileNone' style={ { fontSize: 80, color: 'white', textAlign: 'center', opacity: '80%' } }>CASAVI</p>
           <p className='animatedHome'>Sogni condivisi, soluzioni collettive!</p>
           <div style={ { display: 'flex', justifyContent: 'center' } } data-aos={ 'zoom-in' }>
-            <div className='borderLight'>Scopri la nostra rete di imprese</div>
+            <div className='borderLight'> <Link href="/chisiamo" >Scopri la nostra rete di imprese</Link> </div>
           </div>
         </div>
       ) }

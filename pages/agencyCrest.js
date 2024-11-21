@@ -1,5 +1,5 @@
 import { Host_Grotesk, Montserrat } from 'next/font/google';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -24,8 +24,15 @@ const AgencyCrest = () =>
 
     const indice = useSelector( ( state ) => state.service.indice );
     const videoRef = useRef( null );
+    const videoRefMob = useRef( null );
+    const [ isMobile, setIsMobile ] = useState( false );
+    const checkWidth = useCallback( () =>
+    {
+        setIsMobile( window.screen.width < 600 );
+    }, [] );
     useEffect( () =>
     {
+        checkWidth()
         AOS.init();
         AOS.refresh()
     }, [] )
@@ -39,7 +46,7 @@ const AgencyCrest = () =>
                 alignItems: 'flex-start',
                 justifyContent: 'center',
                 height: '100%',
-                
+
             } }
         >
             {/* <div className='backDiv'/>
@@ -56,30 +63,49 @@ const AgencyCrest = () =>
 
                 } }
             >
-
                 <div style={ {
                     position: 'fixed',
                     top: 0,
                     left: 0,
                     width: '100vw',
+                    height: '100vh',
                     overflow: 'hidden',
                     zIndex: 0,
                 } }>
-                    <video
+                     <video
                         src="/video/particles.mp4"
                         muted
                         autoPlay
                         loop
                         preload="auto"
+                           className='videoResponsive'
                         ref={ videoRef }
                         style={ {
                             width: '100%',
                             objectFit: 'cover',
-                            opacity:0.1,
-                            height:'100vh'
+                            opacity: 0.1,
+                            height: '100vh',
+                            opacity:0.1
                         } }
                     />
+                    { isMobile && <video
+                        src="/video/particles2.mp4"
+                        muted
+                        autoPlay
+                        loop
+                        playsInline
+                        preload="auto"
+                        ref={ videoRefMob }
+                        className='videoRes'
+                        style={ {
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            opacity:0.1
+                        } }
+                    /> }
                 </div>
+               
                 <div data-aos={ 'fade-right' } >
                     <Tilt
                         tiltMaxAngleX={ 3 }  // Movimenti delicati
