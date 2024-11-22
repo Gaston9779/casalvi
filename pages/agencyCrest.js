@@ -252,7 +252,7 @@ const AgencyCrest = () =>
                         <div style={ { padding: 15, background: 'linear-gradient(83deg, rgba(253, 240, 249, 0.631) 0%, rgba(255, 255, 255, 0.937) 44%, rgba(230, 255, 250, 0.591) 100%)', zIndex: 10, borderRadius: 10, boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' } }>
                             <p style={ { lineHeight: 1.2, textAlign: 'left' } }>
                                 { indice.includes( 'Match' ) && 'Connettere aziende complementari per collaborazioni su progetti, ottimizando risorse, competenze e risultati operativi.' }
-                                { indice.includes( 'Intere' ) && 'Le imprese mirano a sinergie strategiche, condivisione di risorse, riduione dei costi e aumento della competitività.' }
+                                { indice.includes( 'Intere' ) && 'Le imprese mirano a sinergie strategiche, condivisione di risorse, riduzione dei costi e aumento della competitività.' }
                                 { indice.includes( 'Collabo' ) && 'Le imprese favoriscono sinergie strategiche, condivisione di competenze, innovazione, ottimizzazione dei costi e crescita comune.' }
                                 { indice.includes( 'Tempi' ) && 'Imprese che collaborano nella coordinazione dei progetti, rispettando scadenze ed efficenza operativa.' }
                                 { !indice && 'Scorri sui bottoni per capire gli step!' }

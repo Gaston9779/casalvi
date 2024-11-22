@@ -55,14 +55,17 @@ export default function App ( { Component, pageProps } )
                     video.onerror = resolve;
                 } else
                 {
-                    resolve();
+                    resolve(); // Risolve subito se non c'è alcun video
                 }
             } ),
         ];
 
-        Promise.all( mediaPromises ).then( () =>
+        // Fallback: Timeout per sbloccare il loader se le risorse non sono caricate in tempo
+        const timeout = new Promise( ( resolve ) => setTimeout( resolve, 3500 ) ); // 5 secondi di timeout
+
+        Promise.race( [ Promise.all( mediaPromises ), timeout ] ).then( () =>
         {
-            setIsLoading( false ); // Nasconde il loader quando tutte le risorse sono caricate
+            setIsLoading( false ); // Nasconde il loader quando tutte le risorse sono caricate o il timeout scade
         } );
     }, [] );
 
