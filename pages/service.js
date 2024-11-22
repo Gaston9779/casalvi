@@ -25,11 +25,17 @@ const listina = [
 const ServicePages = () =>
 {
     const videoRef = useRef( null );
+    const videoRefMob = useRef( null );
+    const [ isMobile, setIsMobile ] = useState( false );
+    const checkWidth = useCallback( () =>
+    {
+        setIsMobile( window.screen.width < 600 );
+    }, [] );
 
     useEffect( () =>
     {
 
-
+        checkWidth()
         AOS.init( {
             duration: 1000,
             easing: 'ease-in-out',
@@ -71,7 +77,7 @@ const ServicePages = () =>
                     width: '100vw',
                     height: '100vh',
                     overflow: 'hidden',
-                    zIndex: -1,
+                    zIndex: 0,
                 } }>
                     <video
                         src="/video/particles.mp4"
@@ -79,16 +85,32 @@ const ServicePages = () =>
                         autoPlay
                         loop
                         preload="auto"
-                        ref={ videoRef }
                         className='videoResponsive'
+                        ref={ videoRef }
+                        style={ {
+                            width: '100%',
+                            objectFit: 'cover',
+                            opacity: 0.1,
+                            height: '100vh',
+                            opacity: 0.1
+                        } }
+                    />
+                    { isMobile && <video
+                        src="/video/particles2.mp4"
+                        muted
+                        autoPlay
+                        loop
+                        playsInline
+                        preload="auto"
+                        ref={ videoRefMob }
+                        className='videoRes'
                         style={ {
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
-                            zIndex: -1,
-                            opacity: 0.1,
+                            opacity: 0.1
                         } }
-                    />
+                    /> }
                 </div>
 
                 <Tilt

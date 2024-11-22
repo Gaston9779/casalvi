@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import GoogleMapComponent from '../component/GoogleMapComponent'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 const italiana = Host_Grotesk( {
@@ -8,6 +8,16 @@ const italiana = Host_Grotesk( {
 const Contact = () =>
 {
     const videoRef = useRef( null );
+    const videoRefMob = useRef( null );
+    const [ isMobile, setIsMobile ] = useState( false );
+    const checkWidth = useCallback( () =>
+    {
+        setIsMobile( window.screen.width < 600 );
+    }, [] );
+
+    useEffect(()=> {
+        checkWidth()
+    },[])
     return (
         <div
             className="gradient2"
@@ -26,7 +36,7 @@ const Contact = () =>
                 width: '100vw',
                 height: '100vh',
                 overflow: 'hidden',
-                zIndex: -1,
+                zIndex: 0,
             } }>
                 <video
                     src="/video/particles.mp4"
@@ -34,24 +44,40 @@ const Contact = () =>
                     autoPlay
                     loop
                     preload="auto"
-                    ref={ videoRef }
                     className='videoResponsive'
+                    ref={ videoRef }
+                    style={ {
+                        width: '100%',
+                        objectFit: 'cover',
+                        opacity: 0.1,
+                        height: '100vh',
+                        opacity: 0.1
+                    } }
+                />
+                { isMobile && <video
+                    src="/video/particles2.mp4"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="auto"
+                    ref={ videoRefMob }
+                    className='videoRes'
                     style={ {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        zIndex: -1,
-                        opacity: 0.1,
+                        opacity: 0.1
                     } }
-                />
+                /> }
             </div>
             <div style={ { height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', padding: 40 } }>
                 <GoogleMapComponent />
 
                 <div style={ { padding: 30, display: 'flex', flexDirection: 'column', gap: 20 } }>
                     <p className={ italiana.className } style={ { textAlign: 'center', color: 'white', } }>Via della Zarga, 42, Lavis 38015</p>
-                    <a href={ `tel:0461 1821559` } target="_blank" rel="noopener noreferrer" className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration:'underline'  } }>Tel: 0461 1821559</a>
-                    <a className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration:'underline' } } href={ `mailto:info@casavi.it` } target="_blank" rel="noopener noreferrer">
+                    <a href={ `tel:0461 1821559` } target="_blank" rel="noopener noreferrer" className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } }>Tel: 0461 1821559</a>
+                    <a className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } } href={ `mailto:info@casavi.it` } target="_blank" rel="noopener noreferrer">
                         Mail: info@casavi.it
                     </a>
                 </div>

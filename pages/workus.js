@@ -24,6 +24,12 @@ const ContactUs = ( { type } ) =>
     const [ selected, setSelected ] = useState( null )
     const [ name, setName ] = useState( '' )
     const videoRef = useRef( null );
+    const videoRefMob = useRef( null );
+    const [ isMobile, setIsMobile ] = useState( false );
+    const checkWidth = useCallback( () =>
+    {
+        setIsMobile( window.screen.width < 600 );
+    }, [] );
     /*   const openModal = () => setSelected( true );  // Funzione per aprire il modal */
 
     const form = useRef();
@@ -46,6 +52,7 @@ const ContactUs = ( { type } ) =>
     }, [] )
     useEffect( () =>
     {
+        checkWidth()
         AOS.init( {
             duration: 1000,
             easing: 'ease-in-out',
@@ -57,7 +64,7 @@ const ContactUs = ( { type } ) =>
 
     return (
         <div className='gradient2' style={ { display: 'flex', alignItems: 'center', paddingTop: '100px', gap: 0, height: '100%', minHeight: '100vh', width: '100%', justifyContent: 'center' } }>
-           
+
             <div style={ {
                 position: 'fixed',
                 top: 0,
@@ -65,7 +72,7 @@ const ContactUs = ( { type } ) =>
                 width: '100vw',
                 height: '100vh',
                 overflow: 'hidden',
-                zIndex: -1,
+                zIndex: 0,
             } }>
                 <video
                     src="/video/particles.mp4"
@@ -73,16 +80,32 @@ const ContactUs = ( { type } ) =>
                     autoPlay
                     loop
                     preload="auto"
-                    ref={ videoRef }
                     className='videoResponsive'
+                    ref={ videoRef }
+                    style={ {
+                        width: '100%',
+                        objectFit: 'cover',
+                        opacity: 0.1,
+                        height: '100vh',
+                        opacity: 0.1
+                    } }
+                />
+                { isMobile && <video
+                    src="/video/particles2.mp4"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="auto"
+                    ref={ videoRefMob }
+                    className='videoRes'
                     style={ {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        zIndex: -1,
-                        opacity: 0.1,
+                        opacity: 0.1
                     } }
-                />
+                /> }
             </div>
             {/*  <div className='backDiv'/>
             <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
