@@ -32,17 +32,17 @@ const MiniSidebar = ( { id, title, list, handle, subtitle, active }: Props ) =>
             active: false
         },
         {
-            name: 'Tetti',
+            name: 'Fotovoltaici',
             id: 3,
             active: false
         },
         {
-            name: 'Cappotti',
+            name: 'Tetti',
             id: 4,
             active: false
         },
         {
-            name: 'Pannelli',
+            name: 'Cappotti',
             id: 5,
             active: false
         },

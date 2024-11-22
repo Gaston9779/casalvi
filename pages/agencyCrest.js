@@ -8,6 +8,7 @@ import MyDoughnutChart from '../component/MyDoughnutChart';
 import ColumnChart from '../component/ColumnsChart.tsx';
 import { selectSlice, setHoverText } from "../redux/ServiceSlice"
 import { useSelector } from 'react-redux';
+import Counter from '../component/Counter.js';
 
 
 const italiana = Host_Grotesk( {
@@ -72,20 +73,20 @@ const AgencyCrest = () =>
                     overflow: 'hidden',
                     zIndex: 0,
                 } }>
-                     <video
+                    <video
                         src="/video/particles.mp4"
                         muted
                         autoPlay
                         loop
                         preload="auto"
-                           className='videoResponsive'
+                        className='videoResponsive'
                         ref={ videoRef }
                         style={ {
                             width: '100%',
                             objectFit: 'cover',
                             opacity: 0.1,
                             height: '100vh',
-                            opacity:0.1
+                            opacity: 0.1
                         } }
                     />
                     { isMobile && <video
@@ -101,11 +102,11 @@ const AgencyCrest = () =>
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
-                            opacity:0.1
+                            opacity: 0.1
                         } }
                     /> }
                 </div>
-               
+
                 <div data-aos={ 'fade-right' } >
                     <Tilt
                         tiltMaxAngleX={ 3 }  // Movimenti delicati
@@ -180,7 +181,6 @@ const AgencyCrest = () =>
                                         alignItems: 'flex-end',
                                         justifyContent: 'flex-end',
                                         borderRadius: 20,
-                                        background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%)',
                                         boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset'
                                     } }>
                                         <Tilt
@@ -192,7 +192,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <img className='img_responsive' src='/images/check.png' width='270px' style={ { position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <img className='img_responsive' src='/images/h.png' width='270px' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 
@@ -202,6 +202,9 @@ const AgencyCrest = () =>
                             </div>
                         </div>
                     </Tilt>
+                </div>
+                <div style={ { display: 'flex', width: '100%', justifyContent: 'center', paddingBottom: 0 } }>
+                    <Counter />
                 </div>
                 <div className='columnTempl'>
 
@@ -220,7 +223,7 @@ const AgencyCrest = () =>
 
                                 <div style={ {
                                     width: '100%', padding: 30,
-                                    background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.111) 0%, rgb(251, 251, 251, 0.5) 44%, rgba(27, 229, 189, 0.226) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset',
+                                    background: 'linear-gradient(83deg, rgba(255, 242, 251, 0.411) 0%, rgb(251, 251, 251, 0.3) 44%, rgba(201, 244, 235, 0.226) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset',
                                     overflow: 'hidden', margin: '0 auto', zIndex: 1, borderRadius: 20, marginTop: 0, display: 'flex', justifyContent: 'space-between'
                                 } }>
 
@@ -256,6 +259,7 @@ const AgencyCrest = () =>
                             </p>
                         </div>
                     </div>
+
 
                 </div>
 

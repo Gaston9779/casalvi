@@ -17,7 +17,7 @@ const listina = [
     { id: 0, title: 'Idraulico', subtitle: 'Bla bla', sub: 'idraaa' },
     { id: 1, title: 'Elettricista', subtitle: 'Bla IDAS', sub: 'eleee' },
     { id: 2, title: 'Muratori', subtitle: 'Bla bla', sub: 'muraaa' },
-    { id: 3, title: 'Tetti', subtitle: 'Bla IDAS', sub: 'tettiii' },
+    { id: 3, title: 'Fotovoltaici', subtitle: 'Bla IDAS', sub: 'Fotovoltaici' },
     { id: 4, title: 'Cappotti', subtitle: 'Bla bla', sub: 'caaap' },
     { id: 5, title: 'Pannelli', subtitle: 'Bla IDAS', sub: 'paaa' },
 ];

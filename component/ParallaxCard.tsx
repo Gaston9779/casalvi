@@ -92,9 +92,9 @@ const ParallaxCard = () =>
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
-                    <h2>Tetti</h2>
+                    <h2>Fotovoltaici</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Fotovoltaici' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -122,11 +122,11 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    {/* <img src="https://images.wikidexcdn.net/mwuploads/wikidex/2/2e/latest/20200102044414/Bellossom_EpEc.gif" alt=""/> */ }
+                <img style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/tetti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
-                    <h2>Cappotti</h2>
+                    <h2>Tetti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
                     <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
@@ -139,7 +139,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    {/* <img src="https://images.wikidexcdn.net/mwuploads/wikidex/2/2e/latest/20200102044414/Bellossom_EpEc.gif" alt=""/> */ }
+                <img style={ { transform: 'scale(0.9)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/cappotti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">

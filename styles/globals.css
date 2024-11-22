@@ -372,7 +372,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   height: 400px;
   position: absolute;
   /* border: 1px solid #ffffff; */
-  bottom: -175px;
+  bottom: -185px;
   background: linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%);
   border-bottom: none;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -537,7 +537,31 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 .arrow-button:hover {
   color: #007bff;
 }
-
+.counterCard {
+  display: flex;
+  width: 100%;
+  margin-right:40px;
+  margin-left:40px;
+  z-index: 1;
+  margin-bottom:40px;
+  background: linear-gradient(83deg, rgba(255, 242, 251, 0.411) 0%, rgb(251, 251, 251, 0.3) 44%, rgba(201, 244, 235, 0.226) 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  justify-content: space-around;
+  padding: 20px;
+  border-radius:20px  
+}
+.counterCard:hover {
+  display: flex;
+  width: 100%;
+  margin-right:40px;
+  margin-left:40px;
+  margin-bottom:40px;
+  background: rgba(255, 255, 255, 0.379);
+  box-shadow: rgba(255, 255, 255, 0.785) 0px -2px 6px 0px inset;
+  justify-content: space-around;
+  padding: 20px;
+  border-radius:20px  
+}
 .cardCrestLeft{
   width: 70%;
   align-self: flex-end ;
@@ -588,7 +612,8 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   display: flex;
   overflow: hidden;
   border-radius: 20px;
-  background: linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%);
+ /*  background: linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%); */
+ background: transparent;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -731,7 +756,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   padding-bottom: 0px;
   width: 100%;
   /* background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%); */
-  background: linear-gradient(90deg, rgba(68, 70, 86, 0.543) 0%, rgba(127, 131, 149, 0.472) 50%, rgba(68, 70, 86, 0.494) 100%);
+  background: linear-gradient(90deg, rgba(68, 70, 86, 0.332) 0%, rgba(127, 131, 149, 0.128) 50%, rgba(116, 117, 125, 0.31) 100%);
  /*  background:radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.9) 60%, rgba(46, 151, 135, 0.8) 100%); */
 
   /* background-color: #86d3c7cb; */
@@ -1671,6 +1696,25 @@ main {
    .formStyle{
     text-align: center;
    }
+   .counterCard {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+   }
   
 }
 
+@media only screen and (max-width: 360px) {
+  .cardM{
+    width: 330px;
+  }
+  .card{
+    width: 330px;
+  }
+  .card .img__back {
+    bottom: -215px;
+  }
+  .cardM .img__backM {
+    bottom: -200px;
+  }
+}
