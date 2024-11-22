@@ -112,7 +112,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                 <div className="logoDimension">
                     <Link href="/" onClick={ () => handle( '/' ) }>
                         {/* <p style={ { color: 'white' } } className="logoNavbar">CASAVI</p> */}
-                        <img style={{width:'100%', height:'110px'}} src='/images/loghetto.png' alt='' />
+                        <img loading="lazy"  style={{width:'100%', height:'110px'}} src='/images/loghetto.png' alt='' />
                     </Link>
                 </div>
                 <div className="hamburger" style={ { width: '100%', marginTop: -5 } }>
@@ -128,7 +128,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                 { mobile && (
                     <div className="burgerone">
                         <Link href="/" onClick={ () => handle( '/' ) }>
-                        <img src='/images/loghetto.png' alt='' />
+                        <img loading="lazy"  src='/images/loghetto.png' alt='' />
                     </Link>
                         <Icon onClick={ () => setMenuMobile( !menuMobile ) } icon="lets-icons:menu" />
                     </div>

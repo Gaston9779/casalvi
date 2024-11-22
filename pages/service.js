@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ParallaxCard from '../component/ParallaxCard'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 import AOS from 'aos';
@@ -130,7 +130,7 @@ const ServicePages = () =>
                                     transitionSpeed={ 250 } // Transizione fluida
                                     style={ { display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', borderRadius: 20, height: '100%', background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', } }>
 
-                                    <img src='/images/facility.png' width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom: '15px' } } height={ '100%' } alt='' />
+                                    <img loading="lazy"  src='/images/facility.png' width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom: '15px' } } height={ '100%' } alt='' />
 
                                 </Tilt>
                             </div>

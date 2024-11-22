@@ -46,7 +46,7 @@ const ColumnChart = ( { selected }: Props ) =>
         <div className="containerWorks" >
             <div content="Match" className="worksCard">
                 <div className={ !isHover.includes( 'Match' ) ? "card_work" : "card_work_selected" }>
-                    <img src="/images/d.png" width={ '100%' } alt="" />
+                    <img loading="lazy" src="/images/d.png" width={ '100%' } alt="" />
 
                 </div>
                 <div style={ { display: 'flex', alignItems: 'center', gap: 10 } }>
@@ -56,7 +56,7 @@ const ColumnChart = ( { selected }: Props ) =>
             </div>
             <div content="Interess" className="worksCard">
                 <div className={ !isHover.includes( 'Interessi' ) ? "card_work" : "card_work_selected" }>
-                    <img src="/images/c.png" width={ '100%' } alt="" />
+                    <img loading="lazy" src="/images/c.png" width={ '100%' } alt="" />
 
                 </div>
                 <div style={ { height: '30px', width: '30px' } } className="graphWorks">
@@ -70,7 +70,7 @@ const ColumnChart = ( { selected }: Props ) =>
             </div>
             <div content="Collaborazioni" className="worksCard">
                 <div className={ !isHover.includes( 'Collaborazioni' ) ? "card_work" : "card_work_selected" }>
-                    <img src="/images/b.png" width={ '100%' } alt="" />
+                    <img loading="lazy" src="/images/b.png" width={ '100%' } alt="" />
                 </div>
                 <div style={ { height: '40px', width: '40px' } } className="graphWorks">
 
@@ -84,7 +84,7 @@ const ColumnChart = ( { selected }: Props ) =>
             </div>
             <div content="Tempistiche" className="worksCard">
                 <div className={ !isHover.includes( 'Tempistiche' ) ? "card_work" : "card_work_selected" }>
-                    <img src="/images/a.png" width={ '100%' } alt="" />
+                    <img loading="lazy" src="/images/a.png" width={ '100%' } alt="" />
                 </div>
                 <div style={ { height: '50px', width: '50px' } } className="graphWorks">
 

@@ -44,7 +44,7 @@ const PageProfile = ( { image, name, previousUser, nextHandle, prevHandle, surna
 
             </div> }
             { name === 'Riccardo' && <div style={ { width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100vh', position: 'absolute', right: '-12%' } }>
-                { <img alt='' src={ image }  style={ { mixBlendMode: 'multiply', transform: 'scale(3)', marginTop: '20%' } } /> }
+                { <img loading="lazy"  alt='' src={ image }  style={ { mixBlendMode: 'multiply', transform: 'scale(3)', marginTop: '20%' } } /> }
 
             </div> }
 

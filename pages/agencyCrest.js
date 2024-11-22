@@ -125,7 +125,7 @@ const AgencyCrest = () =>
                                             transitionSpeed={ 250 }  // Transizione fluida
                                             className='tiltCard '>
 
-                                            <img src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
+                                            <img loading="lazy"  src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
 
                                         </Tilt>
                                     </div>
@@ -192,7 +192,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <img className='img_responsive' src='/images/h.png' width='270px' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <img loading="lazy"  className='img_responsive' src='/images/h.png' width='270px' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 
@@ -286,8 +286,8 @@ const AgencyCrest = () =>
                             } }>
                                 <div className="scroll-container">
                                     <div className="scroll-content">
-                                        <img src="/images/frame.png" alt="" className="scroll-image" />
-                                        <img src="/images/frame.png" alt="" className="scroll-image" />
+                                        <img loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <img loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
                                     </div>
                                 </div>
                             </div>

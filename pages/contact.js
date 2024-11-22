@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import GoogleMapComponent from '../component/GoogleMapComponent'
 import { Host_Grotesk, Poppins } from 'next/font/google';
 const italiana = Host_Grotesk( {
@@ -10,7 +10,7 @@ const Contact = () =>
     const videoRef = useRef( null );
     const videoRefMob = useRef( null );
     const [ isMobile, setIsMobile ] = useState( false );
-    const checkWidth = useCallback( () =>
+    const checkWidth = useCallback ( () =>
     {
         setIsMobile( window.screen.width < 600 );
     }, [] );

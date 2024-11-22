@@ -35,7 +35,7 @@ const ParallaxCard = () =>
             >
                 <div className="cardM">
                     <div className="coverM">
-                        <img style={ { transform: 'scale(0.8)', zIndex: 4, top: -30, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
+                        <img loading="lazy"  style={ { transform: 'scale(0.8)', zIndex: 4, top: -30, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
                         <div className="img__backM"></div>
                     </div>
                     <div className="descriptionM">
@@ -53,7 +53,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img style={ { transform: 'scale(1)', zIndex: 4, top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
+                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -88,7 +88,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
+                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -105,7 +105,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img style={ { transform: 'scale(1)', zIndex: 4, width: '84%', top: 30, height: '100%' } } alt='' src={ '/images/pav.png' } />
+                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '84%', top: 30, height: '100%' } } alt='' src={ '/images/pav.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -122,7 +122,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                <img style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/tetti.png' } />
+                <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/tetti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -139,7 +139,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                <img style={ { transform: 'scale(0.9)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/cappotti.png' } />
+                <img loading="lazy"  style={ { transform: 'scale(0.9)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/cappotti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
