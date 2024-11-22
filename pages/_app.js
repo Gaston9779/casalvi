@@ -10,7 +10,7 @@ import Loader from '../component/Loader';
 import AOS from 'aos';
 import CookieConsent from 'react-cookie-consent';
 import Cookies from 'js-cookie';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 import { Host_Grotesk, Poppins } from 'next/font/google';
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
@@ -18,159 +18,181 @@ const italiana = Host_Grotesk( {
 } );
 
 
-export default function App({ Component, pageProps }) {
-    const [isLoading, setIsLoading] = useState(true); // Inizializza a true per mostrare il loader all'inizio
-    const [navbarDark, setNavbarDark] = useState(false);
+export default function App ( { Component, pageProps } )
+{
+    const [ isLoading, setIsLoading ] = useState( true ); // Inizializza a true per mostrare il loader all'inizio
+    const [ navbarDark, setNavbarDark ] = useState( false );
     const router = useRouter();
 
     // Funzione per controllare se tutte le risorse (immagini, video) sono caricate
-    const checkAllResourcesLoaded = useCallback(() => {
-        const images = document.querySelectorAll('img');
-        const video = document.querySelector('video');
+    const checkAllResourcesLoaded = useCallback( () =>
+    {
+        const images = document.querySelectorAll( 'img' );
+        const video = document.querySelector( 'video' );
 
-        // Crea un array di promesse per ogni immagine
         const mediaPromises = [
-            ...Array.from(images).map((img) =>
-                new Promise((resolve) => {
-                    if (img.complete) {
+            ...Array.from( images ).map( ( img ) =>
+                new Promise( ( resolve ) =>
+                {
+                    if ( img.complete )
+                    {
                         resolve();
-                    } else {
+                    } else
+                    {
                         img.onload = resolve;
-                        img.onerror = resolve; // Risolvi anche in caso di errore
+                        img.onerror = resolve;
                     }
-                })
+                } )
             ),
-            // Promessa per il video
-            new Promise((resolve) => {
-                if (video && video.readyState >= 3) {
+            new Promise( ( resolve ) =>
+            {
+                if ( video && video.readyState >= 3 )
+                {
                     resolve();
-                } else if (video) {
+                } else if ( video )
+                {
                     video.oncanplaythrough = resolve;
-                    video.onerror = resolve; // Risolvi in caso di errore
-                } else {
-                    resolve(); // Risolve subito se non c'è alcun video
+                    video.onerror = resolve;
+                } else
+                {
+                    resolve();
                 }
-            }),
+            } ),
         ];
 
-        // Usa Promise.all() per attendere che tutte le promesse siano risolte
-        Promise.all(mediaPromises).then(() => {
-            setIsLoading(false); // Nasconde il loader quando tutte le risorse sono caricate
-        });
-    }, []);
+        Promise.all( mediaPromises ).then( () =>
+        {
+            setIsLoading( false ); // Nasconde il loader quando tutte le risorse sono caricate
+        } );
+    }, [] );
 
-    useEffect(() => {
-        // Gestisce gli eventi di cambio rotta per Next.js
-        const handleStart = () => {
-            setIsLoading(true); // Mostra il loader all'inizio della navigazione
+    useEffect( () =>
+    {
+        // Gestisci il ciclo di navigazione su Next.js
+        const handleStart = () =>
+        {
+            setIsLoading( true ); // Mostra il loader all'inizio della navigazione
         };
 
-        const handleComplete = () => {
+        const handleComplete = () =>
+        {
             checkAllResourcesLoaded(); // Controlla se tutte le risorse sono caricate
         };
 
         // Ascolta gli eventi di navigazione
-        router.events.on('routeChangeStart', handleStart);
-        router.events.on('routeChangeComplete', handleComplete);
-        router.events.on('routeChangeError', handleComplete);
+        router.events.on( 'routeChangeStart', handleStart );
+        router.events.on( 'routeChangeComplete', handleComplete );
+        router.events.on( 'routeChangeError', handleComplete );
 
         // Chiamata iniziale per la pagina corrente
         checkAllResourcesLoaded();
 
-        // Cleanup: rimuovi gli event listener
-        return () => {
-            router.events.off('routeChangeStart', handleStart);
-            router.events.off('routeChangeComplete', handleComplete);
-            router.events.off('routeChangeError', handleComplete);
+        return () =>
+        {
+            router.events.off( 'routeChangeStart', handleStart );
+            router.events.off( 'routeChangeComplete', handleComplete );
+            router.events.off( 'routeChangeError', handleComplete );
         };
-    }, [router, checkAllResourcesLoaded]);
+    }, [ router, checkAllResourcesLoaded ] );
 
-    const [cursorStyle, setCursorStyle] = useState('default'); // Stato per lo stile del cursore
 
-    useEffect(() => {
-        const cursor = document.querySelector('.custom-cursor');
-        const updateCursorPosition = (e) => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
+    const [ cursorStyle, setCursorStyle ] = useState( 'default' ); // Stato per lo stile del cursore
+
+    useEffect( () =>
+    {
+        const cursor = document.querySelector( '.custom-cursor' );
+        const updateCursorPosition = ( e ) =>
+        {
+            cursor.style.left = `${ e.clientX }px`;
+            cursor.style.top = `${ e.clientY }px`;
         };
 
         // Aggiungi un evento per muovere il cursore
-        window.addEventListener('mousemove', updateCursorPosition);
+        window.addEventListener( 'mousemove', updateCursorPosition );
 
-        return () => {
-            window.removeEventListener('mousemove', updateCursorPosition);
+        return () =>
+        {
+            window.removeEventListener( 'mousemove', updateCursorPosition );
         };
-    }, []);
+    }, [] );
 
     // Funzione per cambiare lo stile del cursore
-    const handleCursorEnter = () => setCursorStyle('hover');
-    const handleCursorLeave = () => setCursorStyle('default');
-    const handleConsent = () => {
-        Cookies.set('cookie-consent', 'accepted', { expires: 365 });
-      };
-      
-      if (!Cookies.get('cookie-consent')) {
-        // Mostra il banner di consenso se il cookie non è stato ancora impostato
-      }
+    const handleCursorEnter = () => setCursorStyle( 'hover' );
+    const handleCursorLeave = () => setCursorStyle( 'default' );
+    const handleConsent = () =>
+    {
+        Cookies.set( 'cookie-consent', 'accepted', { expires: 365 } );
+    };
 
-    useEffect(() => {
-        const handleScroll = () => {
+    if ( !Cookies.get( 'cookie-consent' ) )
+    {
+        // Mostra il banner di consenso se il cookie non è stato ancora impostato
+    }
+
+    useEffect( () =>
+    {
+        const handleScroll = () =>
+        {
             const threshold = 0;
             const scrollTop = window.scrollY;
-            setNavbarDark(scrollTop > threshold);
+            setNavbarDark( scrollTop > threshold );
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
+        window.addEventListener( 'scroll', handleScroll );
+        return () =>
+        {
+            window.removeEventListener( 'scroll', handleScroll );
         };
-    }, []);
-    useEffect(() => {
+    }, [] );
+    useEffect( () =>
+    {
         // Inizializzazione di AOS
-        AOS.init({
-          duration: 1000,
-          easing: 'ease-in-out',
-          once: true,
-        });
-    
+        AOS.init( {
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        } );
+
         // Aggiungi un listener per il cambio di rotta
-        const handleRouteChange = () => {
-          AOS.refresh(); // Refresh per attivare correttamente le animazioni dopo il cambio di rotta
+        const handleRouteChange = () =>
+        {
+            AOS.refresh(); // Refresh per attivare correttamente le animazioni dopo il cambio di rotta
         };
-    
+
         // Event listener per il cambio di rotta in Next.js
-        router.events.on('routeChangeComplete', handleRouteChange);
-    
-        return () => {
-          router.events.off('routeChangeComplete', handleRouteChange); // Pulizia del listener
+        router.events.on( 'routeChangeComplete', handleRouteChange );
+
+        return () =>
+        {
+            router.events.off( 'routeChangeComplete', handleRouteChange ); // Pulizia del listener
         };
-      }, [router]);
+    }, [ router ] );
 
     return (
-        <Provider store={store}>
-            {isLoading && <Loader />} {/* Mostra il loader finché `isLoading` è `true` */}
-            <Navbar navbarDark={navbarDark} />
+        <Provider store={ store }>
+            { isLoading && <Loader /> } {/* Mostra il loader finché `isLoading` è `true` */ }
+            <Navbar navbarDark={ navbarDark } />
             <CustomCursor />
             <div />
-            <Component {...pageProps} />
+            <Component { ...pageProps } />
             <CookieConsent
-           
-        location="bottom"
-        buttonText="Accetto"
-        cookieName="user-consent"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{
-          color: "#4e503b",
-          fontSize: "13px",
-          background: "#E9CF4B",
-          borderRadius: "5px",
-          padding: "5px 10px",
-        }}
-        expires={365}
-      >
-        <p className={italiana.className}>Questo sito utilizza i cookie per migliorare l esperienza dell utente.</p>
-        <span className={italiana.className} style={{ fontSize: "10px" }}>Leggi la nostra <a href="/privacy-policy">privacy policy</a></span>
-      </CookieConsent>
+
+                location="bottom"
+                buttonText="Accetto"
+                cookieName="user-consent"
+                style={ { background: "#2B373B" } }
+                buttonStyle={ {
+                    color: "#4e503b",
+                    fontSize: "13px",
+                    background: "#E9CF4B",
+                    borderRadius: "5px",
+                    padding: "5px 10px",
+                } }
+                expires={ 365 }
+            >
+                <p className={ italiana.className }>Questo sito utilizza i cookie per migliorare l esperienza dell utente.</p>
+                <span className={ italiana.className } style={ { fontSize: "10px" } }>Leggi la nostra <a href="/privacy-policy">privacy policy</a></span>
+            </CookieConsent>
             <Footer />
         </Provider>
     );
