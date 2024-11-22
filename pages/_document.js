@@ -11,7 +11,7 @@ export default function Document ()
           defer
           src={ `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7TAZQUqFdUqI0Xlo5tgaXYnPxI36YSWM&libraries=places` }
         ></script>
-
+        <link rel="icon" href="/images/fav.png" type="image/x-icon" />
       </Head>
       <body>
         <Main />
