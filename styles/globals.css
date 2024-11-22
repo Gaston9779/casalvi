@@ -1614,9 +1614,9 @@ main {
   .mobileNone {
     display: none;
   }
-/*   .loading{
+  .loading{
     display: none!important;
-  } */
+  }
   .mobileMenu {
     position: fixed;
     top: 0;
