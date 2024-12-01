@@ -74,7 +74,7 @@ const Contact = () =>
             <div style={ { height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', padding: 40 } }>
                 <GoogleMapComponent />
 
-                <div style={ { padding: 30, display: 'flex', flexDirection: 'column', gap: 20 } }>
+                <div style={ { padding: 30, display: 'flex', flexDirection: 'column', gap: 20,zIndex:10 } }>
                     <p className={ italiana.className } style={ { textAlign: 'center', color: 'white', } }>Via della Zarga, 42, Lavis 38015</p>
                     <a href={ `tel:0461 1821559` } target="_blank" rel="noopener noreferrer" className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } }>Tel: 0461 1821559</a>
                     <a className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } } href={ `mailto:info@casavi.it` } target="_blank" rel="noopener noreferrer">

@@ -35,7 +35,8 @@ const Navbar = ( { navbarDark }: Props ) =>
         bonus: false,
         service: false,
         workus: false,
-        contact: false
+        contact: false,
+        calculate:false
     } );
 
 
@@ -78,7 +79,8 @@ const Navbar = ( { navbarDark }: Props ) =>
             bonus: text === 'bonus',
             service: text === 'service',
             workus: text === 'workus',
-            contact: text === 'contact'
+            contact: text === 'contact',
+            calculate: text === 'calculate'
         } );
     }, [] );
 
@@ -119,6 +121,7 @@ const Navbar = ( { navbarDark }: Props ) =>
                     <div className="dropdown-content" style={ { display: 'flex' } }>
                         <Link href="/chisiamo" onClick={ () => handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Chi siamo</Link>
                         <Link href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Realizzazioni</Link>
+                        <Link href="/calculate" onClick={ () => handle( 'calculate' ) } className={ listNavbar.calculate ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Calcolo</Link>
                         <Link href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Servizi</Link>
                         <Link href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Lavora con noi</Link>
 

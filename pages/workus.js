@@ -72,7 +72,7 @@ const ContactUs = ( { type } ) =>
                 width: '100vw',
                 height: '100vh',
                 overflow: 'hidden',
-                zIndex: 0,
+                zIndex: -1,
             } }>
                 <video
                     src="/video/particles.mp4"
@@ -125,17 +125,17 @@ const ContactUs = ( { type } ) =>
                     <div data-name='noi' onClick={ ( e ) => openModal( e ) } style={ { width: '100%', fontWeight: 900, fontSize: 20 } } className={ name === 'noi' ? 'borderLight2' : 'borderLight' }>Lavora con noi</div>
                 </div> }
             </div>
-
-            {
-                selected && name === 'art' ? <UserFormLib /> : null
-            }
-            {
-                selected && name === 'prof' ? <FormProfessional /> : null
-            }
-            {
-                selected && name === 'noi' ? <FormWorkUs /> : null
-            }
-
+            <div style={ { zIndex: 10 } }>
+                {
+                    selected && name === 'art' ? <UserFormLib /> : null
+                }
+                {
+                    selected && name === 'prof' ? <FormProfessional /> : null
+                }
+                {
+                    selected && name === 'noi' ? <FormWorkUs /> : null
+                }
+            </div>
         </div>
     );
 };

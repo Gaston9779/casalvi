@@ -150,7 +150,7 @@ const ParallaxCard = () =>
             </div>
         </Tilt>
         {
-            selected && <Modal title={ name } text={ name } closeModal={ closeModal } isOpen={ openModal } />
+            selected && <Modal children={undefined} title={ name } text={ name } closeModal={ closeModal } isOpen={ openModal } />
         }
 
 

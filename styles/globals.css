@@ -471,6 +471,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);  /* Overlay semi-trasparente */
@@ -483,6 +484,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   background-color: white;
   padding: 30px;
   border-radius: 5px;
+  z-index: 10000;
   text-align: center;
   position: relative; /* Necessario per la posizione assoluta della freccia */
 }
@@ -516,9 +518,14 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 .close-button {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 10px;
   cursor: pointer;
   position: absolute;
+  border: 1px solid;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border-radius: 100%;
   top: 10px;
   right: 10px;
 }
@@ -1016,6 +1023,18 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   width: 70%;
   padding: 30px;
   background: linear-gradient(83deg, rgba(245, 113, 208, 0.011) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  height: auto;
+  margin: 0 auto;
+  transition: transform 0.4s ease-out;
+  z-index: -1;
+  border-radius: 20px;
+  margin-top: 20px 
+}
+.divCalc{
+  width: 70%;
+  padding: 30px;
+  background: linear-gradient(83deg, rgba(202, 195, 200, 0.144) 0%, rgb(251, 251, 251, 0.55) 44%, rgba(27, 229, 189, 0.026) 100%);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   height: auto;
   margin: 0 auto;

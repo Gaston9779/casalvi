@@ -22,7 +22,18 @@ export default function App ( { Component, pageProps } )
 {
     const [ isLoading, setIsLoading ] = useState( true ); // Inizializza a true per mostrare il loader all'inizio
     const [ navbarDark, setNavbarDark ] = useState( false );
+    const [ consentGiven, setConsentGiven ] = useState( false );
     const router = useRouter();
+    const hasConsented = Cookies.get('cookie-consent');
+
+    const handleConsent = () =>
+    {
+        // Imposta il cookie quando l'utente accetta
+        Cookies.set( 'cookie-consent', 'accepted', { expires: 365 } );
+        setConsentGiven( true ); // Imposta lo stato per non mostrare più il banner
+    };
+
+    // Controlla se il consenso è già stato dato (se il cookie esiste)
 
     // Funzione per controllare se tutte le risorse (immagini, video) sono caricate
     const checkAllResourcesLoaded = useCallback( () =>
@@ -119,19 +130,8 @@ export default function App ( { Component, pageProps } )
         };
     }, [] );
 
-    // Funzione per cambiare lo stile del cursore
-    const handleCursorEnter = () => setCursorStyle( 'hover' );
-    const handleCursorLeave = () => setCursorStyle( 'default' );
-    const handleConsent = () =>
-    {
-        Cookies.set( 'cookie-consent', 'accepted', { expires: 365 } );
-    };
 
-    if ( !Cookies.get( 'cookie-consent' ) )
-    {
-        // Mostra il banner di consenso se il cookie non è stato ancora impostato
-    }
-
+    
     useEffect( () =>
     {
         const handleScroll = () =>
@@ -182,6 +182,7 @@ export default function App ( { Component, pageProps } )
 
                 location="bottom"
                 buttonText="Accetto"
+                onAccept={ handleConsent }
                 cookieName="user-consent"
                 style={ { background: "#2B373B" } }
                 buttonStyle={ {

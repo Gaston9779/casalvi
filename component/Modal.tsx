@@ -1,6 +1,6 @@
 
 
-const Modal = ( { isOpen, closeModal, title, text,  } ) =>
+const Modal = ( { isOpen, closeModal, title, text, children } ) =>
 {
     if ( !isOpen ) return null;  // Non renderizzare nulla se il modal non è aperto
 
@@ -19,6 +19,7 @@ const Modal = ( { isOpen, closeModal, title, text,  } ) =>
                 </button>
                 <h2>{ title }</h2>
                 <p>{ text }</p>
+                {children && children}
 
             </div>
 

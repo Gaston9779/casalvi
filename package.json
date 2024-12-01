@@ -28,6 +28,7 @@
     "emailjs-com": "^3.2.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
+    "input-material-ui": "^3.1.1",
     "js-cookie": "^3.0.5",
     "js-xlsx": "^0.8.22",
     "lottie-react": "^2.3.1",
