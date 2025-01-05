@@ -414,13 +414,7 @@ const Preventivi = () =>
         checkWidth();
     }, [] );
 
-    useEffect( () =>
-    {
 
-        console.log( logged, 'PDF' )
-        console.log( row, 'rows', modal, modalEdit )
-
-    }, [ row ] );
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
@@ -707,13 +701,13 @@ const Preventivi = () =>
                                 Note: Informazioni aggiuntive o specifiche che ritieni utili per il preventivo.
                                 Scadenza dell'asta: La data entro cui è possibile presentare un'offerta.
                                 PDF del computo metrico: Carica il file PDF contenente i dettagli tecnici e quantitativi del progetto.<br /><br></br>
-                                <b>●  Accesso ai preventivi disponibili:</b> Una volta aggiunto, il preventivo sarà visibile nella tabella dell’applicativo. Puoi scaricare il file PDF del computo metrico associato al preventivo per consultare i dettagli.<br />
+                                <b>●  Accesso ai preventivi disponibili:</b> Una volta aggiunto, il preventivo sarà visibile nella tabella dell`&apos;`applicativo. Puoi scaricare il file PDF del computo metrico associato al preventivo per consultare i dettagli.<br />
                                 <br></br>
-                                <b>●  Invio della tua offerta:</b> Se vuoi partecipare all'asta, puoi cliccare sul pulsante Invia Offerta. Questo pulsante ti consente di:
+                                <b>●  Invio della tua offerta:</b> Se vuoi partecipare all`&apos;`asta, puoi cliccare sul pulsante Invia Offerta. Questo pulsante ti consente di:
 
-                                Aprire il tuo client di posta elettronica con un’email precompilata contenente i dettagli del preventivo.
+                                Aprire il tuo client di posta elettronica con un email precompilata contenente i dettagli del preventivo.
                                 Aggiungere la tua offerta personalizzata direttamente nell’email.
-                                Inviare l’email a CASAVI per partecipare alla selezione.
+                                Inviare l`&apos;`email a CASAVI per partecipare alla selezione.
 
                             </p>
                         </div>
