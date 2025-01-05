@@ -419,6 +419,9 @@ const Preventivi = () =>
     }, [] );
 
 
+    useEffect(()=> {
+        console.log(formState.pdf,'de')
+    },[formState.pdf])
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
@@ -512,7 +515,6 @@ const Preventivi = () =>
 
                 { <Modal title={'Crea preventivo'}  text={''} isOpen={ modal } closeModal={ closeModal }>
                     <div style={ { width: '600px' } } className={ hostGrotesk.className }>
-                        <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Crea preventivo</p>
                         <div className={ hostGrotesk.className } style={ styles.formContainer }>
                             <form onSubmit={ handleSubmit } style={ styles.form }>
                                 <div style={ styles.formGroup }>
@@ -588,7 +590,7 @@ const Preventivi = () =>
                                         id="pdf-input" name="pdf"
                                         onChange={ ( e ) => setForm( { ...formState, pdf: e.target.files[ 0 ] } ) }
                                     />
-                                    <p>{ formState.pdf || "Nessun file selezionato" }</p>
+                               
                                 </div>
 
                                 <button type="submit" style={ styles.submitButton }>Invia</button>
@@ -599,7 +601,6 @@ const Preventivi = () =>
                 {
                     formState && <Modal title={'Modifica preventivo'}  text={''} isOpen={ modalEdit } closeModal={ closeModalEdit }>
                         <div style={ { width: '600px' } } className={ hostGrotesk.className }>
-                            <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Modifica preventivo</p>
                             <div className={ hostGrotesk.className } style={ styles.formContainer }>
                                 <form onSubmit={ editPrev } style={ styles.form }>
                                     <div style={ styles.formGroup }>
@@ -675,7 +676,6 @@ const Preventivi = () =>
                                             id="pdf-input" name="pdf"
                                             onChange={ ( e ) => setForm( { ...formState, pdf: e.target.files[ 0 ] } ) }
                                         />
-                                        <p>{ formState.pdf || "Nessun file selezionato" }</p>
                                     </div>
 
                                     <button type="submit" style={ styles.submitButton }>Invia</button>
