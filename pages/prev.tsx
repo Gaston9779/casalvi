@@ -509,7 +509,7 @@ const Preventivi = () =>
                     </Table>
                 </TableContainer>
 
-                { <Modal isOpen={ modal } closeModal={ closeModal }>
+                { <Modal title={'Crea preventivo'}  text={''} isOpen={ modal } closeModal={ closeModal }>
                     <div style={ { width: '600px' } } className={ italiana.className }>
                         <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Crea preventivo</p>
                         <div className={ italiana.className } style={ styles.formContainer }>
@@ -596,7 +596,7 @@ const Preventivi = () =>
                     </div>
                 </Modal> }
                 {
-                    formState && <Modal isOpen={ modalEdit } closeModal={ closeModalEdit }>
+                    formState && <Modal title={'Modifica preventivo'}  text={''} isOpen={ modalEdit } closeModal={ closeModalEdit }>
                         <div style={ { width: '600px' } } className={ italiana.className }>
                             <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Modifica preventivo</p>
                             <div className={ italiana.className } style={ styles.formContainer }>
@@ -684,17 +684,15 @@ const Preventivi = () =>
                     </Modal>
                 }
                 {
-                    <Modal closeModal={ closeModalCanc } isOpen={ modalCanc } >
+                    <Modal  title={'Sei sicuro di voler cancellare?<'}  text={''}closeModal={ closeModalCanc } isOpen={ modalCanc } >
                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
-                            <p>Sei sicuro di voler cancellare?</p>
                             <button className='borderLight' style={ { backgroundColor: 'salmon' } } onClick={ deletePrev }>Si?</button>
                         </div>
                     </Modal>
                 }
                 {
-                    <Modal closeModal={ closeModalPrev } isOpen={ modalPrev } >
+                    <Modal title={'Come funzionano i preventivi'}  text={''} closeModal={ closeModalPrev } isOpen={ modalPrev } >
                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20, width: '600px' } }>
-                            <h1 style={ { display: 'flex', textAlign: 'left' } }>Come funzionano i preventivi?</h1>
                             <p style={ { textAlign: 'left' } }>
                                 <b> ● Aggiunta di un nuovo preventivo:</b>  Per creare un nuovo preventivo, inserisci i seguenti dati richiesti:
 
