@@ -283,7 +283,8 @@ const Preventivi = () =>
             const reader = new FileReader();
             reader.onloadend = async () =>
             {
-                const base64PDF = reader.result.split( ',' )[ 1 ]; // Rimuovi il prefisso 'data:application/pdf;base64,'
+                const base64PDF = typeof reader.result === 'string' ? reader.result.split( ',' )[ 1 ] : null;
+                // Rimuovi il prefisso 'data:application/pdf;base64,'
 
                 const formData = {
                     nomeClient: formState.nomeClient,
