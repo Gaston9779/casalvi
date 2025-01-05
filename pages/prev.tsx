@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { Icon } from '@iconify/react';
 import Modal from '../component/Modal';
+import { CSSProperties } from "react";
 import emailjs, { send } from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -720,7 +721,7 @@ const Preventivi = () =>
     );
 };
 
-const styles = {
+const styles: { [key: string]: CSSProperties } = {
     formContainer: {
         display: 'flex',
         flexDirection: 'column',
