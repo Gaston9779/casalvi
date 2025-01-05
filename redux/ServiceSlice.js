@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   value: '',
-  indice: ''
+  indice: '',
+  log: typeof window !== 'undefined' ? localStorage.getItem('role') || '' : '', // Controllo se 'window' è definito
 };
 
 export const serverSlice = createSlice({
@@ -16,7 +17,13 @@ export const serverSlice = createSlice({
     },
     setHoverText: (state, actions) => {
       state.indice = actions.payload; // Modifica direttamente lo stato
-    }
+    },
+    setLogged: (state, action) => {
+      state.role = action.payload;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('role', action.payload); // Aggiorna anche localStorage
+      }
+    },
   },
 
   extraReducers: (builder) => {
@@ -25,7 +32,7 @@ export const serverSlice = createSlice({
   },
 });
 
-export const { setService, setHoverText } = serverSlice.actions;
+export const { setService, setHoverText, setLogged } = serverSlice.actions;
 
 // Il selettore ora fa riferimento correttamente allo stato
 export const selectSlice = (state) => state.service.value;
