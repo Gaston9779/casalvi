@@ -17,9 +17,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogged } from '../redux/ServiceSlice';
 
-const italiana = Host_Grotesk( {
+const hostGrotesk = Host_Grotesk( {
     subsets: [ 'latin' ],
-    weight: [ '300' ],
+    weight: [ '400' ],
 } );
 
 // Stile personalizzato per le celle della tabella
@@ -422,7 +422,7 @@ const Preventivi = () =>
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
-            <div className={ italiana.className } style={ { display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: '100px' } }>
+            <div className={ hostGrotesk.className } style={ { display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: '100px' } }>
                 <div style={ {
                     position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden', zIndex: -1,
                 } }>
@@ -511,9 +511,9 @@ const Preventivi = () =>
                 </TableContainer>
 
                 { <Modal title={'Crea preventivo'}  text={''} isOpen={ modal } closeModal={ closeModal }>
-                    <div style={ { width: '600px' } } className={ italiana.className }>
+                    <div style={ { width: '600px' } } className={ hostGrotesk.className }>
                         <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Crea preventivo</p>
-                        <div className={ italiana.className } style={ styles.formContainer }>
+                        <div className={ hostGrotesk.className } style={ styles.formContainer }>
                             <form onSubmit={ handleSubmit } style={ styles.form }>
                                 <div style={ styles.formGroup }>
                                     <label style={ styles.label }>Nome Cliente:</label>
@@ -598,9 +598,9 @@ const Preventivi = () =>
                 </Modal> }
                 {
                     formState && <Modal title={'Modifica preventivo'}  text={''} isOpen={ modalEdit } closeModal={ closeModalEdit }>
-                        <div style={ { width: '600px' } } className={ italiana.className }>
+                        <div style={ { width: '600px' } } className={ hostGrotesk.className }>
                             <p style={ { fontSize: 25, fontWeight: '900', marginBottom: 30 } }>Modifica preventivo</p>
-                            <div className={ italiana.className } style={ styles.formContainer }>
+                            <div className={ hostGrotesk.className } style={ styles.formContainer }>
                                 <form onSubmit={ editPrev } style={ styles.form }>
                                     <div style={ styles.formGroup }>
                                         <label style={ styles.label }>Nome Cliente:</label>
