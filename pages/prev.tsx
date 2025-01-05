@@ -274,7 +274,8 @@ const Preventivi = () =>
         e.preventDefault();
 
         // Verifica che ci sia un file PDF
-        const fileInput = document.getElementById( 'pdf-input' );
+        const fileInput = document.getElementById( 'pdf-input' ) as HTMLInputElement; // Type assertion
+
         if ( fileInput && fileInput.files && fileInput.files[ 0 ] )
         {
             const file = fileInput.files[ 0 ];
