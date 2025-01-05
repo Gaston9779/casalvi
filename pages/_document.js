@@ -6,6 +6,10 @@ export default function Document ()
   return (
     <Html lang="en">
       <Head >
+        <link
+          href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <script
           async
           defer
