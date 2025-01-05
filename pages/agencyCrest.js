@@ -4,6 +4,7 @@ import Tilt from 'react-parallax-tilt';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import AnimatedProcess from '../component/animatedProcess';
+import Image from 'next/image';
 import MyDoughnutChart from '../component/MyDoughnutChart';
 import ColumnChart from '../component/ColumnsChart.tsx';
 import { selectSlice, setHoverText } from "../redux/ServiceSlice"
@@ -36,7 +37,7 @@ const AgencyCrest = () =>
         checkWidth()
         AOS.init();
         AOS.refresh()
-    }, [] )
+    }, [checkWidth] )
 
     return (
         <div
@@ -125,7 +126,7 @@ const AgencyCrest = () =>
                                             transitionSpeed={ 250 }  // Transizione fluida
                                             className='tiltCard '>
 
-                                            <img loading="lazy"  src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
+                                            <Image width={500} height={300}  loading="lazy"  src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
 
                                         </Tilt>
                                     </div>
@@ -192,7 +193,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <img loading="lazy"  className='img_responsive' src='/images/h.png' width='270px' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <Image width={270} height={300}  loading="lazy"  className='img_responsive' src='/images/h.png' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 
@@ -286,8 +287,8 @@ const AgencyCrest = () =>
                             } }>
                                 <div className="scroll-container">
                                     <div className="scroll-content">
-                                        <img loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
-                                        <img loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={500} height={300} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={500} height={300} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
                                     </div>
                                 </div>
                             </div>
