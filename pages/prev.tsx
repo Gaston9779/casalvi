@@ -697,17 +697,17 @@ const Preventivi = () =>
 
                                 Nome: Il titolo del preventivo che vuoi creare.
                                 Descrizione: Una breve spiegazione del progetto o servizio associato al preventivo.
-                                Base d'asta: L'importo iniziale di riferimento per l'asta.
+                                Base d'asta: L&apos;importo iniziale di riferimento per l'asta.
                                 Note: Informazioni aggiuntive o specifiche che ritieni utili per il preventivo.
-                                Scadenza dell'asta: La data entro cui è possibile presentare un'offerta.
+                                Scadenza dell &apos;asta: La data entro cui è possibile presentare un'offerta.
                                 PDF del computo metrico: Carica il file PDF contenente i dettagli tecnici e quantitativi del progetto.<br /><br></br>
-                                <b>●  Accesso ai preventivi disponibili:</b> Una volta aggiunto, il preventivo sarà visibile nella tabella dell`&apos;`applicativo. Puoi scaricare il file PDF del computo metrico associato al preventivo per consultare i dettagli.<br />
+                                <b>●  Accesso ai preventivi disponibili:</b> Una volta aggiunto, il preventivo sarà visibile nella tabella dell&apos;applicativo. Puoi scaricare il file PDF del computo metrico associato al preventivo per consultare i dettagli.<br />
                                 <br></br>
-                                <b>●  Invio della tua offerta:</b> Se vuoi partecipare all`&apos;`asta, puoi cliccare sul pulsante Invia Offerta. Questo pulsante ti consente di:
+                                <b>●  Invio della tua offerta:</b> Se vuoi partecipare all&apos;asta, puoi cliccare sul pulsante Invia Offerta. Questo pulsante ti consente di:
 
                                 Aprire il tuo client di posta elettronica con un email precompilata contenente i dettagli del preventivo.
                                 Aggiungere la tua offerta personalizzata direttamente nell’email.
-                                Inviare l`&apos;`email a CASAVI per partecipare alla selezione.
+                                Inviare l&apos;email a CASAVI per partecipare alla selezione.
 
                             </p>
                         </div>
