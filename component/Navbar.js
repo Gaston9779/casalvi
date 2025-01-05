@@ -89,7 +89,8 @@ const Navbar = ( { navbarDark } ) =>
             contact: text === 'contact',
             calculate: text === 'calculate',
             login: text === 'login',
-            prev: text === 'prev'
+            prev: text === 'prev',
+            login: text === 'login'
         } );
     }, [] );
 
@@ -141,7 +142,7 @@ const Navbar = ( { navbarDark } ) =>
                         <Link href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Lavora con noi</Link>
                         <Link href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Contatti</Link>
                         { isClient && logged && <Link href="/prev" onClick={ () => handle( 'prev' ) } className={ listNavbar.prev ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Preventivi</Link> }
-                        <LoginPage listNavbar={ listNavbar.login } />
+                        <LoginPage  isMobile={mobile} listNavbar={ listNavbar.login } />
                     </div>
 
                 </div>
@@ -156,14 +157,16 @@ const Navbar = ( { navbarDark } ) =>
                 {
                     menuMobile && <div className='mobileMenu'>
 
-                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', zIndex: 101 } }>
+                        <div style={ { marginTop: -5, width: '100vw', height: '100vh', zIndex: 1001 } }>
                             <div style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', gap: 40 } }>
                                 <Link style={ { fontSize: 30, color: 'white' } } href="/chisiamo" onClick={ () => handle( 'chisiamo' ) } className={ listNavbar.chisiamo ? 'selectedText' : 'hoverableText' }>Chi siamo</Link>
                                 <Link style={ { fontSize: 30, color: 'white' } } href="/project" onClick={ () => handle( 'project' ) } className={ listNavbar.project ? 'selectedText' : 'hoverableText' }>Realizzazioni</Link>
                                 <Link style={ { fontSize: 30, color: 'white' } } href="/service" onClick={ () => handle( 'service' ) } className={ listNavbar.service ? 'selectedText' : 'hoverableText' }>Servizi</Link>
                                 <Link style={ { fontSize: 30, color: 'white' } } href="/workus" onClick={ () => handle( 'workus' ) } className={ listNavbar.workus ? 'selectedText' : 'hoverableText' }>Lavora con noi</Link>
                                 <Link style={ { fontSize: 30, color: 'white' } } href="/contact" onClick={ () => handle( 'contact' ) } className={ listNavbar.contact ? 'selectedText' : 'hoverableText' }>Contatti</Link>
-                                { logged && <Link href="/prev" onClick={ () => handle( 'prev' ) } className={ listNavbar.prev ? 'selectedText' : 'hoverableText' } style={ { color: 'white' } }>Preventivi</Link> }
+                                { logged && <Link href="/prev" onClick={ () => handle( 'prev' ) } className={ listNavbar.prev ? 'selectedText' : 'hoverableText' }style={ { fontSize: 30, color: 'white' } }>Preventivi</Link> }
+                                <LoginPage isMobile={mobile} listNavbar={ listNavbar.login } />
+                        
                             </div>
                         </div>
                     </div>

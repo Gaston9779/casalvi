@@ -5,7 +5,7 @@ import { setLogged } from '../redux/ServiceSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 
-export default function LoginPage ( { listNavbar } )
+export default function LoginPage ( { listNavbar, isMobile } )
 {
     const [ username, setUsername ] = useState( '' );
     const [ password, setPassword ] = useState( '' );
@@ -89,7 +89,7 @@ export default function LoginPage ( { listNavbar } )
                     href={ '/' }
                     onClick={ () => setSelected( true ) }
                     className={ listNavbar ? 'selectedText' : 'hoverableText' }
-                    style={ { color: 'white' } }
+                    style={ { color: 'white', fontSize: isMobile ?  30 : 16 } }
                 >
                     Login
                 </Link>
