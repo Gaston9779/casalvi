@@ -168,7 +168,7 @@ const AgencyCrest = () =>
                                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                                             <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Perchè scegliere Casavi?</p>
                                             <p className='font100' style={ { width: '90%', fontSize: 16, color: '#333' } }>Centralizzando le operazioni, Casavi garantisce un elevato standard di qualità e una personalizzazione
-                                                del servizio. Questo modello ottimizza le risorse disponibili e migliora l’efficienza complessiva,
+                                                del servizio. Questo modello ottimizza le risorse disponibili e migliora l`&apos;`efficienza complessiva,
                                                 permettendo di offrire soluzioni su misura che rispondono alle esigenze specifiche di ogni cliente. In
                                                 questo modo, Casavi non è solo un fornitore, ma un partner affidabile nel realizzare progetti di alta
                                                 qualità.</p>
@@ -232,7 +232,7 @@ const AgencyCrest = () =>
                                         <p className='font100' style={ { width: '100%', fontSize: 16, color: '#333' } }>Attraverso il “gestionale Casavi”, i contatti vengono messi in “match” per intercettare interessi
                                             commerciali, promuovere le richieste e veicolare il loro business all’interno delle commesse ricevute.
                                             Il cantiere viene organizzato e seguito in tutte le sue fasi. Anche il Committente, così come tutti gli
-                                            artigiani, riceve un’apposita app, funzionante sia su smartphone che su PC. In questo modo, il
+                                            artigiani, riceve un`&apos;`apposita app, funzionante sia su smartphone che su PC. In questo modo, il
                                             processo viene monitorato in tutte le sue fasi e il Committente può interagire sia con i tecnici che con
                                             gli artigiani.</p>
 
