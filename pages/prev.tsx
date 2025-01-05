@@ -312,6 +312,7 @@ const Preventivi = () =>
                         setRows( ( prevRows ) => [
                             ...prevRows,
                             createData(
+                                newQuote.idPrev,
                                 newQuote.nomeClient,
                                 newQuote.descWork,
                                 newQuote.importoOfferto,
