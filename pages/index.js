@@ -120,10 +120,7 @@ export default function Home ()
 
  
 
-  useEffect( () =>
-  {
-    console.log( quotes, 'quote' , process.env.MONGODB_URI);
-  },[quotes ] );
+
 
   return (
     <div className={ italiana.className } style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh', overflow: 'hidden' } }>

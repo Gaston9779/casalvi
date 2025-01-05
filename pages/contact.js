@@ -17,7 +17,7 @@ const Contact = () =>
 
     useEffect(()=> {
         checkWidth()
-    },[])
+    },[checkWidth])
     return (
         <div
             className="gradient2"
