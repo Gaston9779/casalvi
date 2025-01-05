@@ -467,7 +467,7 @@ const Preventivi = () =>
                             <TableRow>
                                 <StyledTableCell>ID cliente</StyledTableCell>
                                 <StyledTableCell align="left">Descrizione</StyledTableCell>
-                                <StyledTableCell align="left">Base d'asta</StyledTableCell>
+                                <StyledTableCell align="left">Base d&apos;asta</StyledTableCell>
                                 <StyledTableCell align="left">Scadenza Asta</StyledTableCell>
                                 <StyledTableCell align="left">Stato</StyledTableCell>
                                 <StyledTableCell align="left">Note</StyledTableCell>
@@ -697,9 +697,9 @@ const Preventivi = () =>
 
                                 Nome: Il titolo del preventivo che vuoi creare.
                                 Descrizione: Una breve spiegazione del progetto o servizio associato al preventivo.
-                                Base d'asta: L&apos;importo iniziale di riferimento per l'asta.
+                                Base d&apos;asta: L&apos;importo iniziale di riferimento per l&apos;asta.
                                 Note: Informazioni aggiuntive o specifiche che ritieni utili per il preventivo.
-                                Scadenza dell &apos;asta: La data entro cui è possibile presentare un'offerta.
+                                Scadenza dell &apos;asta: La data entro cui è possibile presentare un&apos;offerta.
                                 PDF del computo metrico: Carica il file PDF contenente i dettagli tecnici e quantitativi del progetto.<br /><br></br>
                                 <b>●  Accesso ai preventivi disponibili:</b> Una volta aggiunto, il preventivo sarà visibile nella tabella dell&apos;applicativo. Puoi scaricare il file PDF del computo metrico associato al preventivo per consultare i dettagli.<br />
                                 <br></br>
