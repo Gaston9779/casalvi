@@ -25,6 +25,7 @@ export default function App ( { Component, pageProps } )
     const [ consentGiven, setConsentGiven ] = useState( false );
     const router = useRouter();
     const hasConsented = Cookies.get('cookie-consent');
+    
 
     const handleConsent = () =>
     {

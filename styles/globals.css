@@ -57,7 +57,7 @@
   transition: none;
   margin-left: -20px;
   font-size: 90px;
-  border: 1px solid rgb(251, 251, 251);
+  border: 1px solid #333;
   border-radius: 50%;
   background-color: none;
   /* mix-blend-mode: difference; */
@@ -76,7 +76,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   transition: none;
   margin-left: -20px;
   font-size: 90px;
-  border: 1px solid rgb(251, 251, 251);
+  border: 1px solid #333;
   border-radius: 50%;
   background-color: none;
   /* mix-blend-mode: difference; */
@@ -88,7 +88,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
 
 .custom-cursor::before{
   content: '.';
-  color: rgb(255, 255, 255);
+  color: #333;
   position: absolute;
   top: -60px;
   left: 15px;
@@ -104,7 +104,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   font-size:60px;
   color:white;
   mix-blend-mode:lighten;
-  z-index:120;
+  z-index:10;
 
   transition: all 1s ease-in-out;
 /*   text-shadow: 1px 1px 7px rgb(255, 255, 255); */
@@ -763,7 +763,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   padding-bottom: 0px;
   width: 100%;
   /* background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%); */
-  background: linear-gradient(90deg, rgba(68, 70, 86, 0.332) 0%, rgba(127, 131, 149, 0.128) 50%, rgba(116, 117, 125, 0.31) 100%);
+  background: linear-gradient(176deg, rgba(68, 70, 86, 0.532) 0%, rgba(127, 131, 149, 0.128) 50%, rgba(116, 117, 125, 0.31) 100%);
  /*  background:radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.9) 60%, rgba(46, 151, 135, 0.8) 100%); */
 
   /* background-color: #86d3c7cb; */
@@ -922,6 +922,7 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   z-index: 300;
   color: white;
   font-weight:bold ;
+  cursor: pointer;
   font-size: 14px;
   text-align: center;
 }

@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Host_Grotesk, Kode_Mono } from 'next/font/google';
 import Link from 'next/link';
+import axios from "axios";
 
 const italiana = Host_Grotesk( {
   subsets: [ 'latin' ],
@@ -20,6 +21,9 @@ export default function Home ()
 {
   const [ isMobile, setIsMobile ] = useState( false );
   const videoRef = useRef( null );
+  const [ quotes, setQuotes ] = useState( [] );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const videoRefMob = useRef( null );
   const [ isVideoPlaying, setIsVideoPlaying ] = useState( false );  // Stato per il controllo del video
 
@@ -113,6 +117,13 @@ export default function Home ()
       window.removeEventListener( 'scroll', handleScroll );
     };
   }, [ isVideoPlaying ] );
+
+ 
+
+  useEffect( () =>
+  {
+    console.log( quotes, 'quote' , process.env.MONGODB_URI);
+  },[quotes ] );
 
   return (
     <div className={ italiana.className } style={ { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh', overflow: 'hidden' } }>

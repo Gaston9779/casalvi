@@ -1,4 +1,4 @@
-import CalcoloBagno from "../component/CalcoloBagno"
+ import CalcoloBagno from "../component/CalcoloBagno"
 
 const Calculate = () =>
 {
