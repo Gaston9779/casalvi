@@ -79,7 +79,7 @@ export default function App ( { Component, pageProps } )
         {
             setIsLoading( false ); // Nasconde il loader quando tutte le risorse sono caricate o il timeout scade
         } );
-    }, [] );
+    }, [setIsLoading] );
 
     useEffect( () =>
     {

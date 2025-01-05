@@ -287,8 +287,8 @@ const AgencyCrest = () =>
                             } }>
                                 <div className="scroll-container">
                                     <div className="scroll-content">
-                                        <Image width={500} height={300} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
-                                        <Image width={500} height={300} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={500} height={50} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={500} height={50} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
                                     </div>
                                 </div>
                             </div>
