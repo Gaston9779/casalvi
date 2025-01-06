@@ -6,7 +6,7 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import Back from '../assets/villa.jpg'
 import First from '../assets/cantieri/1.jpg'
-import Sec from '../assets/cantieri/2.jpg'
+import Sec from '../assets/cantieri/2.JPG'
 import Third from '../assets/cantieri/3.jpg'
 import Fourth from '../assets/cantieri/4.jpg'
 import Fiveth from '../assets/cantieri/5.jpg'
