@@ -46,13 +46,14 @@ export default async function handler(req, res) {
       
           // Usa process.cwd() per puntare alla root dell'app
           const uploadDir = process.env.NODE_ENV === 'production'
-          ? path.join(process.cwd(), 'uploads') // in produzione, usa il percorso relativo
-          : '/tmp/uploads'; 
-      
-          // Verifica se la cartella esiste, altrimenti crea la cartella
-          if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-          }
+          ? path.join(process.cwd(), 'public', 'uploads') // In produzione, usa il percorso relativo nella cartella "public/uploads"
+          : '/tmp/uploads'; // In sviluppo, usa "/tmp/uploads" per test locali
+        
+        // Verifica se la cartella esiste, altrimenti crea la cartella
+        if (!fs.existsSync(uploadDir)) {
+          fs.mkdirSync(uploadDir, { recursive: true });
+        }
+        
       
           // Verifica che i permessi siano corretti
           const stats = fs.statSync(uploadDir);
