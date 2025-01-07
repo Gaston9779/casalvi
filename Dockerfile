@@ -14,8 +14,11 @@ RUN npm install
 COPY ./next ./pages
 COPY ./public ./public
 
-# Imposta i permessi per la cartella di uploads per assicurarti che sia scrivibile
-RUN chmod -R 777 /app/public/uploads
+# Crea la directory per gli upload (fuori da public)
+RUN mkdir -p /app/uploads
+
+# Imposta i permessi per la cartella degli uploads per assicurarci che sia scrivibile
+RUN chmod -R 777 /app/uploads
 
 # Costruisci il progetto Next.js
 RUN npm run build
@@ -29,9 +32,8 @@ RUN npm install -g serve
 # Espone la porta 3000
 EXPOSE 3000
 
-# Crea un volume per la cartella public/uploads (dove i file verranno caricati)
-VOLUME /app/public/uploads
+# Crea un volume per la cartella uploads (dove i file verranno caricati)
+VOLUME /app/uploads
 
 # Comando per avviare l'applicazione con serve
 CMD [ "serve", "-s", "build" ]
-
