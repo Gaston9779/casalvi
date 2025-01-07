@@ -45,7 +45,8 @@ export default async function handler(req, res) {
           const fileName = `${Date.now()}-file.pdf`;
 
           // Usando __dirname per garantire il percorso corretto nel contesto di Docker
-          const uploadDir = path.join(__dirname, '..', '..', 'public', 'uploads'); // percorso relativo all'app
+          const uploadDir = path.join(__dirname, '..', '..', 'uploads');
+
 
           // Verifica se la cartella esiste, altrimenti crea la cartella
           if (!fs.existsSync(uploadDir)) {
