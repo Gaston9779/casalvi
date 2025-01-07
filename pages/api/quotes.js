@@ -43,14 +43,23 @@ export default async function handler(req, res) {
 
           const buffer = Buffer.from(pdf, 'base64');
           const fileName = `${Date.now()}-file.pdf`;
-          const uploadDir = path.join(process.cwd(), 'public/uploads');
 
+          // Usando __dirname per garantire il percorso corretto nel contesto di Docker
+          const uploadDir = path.join(__dirname, '..', '..', 'public', 'uploads'); // percorso relativo all'app
+
+          // Verifica se la cartella esiste, altrimenti crea la cartella
           if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
           }
 
+          // Verifica che i permessi siano corretti
+          const stats = fs.statSync(uploadDir);
+          if (!(stats.mode & fs.constants.S_IWUSR)) {
+            fs.chmodSync(uploadDir, '0777');
+          }
+
           const filePath = path.join(uploadDir, fileName);
-          fs.writeFileSync(filePath, buffer);
+          fs.writeFileSync(filePath, buffer); // Salva il file nel percorso
 
           const newQuote = new Quote({
             nomeClient,
@@ -119,7 +128,7 @@ export default async function handler(req, res) {
       }
 
       if (deletedQuote.pdf) {
-        const filePath = path.join(process.cwd(), 'public', deletedQuote.pdf);
+        const filePath = path.join(__dirname, '..', '..', 'public', deletedQuote.pdf);
         if (fs.existsSync(filePath)) {
           fs.unlinkSync(filePath);
         }
