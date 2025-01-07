@@ -45,7 +45,9 @@ export default async function handler(req, res) {
           const fileName = `${Date.now()}-file.pdf`;
       
           // Usa process.cwd() per puntare alla root dell'app
-          const uploadDir = path.join(process.cwd(), 'uploads'); 
+          const uploadDir = process.env.NODE_ENV === 'production'
+          ? path.join(process.cwd(), 'uploads') // in produzione, usa il percorso relativo
+          : '/tmp/uploads'; 
       
           // Verifica se la cartella esiste, altrimenti crea la cartella
           if (!fs.existsSync(uploadDir)) {
@@ -55,7 +57,7 @@ export default async function handler(req, res) {
           // Verifica che i permessi siano corretti
           const stats = fs.statSync(uploadDir);
           if (!(stats.mode & fs.constants.S_IWUSR)) {
-            fs.chmodSync(uploadDir, '0777');
+          fs.chmodSync(uploadDir, '0777');
           }
       
           const filePath = path.join(uploadDir, fileName);
