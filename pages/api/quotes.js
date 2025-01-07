@@ -36,32 +36,31 @@ export default async function handler(req, res) {
         try {
           const body = Buffer.concat(chunks).toString();
           const { nomeClient, descWork, importoOfferto, scadAsta, status, note, pdf } = JSON.parse(body);
-
+      
           if (!nomeClient || !descWork || !pdf) {
             return res.status(400).json({ message: 'Dati mancanti o non validi' });
           }
-
+      
           const buffer = Buffer.from(pdf, 'base64');
           const fileName = `${Date.now()}-file.pdf`;
-
-          // Usando __dirname per garantire il percorso corretto nel contesto di Docker
-          const uploadDir = path.join(__dirname, '..', '..', 'uploads');
-
-
+      
+          // Usa process.cwd() per puntare alla root dell'app
+          const uploadDir = path.join(process.cwd(), 'uploads'); 
+      
           // Verifica se la cartella esiste, altrimenti crea la cartella
           if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
           }
-
+      
           // Verifica che i permessi siano corretti
           const stats = fs.statSync(uploadDir);
           if (!(stats.mode & fs.constants.S_IWUSR)) {
             fs.chmodSync(uploadDir, '0777');
           }
-
+      
           const filePath = path.join(uploadDir, fileName);
           fs.writeFileSync(filePath, buffer); // Salva il file nel percorso
-
+      
           const newQuote = new Quote({
             nomeClient,
             descWork,
@@ -71,7 +70,7 @@ export default async function handler(req, res) {
             note,
             pdf: `/uploads/${fileName}`,
           });
-
+      
           const savedQuote = await newQuote.save();
           return res.status(201).json(savedQuote);
         } catch (error) {
@@ -79,6 +78,7 @@ export default async function handler(req, res) {
           return res.status(500).json({ message: 'Errore interno del server', error: error.message });
         }
       });
+      
       return; // Evita di proseguire ulteriormente
     }
 
