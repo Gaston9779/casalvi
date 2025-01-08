@@ -2,6 +2,7 @@ import dbConnect from '../../lib/dbConnect';
 import Quote from '../../models/Quote';
 import fs from 'fs';
 import path from 'path';
+import upload from '../../upload'; // Importa la configurazione di Multer
 
 export const config = {
   api: {
@@ -29,49 +30,45 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const chunks = [];
-    
-      req.on('data', (chunk) => chunks.push(chunk));
-    
-      req.on('end', async () => {
+      // Usa Multer per caricare un singolo file
+      upload.single('pdf')(req, res, async (err) => {
+        if (err) {
+          // Gestisci l'errore
+          return res.status(500).json({ message: 'Errore nel caricamento del file', error: err });
+        }
+  
+        // Estrai i dati dal corpo della richiesta
+        const { nomeClient, descWork, importoOfferto, scadAsta, status, note } = req.body;
+  
+        // Verifica che il file sia stato caricato
+        const pdfPath = req.file ? '/uploads/' + req.file.filename : ''; // Salva solo il percorso relativo del file
+  
+        if (!nomeClient || !descWork || !pdfPath) {
+          return res.status(400).json({ message: 'Dati mancanti o non validi' });
+        }
+  
+        // Crea una nuova quotazione nel database
+        const newQuote = new Quote({
+          nomeClient,
+          descWork,
+          importoOfferto,
+          scadAsta,
+          status,
+          note,
+          pdf: pdfPath, // Salva solo il percorso relativo del file
+        });
+  
         try {
-          const body = Buffer.concat(chunks).toString();
-          const { nomeClient, descWork, importoOfferto, scadAsta, status, note, pdf } = JSON.parse(body);
-    
-          if (!nomeClient || !descWork || !pdf) {
-            return res.status(400).json({ message: 'Dati mancanti o non validi' });
-          }
-    
-          // Assicurati che pdf venga trattato come percorso relativo
-          // Non fare la decodifica Base64, lo lasciamo come percorso relativo
-          const filePath = pdf;  // pdf dovrebbe essere già il percorso relativo, come /uploads/1736341294773-file.pdf
-    
-          // Verifica se il file esiste nel percorso
-          if (!fs.existsSync(path.join(__dirname, filePath))) {
-            return res.status(400).json({ message: 'File non trovato' });
-          }
-    
-          // A questo punto, si può continuare a salvare i dati nel database
-          const newQuote = new Quote({
-            nomeClient,
-            descWork,
-            importoOfferto,
-            scadAsta,
-            status,
-            note,
-            pdf: filePath,  // Salviamo il percorso relativo del file PDF
-          });
-    
-          const savedQuote = await newQuote.save();
-          return res.status(201).json(savedQuote);
-    
+          const savedQuote = await newQuote.save(); // Salva la quotazione nel DB
+          return res.status(201).json(savedQuote); // Restituisci la risposta con la quotazione salvata
         } catch (error) {
-          console.error('Errore nella POST:', error);
-          return res.status(500).json({ message: 'Errore interno del server', error: error.message });
+          console.error('Errore nel salvataggio della quotazione:', error);
+          return res.status(500).json({ message: 'Errore nel salvataggio della quotazione', error: error.message });
         }
       });
-    
       return;
+    } else {
+      res.status(405).json({ message: 'Metodo non supportato' });
     }
     
     
