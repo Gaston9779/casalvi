@@ -270,23 +270,20 @@ const Preventivi = () =>
     }
 
 
-    const handleSubmit = async ( e ) =>
-    {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
+    
         // Verifica che ci sia un file PDF
-        const fileInput = document.getElementById( 'pdf-input' ) as HTMLInputElement; // Type assertion
-
-        if ( fileInput && fileInput.files && fileInput.files[ 0 ] )
-        {
-            const file = fileInput.files[ 0 ];
-
+        const fileInput = document.getElementById('pdf-input') as HTMLInputElement; // Type assertion
+    
+        if (fileInput && fileInput.files && fileInput.files[0]) {
+            const file = fileInput.files[0];
+    
             const reader = new FileReader();
-            reader.onloadend = async () =>
-            {
-                const base64PDF = typeof reader.result === 'string' ? reader.result.split( ',' )[ 1 ] : null;
+            reader.onloadend = async () => {
+                const base64PDF = typeof reader.result === 'string' ? reader.result.split(',')[1] : null;
                 // Rimuovi il prefisso 'data:application/pdf;base64,'
-
+    
                 const formData = {
                     nomeClient: formState.nomeClient,
                     descWork: formState.descWork,
@@ -296,21 +293,19 @@ const Preventivi = () =>
                     note: formState.note,
                     pdf: base64PDF,  // Passa il PDF in Base64 al backend
                 };
-
-                try
-                {
-                    const response = await fetch( '/api/quotes', {
+    
+                try {
+                    const response = await fetch('/api/quotes', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify( formData ),
-                    } );
-
-                    if ( response.ok )
-                    {
+                        body: JSON.stringify(formData),
+                    });
+    
+                    if (response.ok) {
                         const newQuote = await response.json();
-                        setRows( ( prevRows ) => [
+                        setRows((prevRows) => [
                             ...prevRows,
                             createData(
                                 newQuote.idPrev,
@@ -322,24 +317,22 @@ const Preventivi = () =>
                                 newQuote.note,
                                 newQuote.pdf
                             ),
-                        ] );
-
-                        closeModal()
-                        fetchData()
-                    } else
-                    {
-                        console.log( 'Errore nella richiesta:', response.status );
+                        ]);
+    
+                        closeModal();
+                        fetchData();
+                    } else {
+                        console.log('Errore nella richiesta:', response.status);
                     }
-                } catch ( error )
-                {
-                    console.error( 'Errore di rete o altro:', error );
+                } catch (error) {
+                    console.error('Errore di rete o altro:', error);
                 }
             };
-
-            reader.readAsDataURL( file );  // Leggi il file come base64
+    
+            reader.readAsDataURL(file);  // Leggi il file come base64
         }
     };
-
+    
 
     const setDeleteRow = ( e ) =>
     {
