@@ -13,7 +13,10 @@ RUN npm install
 # Copia il resto del codice nel container
 COPY . .
 
-# Crea la directory per gli upload (fuori da public)
+# Esegui la build di Next.js
+RUN npm run build
+
+# Crea la directory per gli upload
 RUN mkdir -p /app/uploads
 
 # Imposta i permessi per la cartella degli uploads
@@ -22,5 +25,5 @@ RUN chmod -R 777 /app/uploads
 # Espone la porta 3000
 EXPOSE 3000
 
-# Avvia il server Node.js (ad esempio, Next.js o un server personalizzato)
+# Avvia il server Node.js
 CMD [ "npm", "start" ]
