@@ -2,18 +2,18 @@
 import multer from 'multer';
 import path from 'path';
 
-// Configura Multer per salvare i file nella cartella 'public/uploads'
+// Percorso assoluto della cartella 'uploads'
+const uploadPath = path.resolve('uploads');
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads'); // Dove vuoi che vengano salvati i file
+    cb(null, uploadPath); // Usa il percorso assoluto per 'uploads'
   },
   filename: (req, file, cb) => {
-    // Usa un timestamp e l'estensione del file originale per il nome del file
-    cb(null, Date.now() + path.extname(file.originalname)); 
+    cb(null, Date.now() + path.extname(file.originalname)); // Nome del file basato su timestamp
   },
 });
 
-// Configurazione di Multer
 const upload = multer({ storage: storage });
 
 export default upload;
