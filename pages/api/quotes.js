@@ -45,9 +45,8 @@ export default async function handler(req, res) {
           const fileName = `${Date.now()}-file.pdf`;
       
           // Usa un percorso assoluto per essere sicuro che punti alla cartella uploads corretta
-          const uploadDir = process.env.NODE_ENV === 'production'
-          ? path.join(process.cwd(), 'uploads') // In produzione, usa la cartella 'uploads' nella root del progetto
-          : path.join(__dirname, '..', 'uploads'); // In sviluppo, usa la cartella 'uploads' nella root del progetto
+          const uploadDir = '/app/uploads'; // Assicurati che questo sia il percorso corretto
+
         
           console.log('Upload directory:', uploadDir); // Aggiungi un log per verificare se il percorso è giusto
 
