@@ -269,7 +269,6 @@ const Preventivi = () =>
         }
     }
 
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
     
@@ -279,59 +278,51 @@ const Preventivi = () =>
         if (fileInput && fileInput.files && fileInput.files[0]) {
             const file = fileInput.files[0];
     
-            const reader = new FileReader();
-            reader.onloadend = async () => {
-                const base64PDF = typeof reader.result === 'string' ? reader.result.split(',')[1] : null;
-                // Rimuovi il prefisso 'data:application/pdf;base64,'
+            // Crea un FormData per inviare il file
+            const formData = new FormData();
     
-                const formData = {
-                    nomeClient: formState.nomeClient,
-                    descWork: formState.descWork,
-                    importoOfferto: formState.importoOfferto,
-                    scadAsta: formState.scadAsta,
-                    status: formState.status,
-                    note: formState.note,
-                    pdf: base64PDF,  // Passa il PDF in Base64 al backend
-                };
+            // Verifica che formState contenga valori validi (stringhe o numeri)
+            formData.append('nomeClient', formState.nomeClient || ''); // Aggiungi valore di default se manca
+            formData.append('descWork', formState.descWork || ''); // Aggiungi valore di default se manca
+            formData.append('importoOfferto', formState.importoOfferto?.toString() || ''); // Converte a stringa
+            formData.append('scadAsta', formState.scadAsta || ''); // Aggiungi valore di default se manca
+            formData.append('status', formState.status ? 'true' : 'false') // Aggiungi valore di default se manca
+            formData.append('note', formState.note || ''); // Aggiungi valore di default se manca
+            formData.append('pdf', file); // Aggiungi il file direttamente
     
-                try {
-                    const response = await fetch('/api/quotes', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData),
-                    });
+            try {
+                const response = await fetch('/api/quotes', {
+                    method: 'POST',
+                    body: formData, // Invia il FormData che contiene il file
+                });
     
-                    if (response.ok) {
-                        const newQuote = await response.json();
-                        setRows((prevRows) => [
-                            ...prevRows,
-                            createData(
-                                newQuote.idPrev,
-                                newQuote.nomeClient,
-                                newQuote.descWork,
-                                newQuote.importoOfferto,
-                                newQuote.scadAsta,
-                                newQuote.status,
-                                newQuote.note,
-                                newQuote.pdf
-                            ),
-                        ]);
+                if (response.ok) {
+                    const newQuote = await response.json();
+                    setRows((prevRows) => [
+                        ...prevRows,
+                        createData(
+                            newQuote.idPrev,
+                            newQuote.nomeClient,
+                            newQuote.descWork,
+                            newQuote.importoOfferto,
+                            newQuote.scadAsta,
+                            newQuote.status,
+                            newQuote.note,
+                            newQuote.pdf // Il backend restituirà il percorso del file
+                        ),
+                    ]);
     
-                        closeModal();
-                        fetchData();
-                    } else {
-                        console.log('Errore nella richiesta:', response.status);
-                    }
-                } catch (error) {
-                    console.error('Errore di rete o altro:', error);
+                    closeModal();
+                    fetchData();
+                } else {
+                    console.log('Errore nella richiesta:', response.status);
                 }
-            };
-    
-            reader.readAsDataURL(file);  // Leggi il file come base64
+            } catch (error) {
+                console.error('Errore di rete o altro:', error);
+            }
         }
     };
+    
     
 
     const setDeleteRow = ( e ) =>
