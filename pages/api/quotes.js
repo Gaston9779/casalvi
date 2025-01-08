@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       return res.status(200).json(quote);
     }
 
-    if ( req.method === 'POST' ) {
+    if (req.method === 'POST') {
       const chunks = [];
     
       req.on('data', (chunk) => chunks.push(chunk));
@@ -42,22 +42,16 @@ export default async function handler(req, res) {
             return res.status(400).json({ message: 'Dati mancanti o non validi' });
           }
     
-          // Se il PDF è codificato in base64, lo decodifichiamo
-          const buffer = pdf.startsWith('data:application/pdf;base64,') ? 
-                         Buffer.from(pdf.split(',')[1], 'base64') : 
-                         Buffer.from(pdf, 'base64');
+          // Assicurati che pdf venga trattato come percorso relativo
+          // Non fare la decodifica Base64, lo lasciamo come percorso relativo
+          const filePath = pdf;  // pdf dovrebbe essere già il percorso relativo, come /uploads/1736341294773-file.pdf
     
-          const fileName = `${Date.now()}-file.pdf`;
-          const uploadDir = '/app/uploads';
-    
-          if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
+          // Verifica se il file esiste nel percorso
+          if (!fs.existsSync(path.join(__dirname, filePath))) {
+            return res.status(400).json({ message: 'File non trovato' });
           }
     
-          const filePath = path.join(uploadDir, fileName);
-          fs.writeFileSync(filePath, buffer);
-          console.log('File scritto con successo:', filePath);
-    
+          // A questo punto, si può continuare a salvare i dati nel database
           const newQuote = new Quote({
             nomeClient,
             descWork,
@@ -65,7 +59,7 @@ export default async function handler(req, res) {
             scadAsta,
             status,
             note,
-            pdf: `/uploads/${fileName}`,
+            pdf: filePath,  // Salviamo il percorso relativo del file PDF
           });
     
           const savedQuote = await newQuote.save();
@@ -79,6 +73,7 @@ export default async function handler(req, res) {
     
       return;
     }
+    
     
 
     if (req.method === 'PUT') {
