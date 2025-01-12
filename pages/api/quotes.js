@@ -136,25 +136,24 @@ export default async function handler(req, res) {
   }
 }
  */
-import dbConnect from '../../lib/dbConnect';
-import Quote from '../../models/Quote';
-import fs from 'fs';
-import path from 'path';
-import upload from '../../upload'; // Importa la configurazione di Multer
-
-export const config = {
-  api: {
-    bodyParser: false, // Disabilitiamo il body parser di Next.js per la gestione manuale
-  },
-};
+import clientPromise from "../../lib/dbConnect";
 
 export default async function handler(req, res) {
-  if (req.method === 'GET') {
+  if (req.method === "GET") {
     try {
-      await connectDb();
-      const quotes = await Quote.find({});
+      // Recupera la connessione al client
+      const client = await clientPromise;
+      
+      // Accedi al database (in questo caso "test")
+      const db = client.db("test");  // Sostituisci con il nome del tuo database
+      
+      // Accedi alla collection "quotes"
+      const quotes = await db.collection("quotes").find({}).toArray();
+
+      // Invia la risposta con le quote
       res.status(200).json(quotes);
     } catch (error) {
+      console.error("Error fetching quotes:", error);
       res.status(500).json({ error: "Failed to fetch quotes" });
     }
   } else {

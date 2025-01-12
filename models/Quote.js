@@ -1,7 +1,7 @@
 // models/Quote.js
 import mongoose from 'mongoose';
 
-const QuoteSchema = new mongoose.Schema({
+const quoteSchema = new mongoose.Schema({
   nomeClient: String,
   descWork: String,
   importoOfferto: String,
@@ -12,4 +12,6 @@ const QuoteSchema = new mongoose.Schema({
   idPrev: Number,
 });
 
-export default mongoose.models.Quote || mongoose.model('Quote', QuoteSchema);
+const Quote = mongoose.models.Quote || mongoose.model('Quote', quoteSchema);
+
+export default Quote;
