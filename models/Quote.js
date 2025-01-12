@@ -1,25 +1,15 @@
+// models/Quote.js
 import mongoose from 'mongoose';
-const AutoIncrement = require( 'mongoose-sequence' )( mongoose );
 
-const QuoteSchema = new mongoose.Schema( {
-  nomeClient: { type: String, required: false },
-  descWork: { type: String, required: false },
-  importoOfferto: { type: String, required: false },
-  scadAsta: { type: String, required: false },
-  status: { type: Boolean, required: false },
-  note: { type: String, required: false },
-  pdf: { type: String, required: false },
-  idPrev: { type: Number, required: false },
-} );
+const quoteSchema = new mongoose.Schema({
+  nomeClient: { type: String, required: true },
+  descWork: { type: String, required: true },
+  importoOfferto: { type: String, required: true },
+  scadAsta: { type: String, required: true },
+  status: { type: Boolean, required: true },
+  note: { type: String, required: true },
+  pdf: { type: String, required: true },
+  idPrev: { type: Number, required: true },
+});
 
-// Controlla se il modello esiste già
-if ( !mongoose.models.Quote )
-{
-  // Applica il plugin AutoIncrement per l'auto incremento di idPrev
-  QuoteSchema.plugin( AutoIncrement, { inc_field: 'idPrev' } );
-}
-
-// Crea o utilizza il modello esistente
-const Quote = mongoose.models.Quote || mongoose.model( 'Quote', QuoteSchema );
-
-export default Quote;
+export default mongoose.models.Quote || mongoose.model('Quote', quoteSchema);
