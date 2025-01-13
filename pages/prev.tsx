@@ -181,16 +181,17 @@ const Preventivi = () =>
                 throw new Error( 'Errore durante il download del PDF' );
             }
 
-            // Ottieni la quote specifica
-            const quote = await response.json();
+            // Ottieni la quote specifica (prima elemento dell'array)
+            const quotes = await response.json();
+            const quote = quotes[ 0 ]; // Accedi al primo elemento dell'array
 
-            if ( !quote.pdf )
+            if ( !quote || !quote.pdf )
             {
                 throw new Error( 'PDF non disponibile per questa quote' );
             }
 
             // Percorso completo del PDF
-            const pdfUrl = quote.pdf;
+            const pdfUrl = `/${ quote.pdf }`;
 
             // Crea un elemento `<a>` per il download
             const link = document.createElement( 'a' );
@@ -205,10 +206,11 @@ const Preventivi = () =>
             alert( 'Errore durante il download del PDF' );
         }
     };
+
     const editPrev = async ( event ) =>
     {
         event.preventDefault(); // Per evitare che il form venga inviato in modo tradizionale
-
+       
         const updatedPrev = {
             nomeClient: formState.nomeClient,
             descWork: formState.descWork,
@@ -218,7 +220,7 @@ const Preventivi = () =>
             note: formState.note,
             pdf: formState.pdf // se necessario (anche se sembra disabilitato)
         };
-
+      
         try
         {
             const response = await fetch( `/api/quotes/${ formState.idPrev }`, {
@@ -249,7 +251,8 @@ const Preventivi = () =>
     };
     const deletePrev = async ( event ) =>
     {
-        const response = await fetch( `/api/quotes?id=${ row.idPrev }`, {
+        console.log( row, 'idPREV' );
+        const response = await fetch( `/api/quotes?idPrev=${ row.idPrev }`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -259,46 +262,51 @@ const Preventivi = () =>
         if ( response.ok )
         {
             // Gestisci il caso di successo
-            closeModalCanc()
-            fetchData()
+            closeModalCanc();
+            fetchData();
             console.log( 'Quote eliminata con successo' );
         } else
         {
             // Gestisci l'errore
             console.error( 'Errore nella cancellazione della quote' );
         }
-    }
+    };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+
+    const handleSubmit = async ( e: React.FormEvent ) =>
+    {
         e.preventDefault();
-    
+
         // Verifica che ci sia un file PDF
-        const fileInput = document.getElementById('pdf-input') as HTMLInputElement; // Type assertion
-    
-        if (fileInput && fileInput.files && fileInput.files[0]) {
-            const file = fileInput.files[0];
-    
+        const fileInput = document.getElementById( 'pdf-input' ) as HTMLInputElement; // Type assertion
+
+        if ( fileInput && fileInput.files && fileInput.files[ 0 ] )
+        {
+            const file = fileInput.files[ 0 ];
+
             // Crea un FormData per inviare il file
             const formData = new FormData();
-    
+
             // Verifica che formState contenga valori validi (stringhe o numeri)
-            formData.append('nomeClient', formState.nomeClient || ''); // Aggiungi valore di default se manca
-            formData.append('descWork', formState.descWork || ''); // Aggiungi valore di default se manca
-            formData.append('importoOfferto', formState.importoOfferto?.toString() || ''); // Converte a stringa
-            formData.append('scadAsta', formState.scadAsta || ''); // Aggiungi valore di default se manca
-            formData.append('status', formState.status ? 'true' : 'false') // Aggiungi valore di default se manca
-            formData.append('note', formState.note || ''); // Aggiungi valore di default se manca
-            formData.append('pdf', file); // Aggiungi il file direttamente
-    
-            try {
-                const response = await fetch('/api/quotes', {
+            formData.append( 'nomeClient', formState.nomeClient || '' ); // Aggiungi valore di default se manca
+            formData.append( 'descWork', formState.descWork || '' ); // Aggiungi valore di default se manca
+            formData.append( 'importoOfferto', formState.importoOfferto?.toString() || '' ); // Converte a stringa
+            formData.append( 'scadAsta', formState.scadAsta || '' ); // Aggiungi valore di default se manca
+            formData.append( 'status', formState.status ? 'true' : 'false' ) // Aggiungi valore di default se manca
+            formData.append( 'note', formState.note || '' ); // Aggiungi valore di default se manca
+            formData.append( 'pdf', file ); // Aggiungi il file direttamente
+
+            try
+            {
+                const response = await fetch( '/api/quotes', {
                     method: 'POST',
                     body: formData, // Invia il FormData che contiene il file
-                });
-    
-                if (response.ok) {
+                } );
+
+                if ( response.ok )
+                {
                     const newQuote = await response.json();
-                    setRows((prevRows) => [
+                    setRows( ( prevRows ) => [
                         ...prevRows,
                         createData(
                             newQuote.idPrev,
@@ -310,24 +318,27 @@ const Preventivi = () =>
                             newQuote.note,
                             newQuote.pdf // Il backend restituirà il percorso del file
                         ),
-                    ]);
-    
+                    ] );
+
                     closeModal();
                     fetchData();
-                } else {
-                    console.log('Errore nella richiesta:', response.status);
+                } else
+                {
+                    console.log( 'Errore nella richiesta:', response.status );
                 }
-            } catch (error) {
-                console.error('Errore di rete o altro:', error);
+            } catch ( error )
+            {
+                console.error( 'Errore di rete o altro:', error );
             }
         }
     };
-    
-    
+
+
 
     const setDeleteRow = ( e ) =>
     {
         setOpenCanc( true )
+        console.log( row, 'row', e )
         setRow( e )
     }
 
@@ -392,7 +403,7 @@ const Preventivi = () =>
 
     useEffect( () =>
     {
-        
+
         AOS.init( {
             duration: 1000,
             easing: 'ease-in-out',
@@ -403,9 +414,10 @@ const Preventivi = () =>
     }, [] );
 
 
-    useEffect(()=> {
+    useEffect( () =>
+    {
         fetchData();
-    },[])
+    }, [] )
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
@@ -497,7 +509,7 @@ const Preventivi = () =>
                     </Table>
                 </TableContainer>
 
-                { <Modal title={'Crea preventivo'}  text={''} isOpen={ modal } closeModal={ closeModal }>
+                { <Modal title={ 'Crea preventivo' } text={ '' } isOpen={ modal } closeModal={ closeModal }>
                     <div style={ { width: '600px' } } className={ hostGrotesk.className }>
                         <div className={ hostGrotesk.className } style={ styles.formContainer }>
                             <form onSubmit={ handleSubmit } style={ styles.form }>
@@ -574,7 +586,7 @@ const Preventivi = () =>
                                         id="pdf-input" name="pdf"
                                         onChange={ ( e ) => setForm( { ...formState, pdf: e.target.files[ 0 ] } ) }
                                     />
-                               
+
                                 </div>
 
                                 <button type="submit" style={ styles.submitButton }>Invia</button>
@@ -583,7 +595,7 @@ const Preventivi = () =>
                     </div>
                 </Modal> }
                 {
-                    formState && <Modal title={'Modifica preventivo'}  text={''} isOpen={ modalEdit } closeModal={ closeModalEdit }>
+                    formState && <Modal title={ 'Modifica preventivo' } text={ '' } isOpen={ modalEdit } closeModal={ closeModalEdit }>
                         <div style={ { width: '600px' } } className={ hostGrotesk.className }>
                             <div className={ hostGrotesk.className } style={ styles.formContainer }>
                                 <form onSubmit={ editPrev } style={ styles.form }>
@@ -657,10 +669,22 @@ const Preventivi = () =>
                                         <label style={ styles.label }>PDF:</label>
                                         <input
                                             type="file"
-                                            id="pdf-input" name="pdf"
+                                            id="pdf-input"
+                                            name="pdf"
+                                            accept="application/pdf"
                                             onChange={ ( e ) => setForm( { ...formState, pdf: e.target.files[ 0 ] } ) }
                                         />
+                                        { row.pdf ? (
+                                            <p style={ { fontSize: '12px', color: 'red', width:'100%', maxWidth:250, overflow:'hidden', whiteSpace:'nowrap', textOverflow:'ellipsis' } }>
+                                                { row.pdf }
+                                            </p>
+                                        ) : (
+                                            <p style={ { fontSize: '16px', color: 'red' } }>
+                                                Nessun PDF selezionato.
+                                            </p>
+                                        ) }
                                     </div>
+
 
                                     <button type="submit" style={ styles.submitButton }>Invia</button>
                                 </form>
@@ -669,14 +693,14 @@ const Preventivi = () =>
                     </Modal>
                 }
                 {
-                    <Modal  title={'Sei sicuro di voler cancellare?<'}  text={''}closeModal={ closeModalCanc } isOpen={ modalCanc } >
+                    <Modal title={ 'Sei sicuro di voler cancellare?<' } text={ '' } closeModal={ closeModalCanc } isOpen={ modalCanc } >
                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                             <button className='borderLight' style={ { backgroundColor: 'salmon' } } onClick={ deletePrev }>Si?</button>
                         </div>
                     </Modal>
                 }
                 {
-                    <Modal title={'Come funzionano i preventivi'}  text={''} closeModal={ closeModalPrev } isOpen={ modalPrev } >
+                    <Modal title={ 'Come funzionano i preventivi' } text={ '' } closeModal={ closeModalPrev } isOpen={ modalPrev } >
                         <div style={ { display: 'flex', flexDirection: 'column', gap: 20, width: '600px' } }>
                             <p style={ { textAlign: 'left' } }>
                                 <b> ● Aggiunta di un nuovo preventivo:</b>  Per creare un nuovo preventivo, inserisci i seguenti dati richiesti:
@@ -705,7 +729,7 @@ const Preventivi = () =>
     );
 };
 
-const styles: { [key: string]: CSSProperties } = {
+const styles: { [ key: string ]: CSSProperties } = {
     formContainer: {
         display: 'flex',
         flexDirection: 'column',
