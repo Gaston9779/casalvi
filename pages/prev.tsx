@@ -392,7 +392,7 @@ const Preventivi = () =>
 
     useEffect( () =>
     {
-        fetchData();
+        
         AOS.init( {
             duration: 1000,
             easing: 'ease-in-out',
@@ -404,8 +404,8 @@ const Preventivi = () =>
 
 
     useEffect(()=> {
-        console.log(formState.pdf,'de')
-    },[formState.pdf])
+        fetchData();
+    },[])
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
