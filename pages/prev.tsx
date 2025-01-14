@@ -175,7 +175,7 @@ const Preventivi = () =>
             const response = await fetch( `/api/quotes?id=${ id }`, {
                 method: 'GET',
             } );
-
+            console.log(id)
             if ( !response.ok )
             {
                 throw new Error( 'Errore durante il download del PDF' );
@@ -183,16 +183,16 @@ const Preventivi = () =>
 
             // Ottieni la quote specifica (prima elemento dell'array)
             const quotes = await response.json();
-            const quote = quotes[ 0 ]; // Accedi al primo elemento dell'array
-
+            const quote = quotes.filter((item)=> item.idPrev === id)[0]; // Accedi al primo elemento dell'array
+            console.log(quote, quotes,'quotes')
             if ( !quote || !quote.pdf )
             {
                 throw new Error( 'PDF non disponibile per questa quote' );
             }
 
             // Percorso completo del PDF
-            const pdfUrl = `/${ quote.pdf }`;
-
+            const pdfUrl =  quote.pdf 
+            console.log(pdfUrl,'uuuurl')
             // Crea un elemento `<a>` per il download
             const link = document.createElement( 'a' );
             link.href = pdfUrl;
@@ -302,10 +302,11 @@ const Preventivi = () =>
                     method: 'POST',
                     body: formData, // Invia il FormData che contiene il file
                 } );
-
+                console.log('Risposta del server:', response);
                 if ( response.ok )
                 {
                     const newQuote = await response.json();
+                    console.log('Nuova quote salvata:', newQuote);
                     setRows( ( prevRows ) => [
                         ...prevRows,
                         createData(
@@ -344,6 +345,7 @@ const Preventivi = () =>
 
     const setSelectedRow = ( e ) =>
     {
+        console.log(row,'row', rows)
         openModalEdit();
         setRow( e );
 
@@ -417,6 +419,7 @@ const Preventivi = () =>
     useEffect( () =>
     {
         fetchData();
+        console.log(rows,'rows')
     }, [] )
 
     return (

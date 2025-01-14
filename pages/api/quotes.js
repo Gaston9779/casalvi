@@ -33,8 +33,16 @@ export default async function handler ( req, res )
       {
         if ( err )
         {
-          console.error( 'Errore nell\'upload del file:', err );
-          return res.status( 500 ).json( { error: 'Errore nell\'upload del file', details: err.message } );
+          console.error( "Errore nell'upload del file:", err );
+          return res.status( 500 ).json( {
+            error: "Errore nell'upload del file",
+            details: err.message,
+          } );
+        }
+
+        if ( !req.file )
+        {
+          return res.status( 400 ).json( { error: 'File non caricato correttamente' } );
         }
 
         try
@@ -45,7 +53,10 @@ export default async function handler ( req, res )
 
           // Estrai i dati dal body e dal file
           const { nomeClient, descWork, importoOfferto, scadAsta, status, note } = req.body;
-          const pdf = req.file?.path;
+          const pdf = req.file?.location;  // Usa `location` per il percorso S3 del file
+
+          console.log( req.file, 'file ricevuto' );
+          console.log( req.body, 'dati ricevuti' );
 
           // Crea la nuova quote
           const newQuote = new Quote( {
@@ -58,15 +69,20 @@ export default async function handler ( req, res )
             pdf,
             idPrev: newIdPrev,
           } );
-          console.log( newQuote, 'quote' );
+
+          console.log( newQuote, 'quote creata' );
+          console.log( 'File PDF salvato in:', pdf );
 
           // Salva la quote
           const savedQuote = await newQuote.save();
-          res.status( 201 ).json( savedQuote );
+          res.status( 201 ).json( savedQuote );  // Risposta con la quote appena creata
         } catch ( error )
         {
           console.error( 'Errore nella creazione della quote:', error );
-          res.status( 500 ).json( { error: 'Errore nella creazione della quote', details: error.message } );
+          res.status( 500 ).json( {
+            error: 'Errore nella creazione della quote',
+            details: error.message,
+          } );
         }
       } );
       break;
@@ -83,8 +99,8 @@ export default async function handler ( req, res )
         res.status( 200 ).json( updatedQuote );
       } catch ( error )
       {
-        console.error( 'Errore nell\'aggiornamento della quote:', error );
-        res.status( 500 ).json( { error: 'Errore nell\'aggiornamento della quote' } );
+        console.error( "Errore nell'aggiornamento della quote:", error );
+        res.status( 500 ).json( { error: "Errore nell'aggiornamento della quote" } );
       }
       break;
 
@@ -100,11 +116,10 @@ export default async function handler ( req, res )
         res.status( 200 ).json( { message: 'Quote eliminata con successo' } );
       } catch ( error )
       {
-        console.error( 'Errore nella cancellazione della quote:', idPrev );
+        console.error( 'Errore nella cancellazione della quote:', error );
         res.status( 500 ).json( { error: 'Errore nella cancellazione della quote' } );
       }
       break;
-
 
     default:
       res.setHeader( 'Allow', [ 'GET', 'POST', 'PUT', 'DELETE' ] );
