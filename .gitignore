@@ -1,37 +1,36 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Ignora il file delle variabili di ambiente
 .env.local
+
+# Ignora il file di configurazione AWS
 aws-config.js
 
-# dependencies
+# Dipendenze
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# Testing
 /coverage
 
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Produzione
 /build
 
-# misc
+# File di sistema
 .DS_Store
 *.pem
 
-# debug
+# Log di debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-
-# vercel
+# Vercel
 .vercel
 
-# Local Netlify folder
+# Cartella locale Netlify
 .netlify
-
-
