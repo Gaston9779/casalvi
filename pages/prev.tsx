@@ -323,7 +323,7 @@ const Preventivi = () =>
                     method: 'POST',
                     body: formData, // Invia il FormData che contiene il file
                 } );
-                console.log('Risposta del server:', response);
+                console.log('Risposta del serverA:', response);
                 if ( response.ok )
                 {
                     const newQuote = await response.json();
