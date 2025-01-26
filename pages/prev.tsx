@@ -167,45 +167,66 @@ const Preventivi = () =>
         } )
     }
 
-
-    const downloadPDF = async ( id ) =>
-    {
-        try
-        {
-            const response = await fetch( `/api/quotes?id=${ id }`, {
+    const downloadPDF = async (id) => {
+        try {
+            const response = await fetch(`/api/quotes?id=${id}`, {
                 method: 'GET',
-            } );
-            console.log(id)
-            if ( !response.ok )
-            {
-                throw new Error( 'Errore durante il download del PDF' );
+            });
+    
+            if (!response.ok) {
+                throw new Error('Errore durante il download del PDF');
             }
-
-            // Ottieni la quote specifica (prima elemento dell'array)
+    
+            // Ottieni i dati specifici
             const quotes = await response.json();
-            const quote = quotes.filter((item)=> item.idPrev === id)[0]; // Accedi al primo elemento dell'array
-            console.log(quote, quotes,'quotes')
-            if ( !quote || !quote.pdf )
-            {
-                throw new Error( 'PDF non disponibile per questa quote' );
+            const quote = quotes.find((item) => item.idPrev === id);
+    
+            if (!quote || !quote.pdf) {
+                throw new Error('PDF non disponibile per questa quote');
             }
-
+    
             // Percorso completo del PDF
-            const pdfUrl =  quote.pdf 
-            console.log(pdfUrl,'uuuurl')
-            // Crea un elemento `<a>` per il download
-            const link = document.createElement( 'a' );
-            link.href = pdfUrl;
-            link.download = `preventivo-${ id }.pdf`; // Nome del file scaricato
-            document.body.appendChild( link );
+            let pdfUrl = quote.pdf;
+    
+            // Converti URL relativo in assoluto (se necessario)
+            if (!pdfUrl.startsWith('http')) {
+                pdfUrl = `${window.location.origin}/${pdfUrl}`;
+            }
+    
+            console.log("URL generato per il download:", pdfUrl);
+    
+            // Effettua una nuova richiesta per ottenere il file
+            const fileResponse = await fetch(pdfUrl);
+            if (!fileResponse.ok) {
+                throw new Error("Errore durante l'accesso al file PDF");
+            }
+    
+            const blob = await fileResponse.blob();
+    
+            // Ottieni il nome originale del file senza prefisso numerico
+            const fileName = pdfUrl.split('/').pop().replace(/^\d+/, '');
+    
+            // Crea un URL temporaneo per il download
+            const tempUrl = URL.createObjectURL(blob);
+    
+            // Crea l'elemento `<a>` per il download
+            const link = document.createElement('a');
+            link.href = tempUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
             link.click();
+    
+            // Pulisci l'URL temporaneo
+            URL.revokeObjectURL(tempUrl);
             link.remove();
-        } catch ( error )
-        {
-            console.error( error );
-            alert( 'Errore durante il download del PDF' );
+        } catch (error) {
+            console.error(error);
+            alert('Errore durante il download del PDF');
         }
     };
+    
+    
+    
 
     const editPrev = async ( event ) =>
     {
@@ -460,7 +481,7 @@ const Preventivi = () =>
                 </div>
 
                 <div style={ { display: 'flex', justifyContent: 'space-between', width: '97%' } }>
-                    <h1 style={ { fontSize: 30, fontWeight: '900', color: '#333' } }>Preventivi</h1>
+                    <h1 style={ { fontSize: 30, fontWeight: '900', color: '#333' } }>Aste</h1>
                     <div style={ { display: 'flex', gap: 20 } }>
                         <button onClick={ openModalPrev } style={ { border: '1.5px solid #ffffab', color: '#ffffab', fontWeight: '500' } } className="borderLight">Come fare un preventivo?</button>
                         <button onClick={ openModal } className="borderLight">Aggiungi preventivo +</button>

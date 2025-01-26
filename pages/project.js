@@ -50,7 +50,7 @@ const Realizzazioni = () =>
             </div>
             {/* <Image src={ HomeWork } style={ { width: '100%', height: '90vh', opacity:'10%', position:'absolute', zIndex:0 } } /> */ }
             <AwesomeSlider
-                style={ { color: 'white', height:'100vh' } }
+                style={ { color: 'white', height:'100vh', marginTop:20 } }
                 organicArrows={ false }
                 buttonContentRight={ <p style={ buttonStyle }>{ ">" }</p> }
                 buttonContentLeft={ <p style={ buttonStyle }>{ "<" }</p> }
@@ -61,36 +61,36 @@ const Realizzazioni = () =>
 
                 <div>
                   
-                    <Image src={ First } style={ { objectFit: 'cover', borderRadius:10, zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ First } style={ { objectFit: 'contain', borderRadius:10, zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
-               {/*  <div>
+                <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white">CIAO</p></div>
-                    <Image src={ Sec } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Sec } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Third } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Third } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Fourth } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Fourth } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Fiveth } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Fiveth } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Sixth } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Sixth } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Seventh } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                    <Image src={ Seventh } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
                 </div>
                 <div>
                     <div style={ { backgroundColor: 'black', width: '80%',opacity: '80%', left: '10%', bottom: -140, right: 0, zIndex: '100', position: 'absolute' } }><p color="white"> CIAO</p></div>
-                    <Image src={ Eight } style={ { objectFit: 'cover', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
-                </div> */}
+                    <Image src={ Eight } style={ { objectFit: 'contain', zIndex: '-1', width: '100vw', height: '100vh', } } alt='' />
+                </div>
             </AwesomeSlider>
 
         </div>
