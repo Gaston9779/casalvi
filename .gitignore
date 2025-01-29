@@ -1,5 +1,5 @@
 # Ignora il file delle variabili di ambiente
-.env
+.env.local
 
 # Ignora il file di configurazione AWS
 aws-config.js
