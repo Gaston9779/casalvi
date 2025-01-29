@@ -480,7 +480,7 @@ const Preventivi = () =>
                     /> }
                 </div>
 
-                <div style={ { display: 'flex', justifyContent: 'space-between', width: '97%' } }>
+                <div className='divFlexColumn'>
                     <h1 style={ { fontSize: 30, fontWeight: '900', color: '#333' } }>Aste</h1>
                     <div style={ { display: 'flex', gap: 20 } }>
                         <button onClick={ openModalPrev } style={ { border: '1.5px solid #ffffab', color: '#ffffab', fontWeight: '500' } } className="borderLight">Come fare un preventivo?</button>
@@ -534,9 +534,9 @@ const Preventivi = () =>
                 </TableContainer>
 
                 { <Modal title={ 'Crea preventivo' } text={ '' } isOpen={ modal } closeModal={ closeModal }>
-                    <div style={ { width: '600px' } } className={ hostGrotesk.className }>
+                    <div className={ hostGrotesk.className }>
                         <div className={ hostGrotesk.className } style={ styles.formContainer }>
-                            <form onSubmit={ handleSubmit } style={ styles.form }>
+                            <form onSubmit={ handleSubmit } className='formStyleW'>
                                 <div style={ styles.formGroup }>
                                     <label style={ styles.label }>Nome Cliente:</label>
                                     <input
@@ -620,9 +620,9 @@ const Preventivi = () =>
                 </Modal> }
                 {
                     formState && <Modal title={ 'Modifica preventivo' } text={ '' } isOpen={ modalEdit } closeModal={ closeModalEdit }>
-                        <div style={ { width: '600px' } } className={ hostGrotesk.className }>
+                        <div className={ hostGrotesk.className }>
                             <div className={ hostGrotesk.className } style={ styles.formContainer }>
-                                <form onSubmit={ editPrev } style={ styles.form }>
+                                <form onSubmit={ editPrev } className='formStyleW'>
                                     <div style={ styles.formGroup }>
                                         <label style={ styles.label }>Nome Cliente:</label>
                                         <input
@@ -725,7 +725,7 @@ const Preventivi = () =>
                 }
                 {
                     <Modal title={ 'Come funzionano i preventivi' } text={ '' } closeModal={ closeModalPrev } isOpen={ modalPrev } >
-                        <div style={ { display: 'flex', flexDirection: 'column', gap: 20, width: '600px' } }>
+                        <div style={ { display: 'flex', flexDirection: 'column', gap: 20} }>
                             <p style={ { textAlign: 'left' } }>
                                 <b> ● Aggiunta di un nuovo preventivo:</b>  Per creare un nuovo preventivo, inserisci i seguenti dati richiesti:
 
@@ -760,13 +760,7 @@ const styles: { [ key: string ]: CSSProperties } = {
         alignItems: 'center',
         marginTop: 20,
     },
-    form: {
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        rowGap: '20px',
-        columnGap: '20px',
-        width: '100%',
-    },
+  
     formGroup: {
         display: 'flex',
         flexDirection: 'column',

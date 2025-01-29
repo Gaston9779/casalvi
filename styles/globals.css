@@ -84,7 +84,11 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   z-index: 9999;
 }
 
-
+.divFlexColumn{
+  display: flex;
+  justify-content: space-between;
+  width: 97% 
+}
 
 .custom-cursor::before{
   content: '.';
@@ -479,11 +483,20 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   justify-content: center;
   align-items: center;
 }
+.formStyleW{
+ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+    width: 100%;
 
+}
 .modal-content {
   background-color: white;
   padding: 30px;
   border-radius: 5px;
+  margin: 40px;
   z-index: 10000;
   text-align: center;
   position: relative; /* Necessario per la posizione assoluta della freccia */
@@ -1586,7 +1599,15 @@ main {
     display: flex;
     flex-direction: column;
   }
-  
+  .formStyleW{
+ 
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+    width: 100%;
+
+}
  /* .formStyle{
   height: 200vh;
  } */
@@ -1716,6 +1737,9 @@ main {
    .formStyle{
     text-align: center;
    }
+   .divFlexColumn{
+    flex-direction: column;
+  }
    .counterCard {
     margin-right: 20px;
     margin-left: 20px;
@@ -1731,6 +1755,7 @@ main {
   .card{
     width: 330px;
   }
+
   .card .img__back {
     bottom: -215px;
   }

@@ -2,6 +2,7 @@ import Tilt from 'react-parallax-tilt';
 import { Host_Grotesk, Kode_Mono } from 'next/font/google';
 import { useState } from 'react';
 import Modal from './Modal';
+import { ElettricistaText, IdraulicoText, PavimentiText, FotovoltaiciText, TettiText, CappottiText } from '../utils/utils'
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
@@ -11,16 +12,36 @@ const ParallaxCard = () =>
 {
     const [ selected, setSelected ] = useState( null )
     const [ name, setName ] = useState( '' )
+    const [ text, setText ] = useState( '' )
     /*   const openModal = () => setSelected( true );  // Funzione per aprire il modal */
     const openModal = ( e ) =>
     {
         setSelected( true )
         setName( e.target.name )
+        switch ( e.target.name )
+        {
+            case 'Idraulico':
+                return setText( IdraulicoText )
+            case 'Elettricista':
+                return setText( ElettricistaText )
+            case 'Fotovoltaici':
+                return setText( FotovoltaiciText )
+            case 'Pavimenti':
+                return setText( PavimentiText )
+            case 'Cappotti':
+                return setText( CappottiText )
+            case 'Tetti':
+                return setText( TettiText )
+            default:
+                setText( '' )
+        }
+        console.log( text, 'text', e.target.name )
     }
     const closeModal = () =>
     {
         setSelected( false )
         setName( '' )
+        setText( '' )
     }
 
     /*   const closeModal = () => setSelected( false );  // Funzione per chiudere il modal */
@@ -35,7 +56,7 @@ const ParallaxCard = () =>
             >
                 <div className="cardM">
                     <div className="coverM">
-                        <img loading="lazy"  style={ { transform: 'scale(0.8)', zIndex: 4, top: -30, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
+                        <img loading="lazy" style={ { transform: 'scale(0.8)', zIndex: 4, top: -30, width: '80%', height: '100%' } } alt='' src={ '/images/facility.png' } />
                         <div className="img__backM"></div>
                     </div>
                     <div className="descriptionM">
@@ -53,7 +74,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
+                    <img loading="lazy" style={ { transform: 'scale(1)', zIndex: 4, top: 30, width: '80%', height: '100%' } } alt='' src={ '/images/elet.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -88,7 +109,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
+                    <img loading="lazy" style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/solar.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -105,7 +126,7 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                    <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '84%', top: 30, height: '100%' } } alt='' src={ '/images/pav.png' } />
+                    <img loading="lazy" style={ { transform: 'scale(1)', zIndex: 4, width: '84%', top: 30, height: '100%' } } alt='' src={ '/images/pav.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
@@ -122,13 +143,13 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                <img loading="lazy"  style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/tetti.png' } />
+                    <img loading="lazy" style={ { transform: 'scale(1)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/tetti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
                     <h2>Tetti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
@@ -139,18 +160,20 @@ const ParallaxCard = () =>
         >
             <div className="card">
                 <div className="cover">
-                <img loading="lazy"  style={ { transform: 'scale(0.9)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/cappotti.png' } />
+                    <img loading="lazy" style={ { transform: 'scale(0.9)', zIndex: 4, width: '90%', top: 30, height: '100%' } } width={ 600 } height={ 300 } alt='' src={ '/images/cappotti.png' } />
                     <div className="img__back"></div>
                 </div>
                 <div className="description">
                     <h2>Cappotti</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
-                    <input onClick={ openModal } className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
         </Tilt>
         {
-            selected && <Modal children={undefined} title={ name } text={ name } closeModal={ closeModal } isOpen={ openModal } />
+            selected && <Modal title={ name } text={ text } closeModal={ closeModal } isOpen={ openModal } >
+                <button className='buttonStyle' style={{display:'inline', marginTop:20 }}>Contattaci</button>
+            </Modal>
         }
 
 
