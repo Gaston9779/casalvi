@@ -2,6 +2,7 @@
   command = "next build"               # Comando per costruire l'app
   publish = ".next"                     # Directory di pubblicazione per Next.js
   functions = "netlify/functions"       # Percorso delle funzioni Netlify
+  environment = { PYTHON_VERSION = "" }
 
 ## Configurazione del dominio
 [[redirects]]
