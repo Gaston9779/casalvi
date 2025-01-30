@@ -4,6 +4,7 @@ import { Host_Grotesk, Poppins } from 'next/font/google';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Tilt from 'react-parallax-tilt';
+import Modal from '../component/Modal';
 
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
@@ -27,6 +28,9 @@ const ServicePages = () =>
     const videoRef = useRef( null );
     const videoRefMob = useRef( null );
     const [ isMobile, setIsMobile ] = useState( false );
+    const [ selected, setSelected ] = useState( null )
+    const [ name, setName ] = useState( '' )
+    const [ text, setText ] = useState( '' )
     const checkWidth = useCallback( () =>
     {
         setIsMobile( window.screen.width < 600 );
@@ -44,6 +48,25 @@ const ServicePages = () =>
         AOS.refresh();
 
     }, [] );
+
+    const openModal = ( e ) =>
+    {
+        setSelected( true )
+        setText( `Trasformiamo la complessità in un processo chiaro ed efficace. Dalla costruzione del Capitolato Speciale di Appalto alla firma del contratto, gestiamo ogni fase con precisione: valutiamo i costi, indiciamo il bando sulla piattaforma Casavi, raccogliamo e analizziamo le offerte, fino alla formalizzazione dell’accordo.
+
+Non ci fermiamo qui: pianifichiamo, coordiniamo e monitoriamo ogni aspetto del progetto, garantendo il rispetto di budget e scadenze, mitigando i rischi e fornendo report costanti.
+
+💰 Compenso: generalmente tra il 5% e il 15% del valore del progetto.
+
+Affidati a noi per una gestione senza intoppi. 🚀`)
+        console.log( text, 'text', e.target.name )
+    }
+    const closeModal = () =>
+    {
+        setSelected( false )
+        setName( '' )
+        setText( '' )
+    }
 
 
     return (
@@ -130,7 +153,7 @@ const ServicePages = () =>
                                     transitionSpeed={ 250 } // Transizione fluida
                                     style={ { display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', borderRadius: 20, height: '100%', background: 'linear-gradient(83deg, rgba(245, 113, 208, 0.311) 0%, rgb(251, 251, 251) 44%, rgba(27, 229, 189, 0.526) 100%)', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', } }>
 
-                                    <img loading="lazy"  src="/images/facility.png" width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom: '15px' } } height={ '100%' } alt=""/>
+                                    <img loading="lazy" src="/images/facility.png" width={ '270px' } style={ { transform: 'scale(1.1)', overflow: 'auto', zIndex: 20, top: -15, marginBottom: '15px' } } height={ '100%' } alt="" />
 
                                 </Tilt>
                             </div>
@@ -139,7 +162,7 @@ const ServicePages = () =>
                                 <div style={ { display: 'flex', gap: 10, padding: 10, flexDirection: 'column', justifyContent: 'space-between' } }>
                                     <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Casavi facility managment</p>
                                     <p style={ { width: '100%', fontSize: 16, color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
-                                    <div style={ { width: '100%' } } className='buttonStyle'>
+                                    <div  onClick={ openModal }  style={ { width: '100%' } } className='buttonStyle'>
                                         <p>Costruisci la tua squadra</p>
                                     </div>
                                 </div>
@@ -157,6 +180,11 @@ const ServicePages = () =>
 
             </div >
 
+            {
+                selected && <Modal title={ 'Cosa facciamo' } text={ text } closeModal={ closeModal } isOpen={ openModal } >
+                    <button  onClick={() => window.location.href = 'mailto:info@studiostv.eu'}   className='buttonStyle' style={ { display: 'inline', marginTop: 20 } }>Contattaci</button>
+                </Modal>
+            }
 
 
         </div >

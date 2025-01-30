@@ -172,7 +172,7 @@ const ParallaxCard = () =>
         </Tilt>
         {
             selected && <Modal title={ name } text={ text } closeModal={ closeModal } isOpen={ openModal } >
-                <button className='buttonStyle' style={{display:'inline', marginTop:20 }}>Contattaci</button>
+                <button  onClick={() => window.location.href = 'mailto:info@studiostv.eu'} className='buttonStyle' style={{display:'inline', marginTop:20 }}>Contattaci</button>
             </Modal>
         }
 
