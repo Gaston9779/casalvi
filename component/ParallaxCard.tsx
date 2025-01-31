@@ -79,7 +79,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Idraulico</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Collaboriamo con idraulici altamente qualificati per offrire interventi rapidi e ri..</p>
                     <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
@@ -97,7 +97,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Elettricista</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Collaboriamo con una rete di elettricisti esperti, capaci di gestire con precisio..</p>
                     <input onClick={ openModal } name='Elettricista' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
@@ -114,7 +114,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Fotovoltaici</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Energia dal sole, tecnologia all'avanguardia: il fotovoltaico con accumulo e gestione smart..</p>
                     <input onClick={ openModal } name='Fotovoltaici' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
@@ -131,7 +131,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Pavimenti</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Piastrelle di qualità dalla fabbrica, posa personalizzata e progetti su misura..</p>
                     <input onClick={ openModal } name='Pavimenti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
@@ -148,7 +148,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Tetti</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Coperture e lattonerie su misura: qualità, precisione ed esperienza per proteg..</p>
                     <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>
@@ -165,7 +165,7 @@ const ParallaxCard = () =>
                 </div>
                 <div className="description">
                     <h2>Cappotti</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Cappotti termici, qualità garantita: ditte certificate, formate dai grandi marchi...</p>
                     <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
                 </div>
             </div>

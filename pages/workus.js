@@ -18,7 +18,7 @@ const italiana = Host_Grotesk( {
 
 const ContactUs = ( { type } ) =>
 {
-    const [ eMail, setMail ] = useState( 'tecnico@casavi.it' )
+    const [ eMail, setMail ] = useState( 'info@studiostv.it' )
     const [ eMailBy, setByMail ] = useState( '' )
     const [ message, setMessage ] = useState( '' )
     const [ selected, setSelected ] = useState( null )

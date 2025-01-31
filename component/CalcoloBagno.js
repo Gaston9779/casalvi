@@ -152,7 +152,17 @@ const CalcoloBagno = () =>
 
 
     return (
-        <div className="gradient2" style={ { display: "flex", flexDirection: "row", alignItems: "flex-start", justifyContent: 'center', height: "100%", paddingBottom: 100 } }>
+        <div
+        className="gradient2"
+        style={ {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            height: '100vh'
+        } }
+    >
+        <div className='gradient3'></div>
             <div className={ italiana.className } style={ { display: "flex", flexDirection: "column", marginTop: 30, gap: 20 } }>
                 <div style={ {
                     position: 'fixed',

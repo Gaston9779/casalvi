@@ -37,7 +37,7 @@ const AgencyCrest = () =>
         checkWidth()
         AOS.init();
         AOS.refresh()
-    }, [checkWidth] )
+    }, [ checkWidth ] )
 
     return (
         <div
@@ -47,10 +47,10 @@ const AgencyCrest = () =>
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'center',
-                height: '100%',
-
+                height: '100%'
             } }
         >
+            <div className='gradient3'></div>
             {/* <div className='backDiv'/>
             <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
             <div
@@ -103,7 +103,7 @@ const AgencyCrest = () =>
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
-                            opacity:0.1
+                            opacity: 0.1
                         } }
                     /> }
                 </div>
@@ -126,7 +126,7 @@ const AgencyCrest = () =>
                                             transitionSpeed={ 250 }  // Transizione fluida
                                             className='tiltCard '>
 
-                                            <Image width={500} height={300}  loading="lazy"  src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
+                                            <Image width={ 500 } height={ 300 } loading="lazy" src='/images/graz.png' style={ { transform: 'scale(1)', width: '100%', maxHeight: 260, zIndex: 20 } } alt='' />
 
                                         </Tilt>
                                     </div>
@@ -193,7 +193,7 @@ const AgencyCrest = () =>
                                             style={ { overflow: 'visible', height: '100%' } }
 
                                         >
-                                            <Image width={270} height={300}  loading="lazy"  className='img_responsive' src='/images/h.png' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
+                                            <Image width={ 270 } height={ 300 } loading="lazy" className='img_responsive' src='/images/h.png' style={ { filter: 'drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.3))', position: 'absolute', marginTop: -10, transform: 'scale(1)', overflow: 'auto', zIndex: 20 } } alt='' />
                                         </Tilt>
                                     </div>
 
@@ -287,8 +287,8 @@ const AgencyCrest = () =>
                             } }>
                                 <div className="scroll-container">
                                     <div className="scroll-content">
-                                        <Image width={500} height={50} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
-                                        <Image width={500} height={50} loading="lazy"  src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={ 500 } height={ 50 } loading="lazy" src="/images/frame.png" alt="" className="scroll-image" />
+                                        <Image width={ 500 } height={ 50 } loading="lazy" src="/images/frame.png" alt="" className="scroll-image" />
                                     </div>
                                 </div>
                             </div>

@@ -78,7 +78,7 @@ const Contact = () =>
                     <p className={ italiana.className } style={ { textAlign: 'center', color: 'white', } }>Via della Zarga, 42, Lavis 38015</p>
                     <a href={ `tel:0461 1821559` } target="_blank" rel="noopener noreferrer" className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } }>Tel: 0461 1821559</a>
                     <a className={ italiana.className } style={ { textAlign: 'center', color: 'white', textDecoration: 'underline' } } href={ `mailto:info@studiostv.eu` } target="_blank" rel="noopener noreferrer">
-                        Mail: info@casavi.it
+                        Mail: info@studiostv.eu
                     </a>
                 </div>
             </div>

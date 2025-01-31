@@ -80,8 +80,7 @@ Affidati a noi per una gestione senza intoppi. 🚀`)
                 height: '100%'
             } }
         >
-            {/*  <div className='backDiv'/>
-            <img className='backImg' src='/images/bg-prof.jpg' alt=''/> */}
+            <div className='gradient3'></div>
             <div
 
                 className={ italiana.className }
@@ -162,7 +161,7 @@ Affidati a noi per una gestione senza intoppi. 🚀`)
                                 <div style={ { display: 'flex', gap: 10, padding: 10, flexDirection: 'column', justifyContent: 'space-between' } }>
                                     <p style={ { fontSize: '30px', color: '#333', fontWeight: 'bold' } }>Casavi facility managment</p>
                                     <p style={ { width: '100%', fontSize: 16, color: '#333' } }>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
-                                    <div  onClick={ openModal }  style={ { width: '100%' } } className='buttonStyle'>
+                                    <div onClick={ openModal } style={ { width: '100%' } } className='buttonStyle'>
                                         <p>Costruisci la tua squadra</p>
                                     </div>
                                 </div>
@@ -182,7 +181,7 @@ Affidati a noi per una gestione senza intoppi. 🚀`)
 
             {
                 selected && <Modal title={ 'Cosa facciamo' } text={ text } closeModal={ closeModal } isOpen={ openModal } >
-                    <button  onClick={() => window.location.href = 'mailto:info@studiostv.eu'}   className='buttonStyle' style={ { display: 'inline', marginTop: 20 } }>Contattaci</button>
+                    <button onClick={ () => window.location.href = 'mailto:info@studiostv.eu' } className='buttonStyle' style={ { display: 'inline', marginTop: 20 } }>Contattaci</button>
                 </Modal>
             }
 

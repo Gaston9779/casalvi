@@ -773,11 +773,23 @@ input:hover .custom-cursor, a:hover .custom-cursor {
   gap: 30px;
   z-index: -1;
   padding-top: 80px;
+  overflow: hidden;
   padding-bottom: 0px;
   width: 100%;
   /* background: linear-gradient(90deg, rgba(68,70,86,1) 0%, rgba(127,131,149,1) 50%, rgba(68,70,86,1) 100%); */
-  background: linear-gradient(176deg, rgba(68, 70, 86, 0.532) 0%, rgba(127, 131, 149, 0.128) 50%, rgba(116, 117, 125, 0.31) 100%);
  /*  background:radial-gradient(circle, rgba(134, 221, 208, 0.8) 0%, rgba(202, 213, 219, 0.9) 60%, rgba(46, 151, 135, 0.8) 100%); */
+
+  /* background-color: #86d3c7cb; */
+  background-size: cover;
+}
+.gradient3{
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  top: 0px;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(176deg, rgba(68, 70, 86, 0.532) 0%, rgba(127, 131, 149, 0.128) 50%, rgba(116, 117, 125, 0.31) 100%);
 
   /* background-color: #86d3c7cb; */
   background-size: cover;
