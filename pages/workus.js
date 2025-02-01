@@ -64,7 +64,7 @@ const ContactUs = ( { type } ) =>
 
     return (
         <div className='gradient2' style={ { display: 'flex', alignItems: 'center', paddingTop: '100px', gap: 0, height: '100%', minHeight: '100vh', width: '100%', justifyContent: 'center' } }>
-
+            <div className='gradient3'></div>
             <div style={ {
                 position: 'fixed',
                 top: 0,

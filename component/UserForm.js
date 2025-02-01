@@ -83,7 +83,7 @@ export const UserFormLib = () =>
     }
     const formData = new FormData( form.current );
 
-    emailjs.sendForm( 'service_ail7z6h', 'template_bknweol', form.current, 'tWlhoCbuaXEAnriQ3' )
+  /*   emailjs.sendForm( 'service_ail7z6h', 'template_bknweol', form.current, 'tWlhoCbuaXEAnriQ3' )
       .then( ( result ) =>
       {
 
@@ -93,7 +93,10 @@ export const UserFormLib = () =>
 
         console.error( "Errore nell'invio:", error );
         toast.error( `Errore: ${ error.text || "Impossibile inviare l'email" }` );
-      } );
+      } ); */
+      
+      toast.success('Inviato')
+      console.log('we')
 
   };
 
@@ -149,6 +152,7 @@ export const UserFormLib = () =>
 
   return (
     <div className={ italiana.className }>
+      <ToastContainer/>
       <div className='formStyle'>
         <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color: '#333' } }>Lavora con Noi(Artigiano)</p>
         <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
@@ -280,8 +284,7 @@ export const UserFormLib = () =>
               </Select>
             </div>
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-              <p style={ { visibility: 'hidden' } }>.</p>
-              <input className='borderLight' style={ { width: '100%' } } value='Invia' type='submit'></input>
+              <input className='borderLight' style={ { width: '100%', border:'2px solid #333 ', color:'#333 ' ,marginTop:20 } } value='Invia' type='submit'></input>
             </div>
 
 

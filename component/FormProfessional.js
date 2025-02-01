@@ -127,14 +127,12 @@ export const FormProfessional = () =>
     return arr.filter( item => item !== undefined )
   }, [] )
 
-  useEffect( () =>
-  {
-    formState.language
-  }, [ formState, step ] )
+
 
   return (
     <div className={ italiana.className }>
-      <div className='formStyle'>
+       <ToastContainer/>
+      <div className='formStyle' style={{height:'70vh'}}>
         <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color: '#333' } }>Lavora con Noi(Professionista)</p>
         <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
         <hr style={ { border: '0.5px solid #333 ', width: '90%', marginTop: 30 } }></hr>
@@ -215,7 +213,7 @@ export const FormProfessional = () =>
 
             <div style={ { display: 'flex', justifyContent: 'center', alignItems: 'flex-end' } }>
 
-              <input className='borderLight' style={ { width: '100%' } } value='Invia' type='submit'></input>
+              <input className='borderLight' style={ { width: '100%', border:'2px solid #333 ', color:'#333 ' } } value='Invia' type='submit'></input>
             </div>
 
 
