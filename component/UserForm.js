@@ -83,55 +83,49 @@ export const UserFormLib = () =>
     }
     const formData = new FormData( form.current );
 
-  /*   emailjs.sendForm( 'service_ail7z6h', 'template_bknweol', form.current, 'tWlhoCbuaXEAnriQ3' )
-      .then( ( result ) =>
-      {
+     emailjs.sendForm( 'service_ail7z6h', 'template_bknweol', form.current, 'tWlhoCbuaXEAnriQ3' )
+       .then( ( result ) =>
+       {
+ 
+         toast.success( 'Email inviata' )
+         refreshForms()
+       }, ( error ) =>
+       {
+ 
+         console.error( "Errore nell'invio:", error );
+         toast.error( `Errore: ${ error.text || "Impossibile inviare l'email" }` );
+       } );
 
-        toast.success( 'OK' )
-      }, ( error ) =>
-      {
-
-        console.error( "Errore nell'invio:", error );
-        toast.error( `Errore: ${ error.text || "Impossibile inviare l'email" }` );
-      } ); */
-      
-      toast.success('Inviato')
-      console.log('we')
+    toast.success( 'Email inviata' )
+    refreshForms()
 
   };
 
 
-
-
-
-  // Proceed to next step
-  const nextStep = () =>
+  const refreshForms = () =>
   {
-    if ( step < 5 )
-    {
-      setStep(
-        step + 1
-      );
-    }
+    setForm( {
+      ...formState, nomeCognome: '',
+      email: '',
+      città: '',
+      language: '',
+      tempoLavoro: '',
+      aggiornamenti: '',
+      qualificaCappotti: '',
+      personale: '',
+      mezziECapitali: '',
+      assicurato: '',
+      magazzini: '',
+      CCNL: '',
+      SOA: '',
+      importoSOA: '',
+      categoriaSOA: '',
+      scontoFattura: ''
+    } )
+  }
 
-  };
 
-  // Go back to prev step
-  const prevStep = () =>
-  {
-    if ( step > 1 )
-    {
-      setStep(
-        step - 1
-      );
-    }
-  };
 
-  // Handle fields change
-  const handleChange = input => e =>
-  {
-    setForm( { [ input ]: e.target.value } );
-  };
 
   const listNaztion = useMemo( () =>
   {
@@ -152,7 +146,7 @@ export const UserFormLib = () =>
 
   return (
     <div className={ italiana.className }>
-      <ToastContainer/>
+      <ToastContainer />
       <div className='formStyle'>
         <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color: '#333' } }>Lavora con Noi(Artigiano)</p>
         <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
@@ -162,16 +156,16 @@ export const UserFormLib = () =>
 
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
               <label style={ { color: '#333' } }>Nome e cognome:</label>
-              <input defaultValue={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="nomeCognome" />
+              <input value={ formState.nomeCognome } onChange={ ( e ) => { setForm( { ...formState, nomeCognome: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="nomeCognome" />
             </div>
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
               <label style={ { color: '#333' } }>Email</label>
-              <input defaultValue={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="email" />
+              <input value={ formState.email } onChange={ ( e ) => { setForm( { ...formState, email: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="email" />
             </div>
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
               <label style={ { color: '#333' } }>Città</label>
 
-              <input defaultValue={ formState.città } onChange={ ( e ) => { setForm( { ...formState, città: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="citta" />
+              <input value={ formState.città } onChange={ ( e ) => { setForm( { ...formState, città: e.target.value } ) } } style={ { height: 40, width: '100%', padding: 10, borderRadius: 10, border: 'none', border: '1px solid #46464a', backgroundColor: 'transparent' } } name="citta" />
             </div>
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
               <label style={ { color: '#333' } }>Lingua:</label>
@@ -284,7 +278,7 @@ export const UserFormLib = () =>
               </Select>
             </div>
             <div style={ { display: 'flex', gap: 10, alignItems: 'center', flexDirection: 'column' } }>
-              <input className='borderLight' style={ { width: '100%', border:'2px solid #333 ', color:'#333 ' ,marginTop:20 } } value='Invia' type='submit'></input>
+              <input className='borderLight' style={ { width: '100%', border: '2px solid #333 ', color: '#333 ', marginTop: 20 } } value='Invia' type='submit'></input>
             </div>
 
 
