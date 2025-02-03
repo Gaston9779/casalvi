@@ -11,6 +11,7 @@ export default function LoginPage ( { listNavbar, isMobile } )
     const [ password, setPassword ] = useState( '' );
     const [ error, setError ] = useState( '' );
     const [ isLoading, setIsLoading ] = useState( false );
+    const [unlogged, setUnlogged] = useState(false)
     const [ selected, setSelected ] = useState( false );
     const [ isClient, setIsClient ] = useState( false ); // Stato per identificare il client
     const logged = useSelector( ( state ) => state.service.log );
@@ -67,6 +68,11 @@ export default function LoginPage ( { listNavbar, isMobile } )
         }
     };
 
+    const unlogging = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
+
     useEffect( () =>
     {
         if ( isClient )
@@ -83,7 +89,7 @@ export default function LoginPage ( { listNavbar, isMobile } )
         <div>
             {/* Ritarda il rendering fino a quando non siamo nel client */ }
             { isClient && logged.includes( 'casavi' ) ? (
-              isClient && logged.includes( 'read' ) ? <div style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'icon-park:read-book'}/></div> :  <div style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'eos-icons:admin-outlined'}/></div> 
+              isClient && logged.includes( 'read' ) ? <div onClick={()=> setUnlogged(true)} style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'icon-park:read-book'}/></div> :  <div onClick={()=> setUnlogged(true)}  style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'eos-icons:admin-outlined'}/></div> 
             ) : (
                 <Link
                     href={ '/' }
@@ -126,6 +132,14 @@ export default function LoginPage ( { listNavbar, isMobile } )
                     </form>
                 </Modal>
             ) }
+            {
+                unlogged && <Modal isOpen={unlogged} closeModal={()=> setUnlogged(false)}>
+                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', gap:10}}>
+                    <p>Stai per sloggarti, sei sicuro?</p>
+                    <button onClick={unlogging} className='buttonStyle'>Conferma</button>
+                    </div>
+                </Modal>
+            }
 
             { error && <div>{ error }</div> }
         </div>

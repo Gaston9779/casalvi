@@ -167,71 +167,78 @@ const Preventivi = () =>
         } )
     }
 
-    const downloadPDF = async (id) => {
-        try {
-            const response = await fetch(`/api/quotes?id=${id}`, {
+    const downloadPDF = async ( id ) =>
+    {
+        try
+        {
+            const response = await fetch( `/api/quotes?id=${ id }`, {
                 method: 'GET',
-            });
-    
-            if (!response.ok) {
-                throw new Error('Errore durante il download del PDF');
+            } );
+
+            if ( !response.ok )
+            {
+                throw new Error( 'Errore durante il download del PDF' );
             }
-    
+
             // Ottieni i dati specifici
             const quotes = await response.json();
-            const quote = quotes.find((item) => item.idPrev === id);
-    
-            if (!quote || !quote.pdf) {
-                throw new Error('PDF non disponibile per questa quote');
+            const quote = quotes.find( ( item ) => item.idPrev === id );
+
+            if ( !quote || !quote.pdf )
+            {
+                throw new Error( 'PDF non disponibile per questa quote' );
             }
-    
+
             // Percorso completo del PDF
             let pdfUrl = quote.pdf;
-    
+
             // Converti URL relativo in assoluto (se necessario)
-            if (!pdfUrl.startsWith('http')) {
-                pdfUrl = `${window.location.origin}/${pdfUrl}`;
+            if ( !pdfUrl.startsWith( 'http' ) )
+            {
+                pdfUrl = `${ window.location.origin }/${ pdfUrl }`;
             }
-    
-            console.log("URL generato per il download:", pdfUrl);
-    
+
+            console.log( "URL generato per il download:", pdfUrl );
+
             // Effettua una nuova richiesta per ottenere il file
-            const fileResponse = await fetch(pdfUrl);
-            if (!fileResponse.ok) {
-                throw new Error("Errore durante l'accesso al file PDF");
+            const fileResponse = await fetch( pdfUrl );
+            if ( !fileResponse.ok )
+            {
+                throw new Error( "Errore durante l'accesso al file PDF" );
             }
-    
+
             const blob = await fileResponse.blob();
-    
+
             // Ottieni il nome originale del file senza prefisso numerico
-            const fileName = pdfUrl.split('/').pop().replace(/^\d+/, '');
-    
+            const fileName = pdfUrl.split( '/' ).pop().replace( /^\d+/, '' );
+
             // Crea un URL temporaneo per il download
-            const tempUrl = URL.createObjectURL(blob);
-    
+            const tempUrl = URL.createObjectURL( blob );
+
             // Crea l'elemento `<a>` per il download
-            const link = document.createElement('a');
+            const link = document.createElement( 'a' );
             link.href = tempUrl;
             link.download = fileName;
-            document.body.appendChild(link);
+            document.body.appendChild( link );
             link.click();
-    
+
             // Pulisci l'URL temporaneo
-            URL.revokeObjectURL(tempUrl);
+            URL.revokeObjectURL( tempUrl );
             link.remove();
-        } catch (error) {
-            console.error(error);
-            alert('Errore durante il download del PDF');
+        } catch ( error )
+        {
+            console.error( error );
+            alert( 'Errore durante il download del PDF' );
         }
     };
-    
-    
-    
+
+
+
 
     const editPrev = async ( event ) =>
     {
         event.preventDefault(); // Per evitare che il form venga inviato in modo tradizionale
-       
+
         const updatedPrev = {
             nomeClient: formState.nomeClient,
             descWork: formState.descWork,
@@ -241,7 +248,7 @@ const Preventivi = () =>
             note: formState.note,
             pdf: formState.pdf // se necessario (anche se sembra disabilitato)
         };
-      
+
         try
         {
             const response = await fetch( `/api/quotes/${ formState.idPrev }`, {
@@ -323,11 +330,11 @@ const Preventivi = () =>
                     method: 'POST',
                     body: formData, // Invia il FormData che contiene il file
                 } );
-                console.log('Risposta del serverA:', response);
+                console.log( 'Risposta del serverA:', response );
                 if ( response.ok )
                 {
                     const newQuote = await response.json();
-                    console.log('Nuova quote salvata:', newQuote);
+                    console.log( 'Nuova quote salvata:', newQuote );
                     setRows( ( prevRows ) => [
                         ...prevRows,
                         createData(
@@ -356,6 +363,13 @@ const Preventivi = () =>
     };
 
 
+    const regexDate = ( e ) =>
+    {
+        const usaDateTime = e; // Formato MM/DD/YYYY HH:MM:SS
+        const euDateTime = usaDateTime.replace(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/, "$3/$2/$1 $4:$5");
+        return euDateTime
+
+    }
 
     const setDeleteRow = ( e ) =>
     {
@@ -366,7 +380,7 @@ const Preventivi = () =>
 
     const setSelectedRow = ( e ) =>
     {
-        console.log(row,'row', rows)
+        console.log( row, 'row', rows )
         openModalEdit();
         setRow( e );
 
@@ -440,11 +454,12 @@ const Preventivi = () =>
     useEffect( () =>
     {
         fetchData();
-        console.log(rows,'rows')
+        console.log( rows, 'rows' )
     }, [] )
 
     return (
         <div className="gradient2" style={ { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '20px' } }>
+             <div className='gradient3'style={{zIndex:'-1'}}></div>
             <div className={ hostGrotesk.className } style={ { display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: '100px' } }>
                 <div style={ {
                     position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden', zIndex: -1,
@@ -510,7 +525,7 @@ const Preventivi = () =>
                                     <StyledTableCell>Cliente: { row.idPrev }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.descWork }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.importoOfferto }</StyledTableCell>
-                                    <StyledTableCell align="left">{ row.scadAsta }</StyledTableCell>
+                                    <StyledTableCell align="left">{ regexDate( row.scadAsta ) }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.status ? '✅' : '❌' }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.note }</StyledTableCell>
                                     <StyledTableCell align="left">
@@ -699,7 +714,7 @@ const Preventivi = () =>
                                             onChange={ ( e ) => setForm( { ...formState, pdf: e.target.files[ 0 ] } ) }
                                         />
                                         { row.pdf ? (
-                                            <p style={ { fontSize: '12px', color: 'red', width:'100%', maxWidth:250, overflow:'hidden', whiteSpace:'nowrap', textOverflow:'ellipsis' } }>
+                                            <p style={ { fontSize: '12px', color: 'red', width: '100%', maxWidth: 250, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' } }>
                                                 { row.pdf }
                                             </p>
                                         ) : (
@@ -725,7 +740,7 @@ const Preventivi = () =>
                 }
                 {
                     <Modal title={ 'Come funzionano i preventivi' } text={ '' } closeModal={ closeModalPrev } isOpen={ modalPrev } >
-                        <div style={ { display: 'flex', flexDirection: 'column', gap: 20} }>
+                        <div style={ { display: 'flex', flexDirection: 'column', gap: 20 } }>
                             <p style={ { textAlign: 'left' } }>
                                 <b> ● Aggiunta di un nuovo preventivo:</b>  Per creare un nuovo preventivo, inserisci i seguenti dati richiesti:
 
@@ -760,7 +775,7 @@ const styles: { [ key: string ]: CSSProperties } = {
         alignItems: 'center',
         marginTop: 20,
     },
-  
+
     formGroup: {
         display: 'flex',
         flexDirection: 'column',

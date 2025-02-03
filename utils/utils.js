@@ -43,3 +43,8 @@ esperienza nel settore.
 SCRIVICI PER richieste specifiche e ti indirizzeremo verso gli artigiani più adatti alle tue richieste.`
 export const TettiText = `Coperture e lattonerie su misura: qualità, precisione ed esperienza per proteggere la tua casa.
 SCRIVICI PER richieste specifiche e ti indirizzeremo verso gli artigiani più adatti alle tue richieste.`
+
+export const FacilityText = `Trasformiamo la complessità in un processo chiaro ed efficace. Dalla costruzione del Capitolato Speciale di Appalto alla firma del contratto, gestiamo ogni fase con precisione: valutiamo i costi, indiciamo il bando sulla piattaforma Casavi, raccogliamo e analizziamo le offerte, fino alla formalizzazione dell’accordo.
+Non ci fermiamo qui: pianifichiamo, coordiniamo e monitoriamo ogni aspetto del progetto, garantendo il rispetto di budget e scadenze, mitigando i rischi e fornendo report costanti.
+💰 Compenso: generalmente tra il 5% e il 15% del valore del progetto.
+Affidati a noi per una gestione senza intoppi. 🚀`

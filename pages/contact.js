@@ -29,6 +29,7 @@ const Contact = () =>
                 height: '100%',
             } }
         >
+             <div className='gradient3'></div>
             <div style={ {
                 position: 'fixed',
                 top: 0,

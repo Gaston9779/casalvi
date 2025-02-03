@@ -2,7 +2,7 @@ import Tilt from 'react-parallax-tilt';
 import { Host_Grotesk, Kode_Mono } from 'next/font/google';
 import { useState } from 'react';
 import Modal from './Modal';
-import { ElettricistaText, IdraulicoText, PavimentiText, FotovoltaiciText, TettiText, CappottiText } from '../utils/utils'
+import { ElettricistaText, IdraulicoText, PavimentiText, FotovoltaiciText, TettiText, CappottiText, FacilityText } from '../utils/utils'
 const italiana = Host_Grotesk( {
     subsets: [ 'latin' ],
     weight: [ '400' ],
@@ -32,6 +32,8 @@ const ParallaxCard = () =>
                 return setText( CappottiText )
             case 'Tetti':
                 return setText( TettiText )
+            case 'Casavi':
+                return setText(FacilityText)
             default:
                 setText( '' )
         }
@@ -62,7 +64,7 @@ const ParallaxCard = () =>
                     <div className="descriptionM">
                         <h2>Casavi facility manager</h2>
                         <p>Stai pensando di costruire casa o di fare una ristrutturazione massiccia? Vorresti una persona che si prenda la responsabilità e si occupi di creare e gestire un team adatto alle tue esigenze?</p>
-                        <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                        <input onClick={ openModal } name='Casavi' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                     </div>
                 </div>
             </Tilt>
@@ -80,7 +82,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Idraulico</h2>
                     <p>Collaboriamo con idraulici altamente qualificati per offrire interventi rapidi e ri..</p>
-                    <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Idraulico' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>
@@ -98,7 +100,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Elettricista</h2>
                     <p>Collaboriamo con una rete di elettricisti esperti, capaci di gestire con precisio..</p>
-                    <input onClick={ openModal } name='Elettricista' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Elettricista' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>
@@ -115,7 +117,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Fotovoltaici</h2>
                     <p>Energia dal sole, tecnologia all'avanguardia: il fotovoltaico con accumulo e gestione smart..</p>
-                    <input onClick={ openModal } name='Fotovoltaici' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Fotovoltaici' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>
@@ -132,7 +134,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Pavimenti</h2>
                     <p>Piastrelle di qualità dalla fabbrica, posa personalizzata e progetti su misura..</p>
-                    <input onClick={ openModal } name='Pavimenti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Pavimenti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>
@@ -149,7 +151,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Tetti</h2>
                     <p>Coperture e lattonerie su misura: qualità, precisione ed esperienza per proteg..</p>
-                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Tetti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>
@@ -166,7 +168,7 @@ const ParallaxCard = () =>
                 <div className="description">
                     <h2>Cappotti</h2>
                     <p>Cappotti termici, qualità garantita: ditte certificate, formate dai grandi marchi...</p>
-                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Details" />
+                    <input onClick={ openModal } name='Cappotti' className={ italiana.className } style={ { width: '100%', fontWeight: '300', fontSize: 16 } } type="button" value="Scopri di più" />
                 </div>
             </div>
         </Tilt>

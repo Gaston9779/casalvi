@@ -115,7 +115,7 @@ export const FormProfessional = () =>
   return (
     <div className={ italiana.className }>
       <ToastContainer />
-      <div className='formStyle' style={ { height: '70vh' } }>
+      <div className='formStyle'>
         <p style={ { marginLeft: '3%', fontSize: 30, fontWeight: 'bold', marginTop: 0, color: '#333' } }>Lavora con Noi(Professionista)</p>
         <p style={ { marginLeft: '3%', fontSize: 16, marginTop: 10 } }>Inviaci questi dati per essere contattato!</p>
         <hr style={ { border: '0.5px solid #333 ', width: '90%', marginTop: 30 } }></hr>
