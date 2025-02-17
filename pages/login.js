@@ -11,14 +11,29 @@ export default function LoginPage ( { listNavbar, isMobile } )
     const [ password, setPassword ] = useState( '' );
     const [ error, setError ] = useState( '' );
     const [ isLoading, setIsLoading ] = useState( false );
-    const [unlogged, setUnlogged] = useState(false)
+    const [ unlogged, setUnlogged ] = useState( false )
     const [ selected, setSelected ] = useState( false );
     const [ isClient, setIsClient ] = useState( false ); // Stato per identificare il client
     const logged = useSelector( ( state ) => state.service.log );
     const dispatch = useDispatch();
 
-    const openModal = () => setSelected( true );
-    const closeModal = () => setSelected( false );
+
+    // Funzione per aprire l'overlay
+    const openModal = () =>
+    {
+        document.body.classList.add( 'no-scroll' );  // Disabilita lo scroll
+        setSelected( true )
+        document.querySelector( '.modal-overlay' ).style.display = 'flex';  // Mostra l'overlay
+    };
+
+    // Funzione per chiudere l'overlay
+    const closeModal = () =>
+    {
+        document.body.classList.remove( 'no-scroll' );  // Abilita lo scroll
+        setSelected( false )
+        document.querySelector( '.modal-overlay' ).style.display = 'none';  // Nascondi l'overlay
+    };
+
     const Icon = dynamic( () => import( '@iconify/react' ).then( ( mod ) => mod.Icon ), { ssr: false } );
 
     // Ritarda il rendering lato client
@@ -68,7 +83,8 @@ export default function LoginPage ( { listNavbar, isMobile } )
         }
     };
 
-    const unlogging = () => {
+    const unlogging = () =>
+    {
         localStorage.clear()
         window.location.reload()
     }
@@ -89,13 +105,13 @@ export default function LoginPage ( { listNavbar, isMobile } )
         <div>
             {/* Ritarda il rendering fino a quando non siamo nel client */ }
             { isClient && logged.includes( 'casavi' ) ? (
-              isClient && logged.includes( 'read' ) ? <div onClick={()=> setUnlogged(true)} style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'icon-park:read-book'}/></div> :  <div onClick={()=> setUnlogged(true)}  style={{border:'1px solid', display:'flex', justifyContent:'center', alignItems:'center', padding:10, borderRadius:100, background:'white'}}> <Icon icon={'eos-icons:admin-outlined'}/></div> 
+                isClient && logged.includes( 'read' ) ? <div onClick={ () => setUnlogged( true ) } style={ { border: '1px solid', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 100, background: 'white' } }> <Icon icon={ 'icon-park:read-book' } /></div> : <div onClick={ () => setUnlogged( true ) } style={ { border: '1px solid', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 100, background: 'white' } }> <Icon icon={ 'eos-icons:admin-outlined' } /></div>
             ) : (
                 <Link
                     href={ '/' }
                     onClick={ () => setSelected( true ) }
                     className={ listNavbar ? 'selectedText' : 'hoverableText' }
-                    style={ { color: 'white', fontSize: isMobile ?  30 : 16 } }
+                    style={ { color: 'white', fontSize: isMobile ? 30 : 16 } }
                 >
                     Login
                 </Link>
@@ -104,7 +120,7 @@ export default function LoginPage ( { listNavbar, isMobile } )
             { selected && (
                 <Modal isOpen={ selected } closeModal={ closeModal }>
                     <form
-                        style={ { display: 'flex', flexDirection: 'column', gap: 10 } }
+                        style={ { display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' } }
                         onSubmit={ handleSubmit }
                     >
                         <input
@@ -133,10 +149,10 @@ export default function LoginPage ( { listNavbar, isMobile } )
                 </Modal>
             ) }
             {
-                unlogged && <Modal isOpen={unlogged} closeModal={()=> setUnlogged(false)}>
-                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', gap:10}}>
-                    <p>Stai per sloggarti, sei sicuro?</p>
-                    <button onClick={unlogging} className='buttonStyle'>Conferma</button>
+                unlogged && <Modal isOpen={ unlogged } closeModal={ () => setUnlogged( false ) }>
+                    <div style={ { display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10 } }>
+                        <p>Stai per sloggarti, sei sicuro?</p>
+                        <button onClick={ unlogging } className='buttonStyle'>Conferma</button>
                     </div>
                 </Modal>
             }

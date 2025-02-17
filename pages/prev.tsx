@@ -363,7 +363,17 @@ const Preventivi = () =>
     };
 
 
-
+    const regexDate = (e) => {
+        if (e && typeof e === 'string') {
+            const usaDateTime = e; // Formato MM/DD/YYYY HH:MM:SS
+            const euDateTime = usaDateTime.replace(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/, "$3/$2/$1 $4:$5");
+            return euDateTime;
+        } else {
+            console.error('Invalid date input:', e);
+            return null; // O gestisci come preferisci
+        }
+    };
+    
     
     const setDeleteRow = ( e ) =>
     {
@@ -519,7 +529,7 @@ const Preventivi = () =>
                                     <StyledTableCell>Cliente: { row.idPrev }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.descWork }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.importoOfferto }</StyledTableCell>
-                                    <StyledTableCell align="left">{ ( row.scadAsta ) }</StyledTableCell>
+                                    <StyledTableCell align="left">{ regexDate( row.scadAsta ) }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.status ? '✅' : '❌' }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.note }</StyledTableCell>
                                     <StyledTableCell align="left">
