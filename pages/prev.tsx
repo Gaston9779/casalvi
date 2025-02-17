@@ -210,7 +210,7 @@ const Preventivi = () =>
             const blob = await fileResponse.blob();
 
             // Ottieni il nome originale del file senza prefisso numerico
-            const fileName = pdfUrl.split( '/' ).pop().replace( /^\d+/, '' );
+            const fileName = pdfUrl.split( '/' ).pop()?.replace( /^\d+/, '' );
 
             // Crea un URL temporaneo per il download
             const tempUrl = URL.createObjectURL( blob );
@@ -363,14 +363,8 @@ const Preventivi = () =>
     };
 
 
-    const regexDate = ( e ) =>
-    {
-        const usaDateTime = e; // Formato MM/DD/YYYY HH:MM:SS
-        const euDateTime = usaDateTime.replace(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/, "$3/$2/$1 $4:$5");
-        return euDateTime
 
-    }
-
+    
     const setDeleteRow = ( e ) =>
     {
         setOpenCanc( true )
@@ -525,7 +519,7 @@ const Preventivi = () =>
                                     <StyledTableCell>Cliente: { row.idPrev }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.descWork }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.importoOfferto }</StyledTableCell>
-                                    <StyledTableCell align="left">{ regexDate( row.scadAsta ) }</StyledTableCell>
+                                    <StyledTableCell align="left">{ ( row.scadAsta ) }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.status ? '✅' : '❌' }</StyledTableCell>
                                     <StyledTableCell align="left">{ row.note }</StyledTableCell>
                                     <StyledTableCell align="left">

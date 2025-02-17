@@ -90,7 +90,6 @@ const Navbar = ( { navbarDark } ) =>
             calculate: text === 'calculate',
             login: text === 'login',
             prev: text === 'prev',
-            login: text === 'login'
         } );
     }, [] );
 
@@ -129,7 +128,6 @@ const Navbar = ( { navbarDark } ) =>
             <div className={ italiana.className }>
                 <div className="logoDimension">
                     <Link href="/" onClick={ () => handle( '/' ) }>
-                        {/* <p style={ { color: 'white' } } className="logoNavbar">CASAVI</p> */ }
                         <img loading="lazy" style={ { width: '100%', height: '110px' } } src='/images/loghetto.png' alt='' />
                     </Link>
                 </div>
